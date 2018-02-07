@@ -36,6 +36,9 @@ class CommonDashboard extends MY_Controller
         $this->load->model('model_auth');
         $this->load->library('template');
         $this->load->library('session');
+        $this->load->model('model_asset');
+        $this->load->model('Model_depreciation');
+        $this->load->model('Model_ass_track');
 
         //  $this->logged_in = $this->model_auth->check( TRUE );
 
@@ -46,9 +49,25 @@ class CommonDashboard extends MY_Controller
     function index($message = '', $database = FALSE)
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
+//        var_dump($currentlyAsset);
+
+        $totalAsset = $this->model_asset->totalAsset();
+        $totalDep = $this->Model_depreciation->totalDepre();
+        $totalDisposed = $this->model_asset->totalDisposed();
+        $currentlyAsset = $this->Model_ass_track->recentAssetTrack();
+//        var_dump($currentlyAsset);
+        $quantity = $this->model_asset->assetCounterBasedOnCategory();
+        $this->template->assign('quantity', $quantity);
+        $this->template->assign('currentlyAsset', $currentlyAsset);
+        $this->template->assign('total_asset', $totalAsset);
+        $this->template->assign('total_depreciated', $totalDep);
+        $this->template->assign('total_disposed', $totalDisposed);
+
         if ($isLoggedIn) {
             $this->template->assign('template', 'welcome_page');
             $this->template->display('frame_admin.tpl');
+
+
         } else {
             redirect('loginMe');
         }
@@ -66,5 +85,7 @@ class CommonDashboard extends MY_Controller
             $this->load->view('errors/html/error_general.html');
         }
     }
+
+
 }
 /* End of file welcome.php */

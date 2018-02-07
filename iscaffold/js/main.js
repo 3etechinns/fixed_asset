@@ -48,7 +48,7 @@
         $('.wysiwyg').cleditor(
         {
             width:      "100%",
-            controls:   "bold italic underline strikethrough | style | " +
+            controls:   "bold italic underline strikethrough | css | " +
                         "bullets numbering | outdent " +
                         "indent | alignleft center alignright | undo redo removeformat | " +
                         "rule image link unlink | pastetext | source"

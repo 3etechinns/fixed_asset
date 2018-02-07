@@ -933,8 +933,8 @@
 
             return function() {
                 if(result === undefined) {
-                    var $ghostContainer = $("<div style='width:50px;height:50px;overflow:hidden;position:absolute;top:-10000px;left:-10000px;'></div>");
-                    var $ghostContent = $("<div style='height:100px;'></div>");
+                    var $ghostContainer = $("<div css='width:50px;height:50px;overflow:hidden;position:absolute;top:-10000px;left:-10000px;'></div>");
+                    var $ghostContent = $("<div css='height:100px;'></div>");
                     $ghostContainer.append($ghostContent).appendTo("body");
                     var width = $ghostContent.innerWidth();
                     $ghostContainer.css("overflow-y", "auto");

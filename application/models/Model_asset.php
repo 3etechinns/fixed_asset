@@ -27,11 +27,12 @@ class Model_asset extends MY_Model
     function get($id, $get_one = false, $direction = false)
     {
         $meta = $this->metadata();
-        $select_statement = ($this->raw_data) ? 'ass_id,ass_status,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status_status_id' : 'ass_id,ass_status,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id';
+        $select_statement = ($this->raw_data) ? 'ass_id,ass_status,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status_status_id,ass_name' : 'ass_id,ass_status,ass_name,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,ass_name,status.status AS status_status_id,asset_category.cat_name as ass_cat_id';
         $this->db->select($select_statement);
         $this->db->from('asset');
         $this->db->join('status', 'asset.status_status_id = status.status_id', 'left');
         $this->db->join('asset_category', 'asset.ass_cat_id = asset_category.cat_id', 'left');
+
 
         $ownerFieldName = '';
         $this->selectByOwner($ownerFieldName);
@@ -52,13 +53,14 @@ class Model_asset extends MY_Model
             return array(
                 'ass_id' => $row['ass_id'],
                 'ass_status' => $row['ass_status'],
+                'ass_name' => $row['ass_name'],
                 'ass_model' => $row['ass_model'],
                 'ass_serial_number' => $row['ass_serial_number'],
                 'ass_barcode_number' => $row['ass_barcode_number'],
                 'ass_date_acquired' => $row['ass_date_acquired'],
                 'ass_date_sold' => $row['ass_date_sold'],
                 'ass_purchase_price' => $row['ass_purchase_price'],
-                'ass_dep_method' => (array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values']) !== FALSE) ? $meta['ass_dep_method']['enum_names'][array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values'])] : '',
+                'ass_dep_method' => $row['ass_dep_method'],
                 'ass_dep_life' => $row['ass_dep_life'],
                 'ass_cat_id' => $row['ass_cat_id'],
                 'ass_comment' => $row['ass_comment'],
@@ -101,103 +103,6 @@ class Model_asset extends MY_Model
         $this->db->where('asset_id', $id);
         $this->db->delete('depreciation_asset');
 
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('ass_track_asset');
-
-
-        $this->db->where('asset_id', $id);
-        $this->db->delete('depreciation_asset');
-
-
     }
 
 
@@ -205,7 +110,7 @@ class Model_asset extends MY_Model
     {
         $meta = $this->metadata();
         $this->db->start_cache();
-        $this->db->select('ass_id,ass_status,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id');
+        $this->db->select('ass_id,ass_status,ass_name,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id');
         $this->db->from('asset');
         $this->db->order_by('ass_id', 'DESC');
 
@@ -244,13 +149,14 @@ class Model_asset extends MY_Model
             $temp_result[] = array(
                 'ass_id' => $row['ass_id'],
                 'ass_status' => $row['ass_status'],
+                'ass_name' => $row['ass_name'],
                 'ass_model' => $row['ass_model'],
                 'ass_serial_number' => $row['ass_serial_number'],
                 'ass_barcode_number' => $row['ass_barcode_number'],
                 'ass_date_acquired' => $row['ass_date_acquired'],
                 'ass_date_sold' => $row['ass_date_sold'],
                 'ass_purchase_price' => $row['ass_purchase_price'],
-                'ass_dep_method' => (array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values']) !== FALSE) ? $meta['ass_dep_method']['enum_names'][array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values'])] : '',
+                'ass_dep_method' => $row['ass_dep_method'],
                 'ass_dep_life' => $row['ass_dep_life'],
                 'ass_cat_id' => $row['ass_cat_id'],
                 'ass_comment' => $row['ass_comment'],
@@ -267,7 +173,7 @@ class Model_asset extends MY_Model
     {
         $meta = $this->metadata();
         $this->db->start_cache();
-        $this->db->select('ass_id,ass_status,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id');
+        $this->db->select('ass_id,ass_status,ass_name,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id');
         $this->db->from('asset');
         $this->db->join('status', 'asset.status_status_id = status.status_id', 'left');
         $this->db->join('asset_category', 'asset.ass_cat_id = asset_category.cat_id', 'left');
@@ -282,7 +188,7 @@ class Model_asset extends MY_Model
          *  or create advanced search conditions here
          */
         if (isset($keyword) && !empty($keyword)) {
-            $this->db->where('ass_id LIKE "%' . $keyword . '%"');
+            $this->db->where('ass_name LIKE "%' . $keyword . '%"');
         }
         $this->selectByDate('ass_id', $this->input->post('startDate'), $this->input->post('endDate'));
         /**
@@ -311,13 +217,14 @@ class Model_asset extends MY_Model
             $temp_result[] = array(
                 'ass_id' => $row['ass_id'],
                 'ass_status' => $row['ass_status'],
+                'ass_name' => $row['ass_name'],
                 'ass_model' => $row['ass_model'],
                 'ass_serial_number' => $row['ass_serial_number'],
                 'ass_barcode_number' => $row['ass_barcode_number'],
                 'ass_date_acquired' => $row['ass_date_acquired'],
                 'ass_date_sold' => $row['ass_date_sold'],
                 'ass_purchase_price' => $row['ass_purchase_price'],
-                'ass_dep_method' => (array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values']) !== FALSE) ? $meta['ass_dep_method']['enum_names'][array_search($row['ass_dep_method'], $meta['ass_dep_method']['enum_values'])] : '',
+                'ass_dep_method' => $row['ass_dep_method'],
                 'ass_dep_life' => $row['ass_dep_life'],
                 'ass_cat_id' => $row['ass_cat_id'],
                 'ass_comment' => $row['ass_comment'],
@@ -352,6 +259,7 @@ class Model_asset extends MY_Model
         $fs = array(
             'ass_id' => lang('ass_id'),
             'ass_status' => lang('ass_status'),
+            'ass_name' => lang('ass_name'),
             'ass_model' => lang('ass_model'),
             'ass_serial_number' => lang('ass_serial_number'),
             'ass_barcode_number' => lang('ass_barcode_number'),
@@ -394,5 +302,39 @@ class Model_asset extends MY_Model
             }
         }
         return $metadata;
+    }
+
+    function totalAsset()
+    {
+//        return $this->db->where(array('ass_status' => 1))->from('asset')->count_all_results();
+        $total = $this->db->count_all("asset");
+        return $total;
+    }
+
+    function assetCounterBasedOnCategory()
+    {
+        $sql = "call `assetCountBasedOnCategory` ()";
+        $data = $this->db->query($sql);
+
+        foreach ($data->result_array() as $row) {
+            $temp_result[] = array(
+                'cat_id' => $row['cat_id'],
+                'cat_code' => $row['cat_code'],
+                'cat_name' => $row['cat_name'],
+                'quantity' => $row['quantity'],
+                'depriciation_life' => $row['depriciation_life'],
+            );
+        }
+        return $temp_result;
+        $this->db->close();
+
+
+    }
+
+
+
+    function totalDisposed()
+    {
+        return $this->db->where(array('status_status_id' => 6))->from('asset')->count_all_results();
     }
 }

@@ -1,7 +1,7 @@
 <div class="panel panel-default">           
                 <div class="panel-body">
                  <a href="employee" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i> Listing</a>
-                        <a class="{if $action_mode == 'create'}active{/if} btn btn-sm btn-success" href="employee/create/"> <i class="fa fa-plus" aria-hidden="true"></i> New record</a>
+                        <a class="{if $action_mode == 'create'}active{/if} btn btn-sm btn-primary" href="employee/create/"> <i class="fa fa-plus" aria-hidden="true"></i> New record</a>
                         {if $action_mode != 'create'}
                         <a class="btn-default btn btn-sm pull-right {if isset($direction)}{if $direction == 'right'}disabled{/if}{/if}" href="employee/navigate/right/{$record_id}"><i class="fa fa-arrow-right"></i></a>
                          <a class="btn-default btn btn-sm pull-right {if isset($direction)}{if $direction == 'left'}disabled{/if}{/if}" href="employee/navigate/left/{$record_id}"><i class="fa fa-arrow-left"></i></a>

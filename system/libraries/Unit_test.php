@@ -214,11 +214,11 @@ class CI_Unit_test {
 				{
 					if ($val === $CI->lang->line('ut_passed'))
 					{
-						$val = '<span style="color: #0C0;">'.$val.'</span>';
+						$val = '<span css="color: #0C0;">'.$val.'</span>';
 					}
 					elseif ($val === $CI->lang->line('ut_failed'))
 					{
-						$val = '<span style="color: #C00;">'.$val.'</span>';
+						$val = '<span css="color: #C00;">'.$val.'</span>';
 					}
 				}
 
@@ -350,10 +350,10 @@ class CI_Unit_test {
 	 */
 	protected function _default_template()
 	{
-		$this->_template = "\n".'<table style="width:100%; font-size:small; margin:10px 0; border-collapse:collapse; border:1px solid #CCC;">{rows}'."\n</table>";
+		$this->_template = "\n".'<table css="width:100%; font-size:small; margin:10px 0; border-collapse:collapse; border:1px solid #CCC;">{rows}'."\n</table>";
 
-		$this->_template_rows = "\n\t<tr>\n\t\t".'<th style="text-align: left; border-bottom:1px solid #CCC;">{item}</th>'
-					."\n\t\t".'<td style="border-bottom:1px solid #CCC;">{result}</td>'."\n\t</tr>";
+		$this->_template_rows = "\n\t<tr>\n\t\t".'<th css="text-align: left; border-bottom:1px solid #CCC;">{item}</th>'
+					."\n\t\t".'<td css="border-bottom:1px solid #CCC;">{result}</td>'."\n\t</tr>";
 	}
 
 	// --------------------------------------------------------------------

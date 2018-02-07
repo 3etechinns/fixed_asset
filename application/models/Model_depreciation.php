@@ -72,9 +72,10 @@ class Model_depreciation extends MY_Model
 
     function depreciationDetailById($id)
     {
+        $this->db->start_cache();
         $sql = "call `depreciationDetailById` (?)";
         $execute = $this->db->query($sql, $id);
-
+        //  $temp_result[] = array();
         foreach ($execute->result_array() as $row) {
             $temp_result[] = array(
                 'dep_id' => $row['dep_id'],
@@ -88,9 +89,8 @@ class Model_depreciation extends MY_Model
                 'accumulative_value' => $row['accumulative_value'],
             );
         }
+        $this->db->flush_cache();
         return $temp_result;
-
-
     }
 
     function depreciationInitializer($data)
@@ -124,7 +124,7 @@ class Model_depreciation extends MY_Model
     {
 
         $this->db->start_cache();
-        $this->db->select('dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,asset.ass_serial_number AS asset_ass_id');
+        $this->db->select('dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,book_value,accumulative_value,asset.ass_serial_number AS asset_ass_id');
         $this->db->from('depreciation');
         $this->db->order_by('dep_id', 'DESC');
 
@@ -166,6 +166,8 @@ class Model_depreciation extends MY_Model
                 'dep_description' => $row['dep_description'],
                 'dep_commnet' => $row['dep_commnet'],
                 'asset_ass_id' => $row['asset_ass_id'],
+                'book_value' => $row['book_value'],
+                'accumulative_value' => $row['accumulative_value'],
             );
         }
         $this->db->flush_cache();
@@ -214,7 +216,6 @@ class Model_depreciation extends MY_Model
 
         $query = $this->db->get();
 
-        $temp_result = array();
 
         foreach ($query->result_array() as $row) {
             $temp_result[] = array(
@@ -225,6 +226,8 @@ class Model_depreciation extends MY_Model
                 'dep_description' => $row['dep_description'],
                 'dep_commnet' => $row['dep_commnet'],
                 'asset_ass_id' => $row['asset_ass_id'],
+                'book_value' => $row['book_value'],
+                'accumulative_value' => $row['accumulative_value'],
             );
         }
         $this->db->flush_cache();
@@ -251,7 +254,9 @@ class Model_depreciation extends MY_Model
             'dep_status' => lang('dep_status'),
             'dep_description' => lang('dep_description'),
             'dep_commnet' => lang('dep_commnet'),
-            'asset_ass_id' => lang('asset_ass_id')
+            'asset_ass_id' => lang('asset_ass_id'),
+            'book_value' => lang('book_value'),
+            'accumulative_value' => lang('accumulative_value'),
         );
 
         if ($withID == FALSE) {
@@ -282,5 +287,12 @@ class Model_depreciation extends MY_Model
             }
         }
         return $metadata;
+    }
+
+    function totalDepre()
+    {
+        return $this->db->where(array('dep_status' => 'depreciated'))->from('depreciation')->count_all_results();
+//        $total = $this->db->count_all("asset");
+//        return $total;
     }
 }

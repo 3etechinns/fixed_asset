@@ -3,7 +3,7 @@
 
 
         <a href="asset" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i> Listing</a>
-        <a class="{if $action_mode == 'create'}active{/if} btn btn-sm btn-success" href="asset/create/"> <i
+        <a class="{if $action_mode == 'create'}active{/if} btn btn-sm btn-primary" href="asset/create/"> <i
                     class="fa fa-plus" aria-hidden="true"></i> New record</a>
         {if $action_mode != 'create'}
             <a class="btn-default btn btn-sm pull-right {if isset($direction)}{if $direction == 'right'}disabled{/if}{/if}"
@@ -34,45 +34,66 @@
               enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
-
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="ass_status">{$asset_fields.ass_status}</label>
-                        <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_status}" class="form-control" type="text"
-                                   maxlength="50" value="{if isset($asset_data)}{$asset_data.ass_status}{/if}"
-                                   name="ass_status" id="ass_status"/>
-                        </div>
+                        <label class="col-md-4 control-label"
+                               for="ass_purchase_price">{$asset_fields.ass_name}
+                            <span class="error">*</span></label>
+                        </label>
 
+                        <div class="col-md-6">
+                            <input placeholder="Enter {$asset_fields.ass_name}"
+                                   class="form-control"
+                                   type="text"
+                                   required="required"
+                                   maxlength="50"
+                                   value="{if isset($asset_data)}{$asset_data.ass_name}{/if}"
+                                   name="ass_name"
+                                   id="ass_purchase_price"/>
+                        </div>
                     </div>
-
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="ass_model">{$asset_fields.ass_model}</label>
+                        <label class="col-md-4 control-label"
+                               for="ass_model">{$asset_fields.ass_model}
+                            <span class="error">*</span></label>
+                        </label>
                         <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_model}" class="form-control" type="text"
-                                   maxlength="50" value="{if isset($asset_data)}{$asset_data.ass_model}{/if}"
-                                   name="ass_model" id="ass_model"/>
+                            <input placeholder="Enter {$asset_fields.ass_model}"
+                                   class="form-control"
+                                   type="text"
+                                   maxlength="50"
+                                   required="required"
+                                   value="{if isset($asset_data)}{$asset_data.ass_model}{/if}"
+                                   name="ass_model"
+                                   id="ass_model"/>
                         </div>
-
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"
-                               for="ass_serial_number">{$asset_fields.ass_serial_number}</label>
+                               for="ass_serial_number">{$asset_fields.ass_serial_number}
+                            <span class="error">*</span>
+                        </label>
+                        </label>
                         <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_serial_number}" class="form-control"
-                                   type="text" maxlength="50"
+                            <input placeholder="Enter {$asset_fields.ass_serial_number}"
+                                   class="form-control"
+                                   type="number"
+                                   required="required"
+                                   maxlength="50"
                                    value="{if isset($asset_data)}{$asset_data.ass_serial_number}{/if}"
-                                   name="ass_serial_number" id="ass_serial_number"/>
+                                   name="ass_serial_number"
+                                   id="ass_serial_number"/>
                         </div>
 
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"
-                               for="ass_barcode_number">{$asset_fields.ass_barcode_number}</label>
+                               for="ass_barcode_number">{$asset_fields.ass_barcode_number}
+                        </label>
                         <div class="col-md-6">
                             <input placeholder="Enter {$asset_fields.ass_barcode_number}" class="form-control"
-                                   type="text" maxlength="50"
+                                   type="number" maxlength="50"
                                    value="{if isset($asset_data)}{$asset_data.ass_barcode_number}{/if}"
                                    name="ass_barcode_number" id="ass_barcode_number"/>
                         </div>
@@ -81,12 +102,17 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"
-                               for="ass_date_acquired">{$asset_fields.ass_date_acquired}</label>
+                               for="ass_date_acquired">{$asset_fields.ass_date_acquired}
+                            <span class="error">*</span>
+                        </label>
                         <div class="col-md-6">
                             <div class="input-group">
                                 <input placeholder="Enter {$asset_fields.ass_date_acquired}"
                                        class="form-control date-picker"
-                                       type="text" maxlength="50"
+                                       type="text"
+                                       required
+                                       {*readonly*}
+                                       maxlength="50"
                                        value="{if isset($asset_data)}{$asset_data.ass_date_acquired}{/if}"
                                        name="ass_date_acquired"
                                        id="ass_date_acquired"/>
@@ -99,35 +125,25 @@
 
                     </div>
 
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="ass_date_sold">{$asset_fields.ass_date_sold}</label>
-                        <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_date_sold}" class="form-control" type="text"
-                                   maxlength="50" value="{if isset($asset_data)}{$asset_data.ass_date_sold}{/if}"
-                                   name="ass_date_sold" id="ass_date_sold"/>
-
-
-                        </div>
-
-                    </div>
-
                     <div class="form-group">
                         <label class="col-md-4 control-label"
-                               for="ass_purchase_price">{$asset_fields.ass_purchase_price}</label>
+                               for="ass_purchase_price">{$asset_fields.ass_purchase_price}
+
+                        </label>
                         <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_purchase_price}" class="form-control"
-                                   type="text" maxlength="50"
+                            <input placeholder="Enter {$asset_fields.ass_purchase_price}"
+                                   class="form-control"
+                                   type="number"
+                                   maxlength="50"
                                    value="{if isset($asset_data)}{$asset_data.ass_purchase_price}{/if}"
-                                   name="ass_purchase_price" id="ass_purchase_price"/>
+                                   name="ass_purchase_price"
+                                   id="ass_purchase_price"/>
                         </div>
-
                     </div>
-
                     <div class="form-group">
                         <label class="col-md-4 control-label">{$asset_fields.ass_dep_method}</label>
                         <div class="col-md-6">
-                            <select name="ass_dep_method" name="ass_dep_method" class="form-control">
+                            <select name="ass_dep_method" name="ass_dep_method" required="required" class="form-control">
                                 <option value="0">Select One</option>
                                 {foreach $metadata.ass_dep_method.enum_values as $k => $e}
                                     <option value="{$e}"{if isset($asset_data.ass_dep_method)}{if $asset_data.ass_dep_method == $metadata.ass_dep_method.enum_values[$k]} selected="selected"{/if}{/if}>{$metadata.ass_dep_method.enum_values[$k]}</option>
@@ -137,21 +153,28 @@
                         </div>
                     </div>
 
+
                 </div>
                 <div class="col-md-6">
-
-
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="ass_dep_life">{$asset_fields.ass_dep_life}</label>
+                        <label class="col-md-4 control-label" for="ass_cat_id">{$asset_fields.ass_cat_id}
+                            <span class="error">*</span>
+                        </label>
                         <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_dep_life}" class="form-control" type="text"
-                                   maxlength="50" value="{if isset($asset_data)}{$asset_data.ass_dep_life}{/if}"
-                                   name="ass_dep_life" id="ass_dep_life"/>
+                            <select class="form-control field select" name="ass_cat_id" id="ass_cat_id"
+                                    required="required">
+                                <option value="">Select One</option>
+                                {foreach $asset_category as $cat}
+                                    <option value="{$cat.cat_id}"
+                                            {if isset($asset_data)}{if $asset_data.ass_cat_id == $cat.cat_id}
+                                        selected="selected"{/if}{/if}>
+                                        {$cat.category}
+                                    </option>
+                                {/foreach}
+                            </select>
                         </div>
 
                     </div>
-
-
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="ass_comment">{$asset_fields.ass_comment}</label>
@@ -182,26 +205,10 @@
                                     required="required">
                                 <option value="">Select One</option>
                                 {foreach $related_status as $rel}
-                                    <option value="{$rel.status_id}"{if isset($asset_data)}{if $asset_data.status_status_id == $rel.status_id}
+                                    <option value="{$rel.status_id}"
+                                            {if isset($asset_data)}{if $asset_data.status_status_id == $rel.status_id}
                                         selected="selected"{/if}{/if}>
                                         {$rel.status_name}
-                                    </option>
-                                {/foreach}
-                            </select>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="ass_cat_id">{$asset_fields.ass_cat_id}
-                            <span class="error">*</span></label>
-                        <div class="col-md-6">
-                            <select class="form-control field select addr" name="ass_cat_id" id="ass_cat_id"
-                                    required="required">
-                                <option value="">Select One</option>
-                                {foreach $asset_category as $cat}
-                                    <option value="{$cat.cat_id}"
-                                            {if isset($asset_data)}{if $asset_data.ass_cat_id == $cat.cat_id}
-                                        selected="selected"{/if}{/if}>{$cat.category}
                                     </option>
                                 {/foreach}
                             </select>
@@ -226,7 +233,6 @@
 </div><!-- .block -->
 
 
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <!-- Include Date Range Picker -->
@@ -249,3 +255,17 @@
 
 
 </script>
+<style>
+
+    .control-label {
+        text-align: left !important;
+        font-size: 16px !important;
+        font-family: "Source Sans Pro";
+        color: rgb(45, 45, 45);
+        -moz-transform: matrix(1, 0, 0, 1.0005138426147, 0, 0);
+        -webkit-transform: matrix(1, 0, 0, 1.0005138426147, 0, 0);
+        -ms-transform: matrix(1, 0, 0, 1.0005138426147, 0, 0);
+
+    }
+
+</style>
