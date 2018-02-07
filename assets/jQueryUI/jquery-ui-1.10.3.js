@@ -89,7 +89,7 @@ $.fn.extend({
 					// IE returns 0 when zIndex is not specified
 					// other browsers return a string
 					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+					// <div css="z-index: -10;"><div css="z-index: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -1042,7 +1042,7 @@ $.position = {
 			return cachedScrollbarWidth;
 		}
 		var w1, w2,
-			div = $( "<div style='display:block;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>" ),
+			div = $( "<div css='display:block;width:50px;height:50px;overflow:hidden;'><div css='height:100px;width:auto;'></div></div>" ),
 			innerDiv = div.children()[0];
 
 		$( "body" ).append( div );
@@ -1540,7 +1540,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		}
 
 		$(o.iframeFix === true ? "iframe" : o.iframeFix).each(function() {
-			$("<div class='ui-draggable-iframeFix' style='background: #fff;'></div>")
+			$("<div class='ui-draggable-iframeFix' css='background: #fff;'></div>")
 			.css({
 				width: this.offsetWidth+"px", height: this.offsetHeight+"px",
 				position: "absolute", opacity: "0.001", zIndex: 1000
@@ -2823,7 +2823,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			//Create a wrapper element and set the wrapper to the new current internal element
 			this.element.wrap(
-				$("<div class='ui-wrapper' style='overflow: hidden;'></div>").css({
+				$("<div class='ui-wrapper' css='overflow: hidden;'></div>").css({
 					position: this.element.css("position"),
 					width: this.element.outerWidth(),
 					height: this.element.outerHeight(),
@@ -3326,7 +3326,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		if(this._helper) {
 
-			this.helper = this.helper || $("<div style='overflow:hidden;'></div>");
+			this.helper = this.helper || $("<div css='overflow:hidden;'></div>");
 
 			this.helper.addClass(this._helper).css({
 				width: this.element.outerWidth() - 1,
@@ -4207,7 +4207,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			this.storedCursor = body.css( "cursor" );
 			body.css( "cursor", o.cursor );
 
-			this.storedStylesheet = $( "<style>*{ cursor: "+o.cursor+" !important; }</style>" ).appendTo( body );
+			this.storedStylesheet = $( "<css>*{ cursor: "+o.cursor+" !important; }</css>" ).appendTo( body );
 		}
 
 		if(o.opacity) { // opacity option

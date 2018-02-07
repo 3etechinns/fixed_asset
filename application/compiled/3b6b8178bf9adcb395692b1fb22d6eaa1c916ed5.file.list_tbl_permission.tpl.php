@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-01-23 05:59:24
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:24:36
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_tbl_permission.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:39305a66cf3c40d662-16803364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:114985a781fd027ef38-77484807%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3b6b8178bf9adcb395692b1fb22d6eaa1c916ed5' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_tbl_permission.tpl',
-      1 => 1509860908,
+      1 => 1517948675,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '39305a66cf3c40d662-16803364',
+  'nocache_hash' => '114985a781fd027ef38-77484807',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a781fd04f0e9',
   'variables' => 
   array (
     'search_result' => 0,
@@ -26,17 +28,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a66cf3c53d00',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a66cf3c53d00')) {function content_5a66cf3c53d00($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a781fd04f0e9')) {function content_5a781fd04f0e9($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
-<div class="panel panel-default hidden">                    
+<div class="panel panel-default hidden">
                     <div class="panel-body">
-                        <form action="tbl_permission/search" method="post" id="search_form">                     
+                        <form action="tbl_permission/search" method="post" id="search_form">
                         <a href="tbl_permission/create/" class="btn btn-success btn-sm">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>                        
+                        </a>
                         <div class="input-group" style="width:300px;float:right">
                             <input type="text" required="true" class="form-control" name="search" id="search" onkeyup="myFunction()" placeholder="Search...">
                             <span class="input-group-btn">
@@ -54,11 +54,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                          <span id="searchResult" name="searchResult" class="label-info"><?php if (!empty($_smarty_tpl->tpl_vars['search_result']->value)){?> <?php echo $_smarty_tpl->tpl_vars['search_result']->value;?>
 <?php }?></span>
                        <h3 class="page-title">List of <?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
-</h3>                  
+</h3>
                         <?php if (!empty($_smarty_tpl->tpl_vars['tbl_permission_data']->value)){?>
                         <form action="tbl_permission/delete" method="post" id="listing_form">
                           <div class="table-responsive">
-                            <table class="table exportable" id="tbl_permission" name="tbl_permission">
+                            <table class="table table-bordered table-hover exportable" id="tbl_permission" name="tbl_permission">
                                 <thead>
                                     <th> </th>
                                     			<th><?php echo $_smarty_tpl->tpl_vars['tbl_permission_fields']->value['pm_pg_id'];?>
@@ -78,7 +78,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<th><?php echo $_smarty_tpl->tpl_vars['tbl_permission_fields']->value['pm_role'];?>
 </th>
 
-                                    <th style="width:180;">Actions</th>
+                                    <th style="width: 180px;">Actions</th>
                                 </thead>
                                 <tbody>
                                     <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
@@ -134,18 +134,18 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 
                                 </div>
                                 </div>
-                                
+
                             </div>
                         </form>
-                     
+
                         </div>
                         <?php }else{ ?>
                             No records found.
                         <?php }?>
                     </div>
-                </div> 
-                <div class="panel panel-default">                    
-                    <div class="panel-body">       
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
      <h3 class="page-title">List of <?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
 </h3>
     <div id="jsGrid"></div>
@@ -212,7 +212,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                         });
                          return d.promise();
                     }
-                },                
+                },
                 fields: [
                     { name: 'pm_pg_id', type: 'text', title: 'Pm Pg Id', css: 'hidden'  },
                     { name: 'pg_name', type: 'text', title: 'Page', validate: 'required'  },

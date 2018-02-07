@@ -18,7 +18,7 @@
 		popupClass: 'cleditorPrompt',
 		stripIndex: $.cleditor.buttons.image.stripIndex,
 		popupContent:
-			'<iframe style="width:0;height:0;border:0;" name="' + hidden_frame_name + '" />' +
+			'<iframe css="width:0;height:0;border:0;" name="' + hidden_frame_name + '" />' +
 			'<table cellpadding="0" cellspacing="0">' +
 			'<tr><td>Choose a File:</td></tr>' +
 			'<tr><td> ' +

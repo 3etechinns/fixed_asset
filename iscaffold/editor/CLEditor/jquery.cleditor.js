@@ -26,7 +26,7 @@
       height:       250, // height not including margins, borders or padding
       controls:     // controls to add to the toolbar
                     "bold italic underline strikethrough subscript superscript | font size " +
-                    "style | color highlight removeformat | bullets numbering | outdent " +
+                    "css | color highlight removeformat | bullets numbering | outdent " +
                     "indent | alignleft center alignright justify | undo redo | " +
                     "rule image link unlink | cut copy paste pastetext | print source",
       colors:       // colors in the color popup
@@ -42,16 +42,16 @@
                     "Georgia,Impact,Sans Serif,Serif,Tahoma,Trebuchet MS,Verdana",
       sizes:        // sizes in the font size popup
                     "1,2,3,4,5,6,7",
-      styles:       // styles in the style popup
+      styles:       // styles in the css popup
                     [["Paragraph", "<p>"], ["Header 1", "<h1>"], ["Header 2", "<h2>"],
                     ["Header 3", "<h3>"],  ["Header 4","<h4>"],  ["Header 5","<h5>"],
                     ["Header 6","<h6>"]],
-      useCSS:       false, // use CSS to style HTML when possible (not supported in ie)
+      useCSS:       false, // use CSS to css HTML when possible (not supported in ie)
       docType:      // Document type contained within the editor
                     '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">',
-      docCSSFile:   // CSS file used to style the document contained within the editor
+      docCSSFile:   // CSS file used to css the document contained within the editor
                     "", 
-      bodyStyle:    // style to assign to document body contained within the editor
+      bodyStyle:    // css to assign to document body contained within the editor
                     "margin:4px; font:10pt Arial,Verdana; cursor:text"
     },
 
@@ -70,7 +70,7 @@
       "superscript,,|" +
       "font,,fontname,|" +
       "size,Font Size,fontsize,|" +
-      "style,,formatblock,|" +
+      "css,,formatblock,|" +
       "color,Font Color,forecolor,|" +
       "highlight,Text Highlight Color,hilitecolor,color|" +
       "removeformat,Remove Formatting,|" +
@@ -817,7 +817,7 @@
       options.docType +
       '<html>' +
       ((options.docCSSFile === '') ? '' : '<head><link rel="stylesheet" type="text/css" href="' + options.docCSSFile + '" /></head>') +
-      '<body style="' + options.bodyStyle + '"></body></html>'
+      '<body css="' + options.bodyStyle + '"></body></html>'
     );
     doc.close();
 

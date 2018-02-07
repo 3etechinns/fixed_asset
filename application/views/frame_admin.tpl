@@ -4,281 +4,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Fixed Asset Managment</title>
     <base href="{$config.base_url}"/>
+    <link rel="icon" href="{$config.base_url}assets/image/fix_icon.png" type="image/x-icon"/>
+
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
     <link href="{$config.base_url}assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css"/>
+    {*<link href="{$config.base_url}assets/on-server/css/fontawesome.min.css" rel="stylesheet" type="text/css"/>*}
+    <link href="{$config.base_url}assets/on-server/css/fontawesome-all.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/dist/css/skins/skin-blue.css" rel="stylesheet" type="text/css"/>
-    <style type="text/css">
-        input[class="form-control"] {
-            border-radius: 3px !important;
-        }
 
-        .page-title {
-            background-color: #ddd;
-            padding: 10px;
-        }
-
-        .pagination-wrapper > a, .jsgrid-pager-page > a, .jsgrid-pager-nav-button > a {
-            padding-left: 9px;
-            padding-right: 9px;
-            margin-right: 3px;
-            background-color: #3c8dbc;
-            color: #fff !important;
-            text-align: center;
-            vertical-align: top;
-            border-radius: 2px;
-            padding-top: 3px;
-            padding-bottom: 2px;
-        }
-
-        .jsgrid-pager-current-page {
-            background-color: #fff;
-            color: #000 !important;
-            padding-right: 5px;
-        }
-
-        .pagination-wrapper {
-            /*margin-top:14px;*/
-        }
-
-        span[class="current"] {
-            padding-left: 2px;
-            padding-right: 3px;
-        }
-
-        a.btn.btn-xs {
-            width: 32px;
-        }
-
-        .button-actions {
-            padding-top: 18px;
-            width: 100%;
-            display: block;
-            float: left;
-        }
-
-        .form-group {
-            float: left;
-            width: 100%;
-            padding-top: 10px;
-        }
-
-        span[class="error"] {
-            color: red;
-            padding-left: 3px;
-        }
-
-        .row-actions {
-            width: 110px;
-        }
-
-        .control-label {
-            text-align: right;
-        }
-
-        td > input {
-            width: 100%;
-            padding-left: 3px;
-            padding-right: 3px;
-        }
-
-        td[class="td-width"] {
-            width: 15%;
-        }
-
-        .table > tbody > tr > td {
-            padding: 0;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-
-        @media print {
-            @page {
-                size: landscape;   /* auto, portrait, landscape or length... */
-                margin: 5mm;
-                margin-bottom: 2mm;
-                width: 297mm;
-                height: 210mm;
-            }
-
-            td > input {
-                border: 1px solid #fff;
-            }
-        }
-
-        .datagrid-body-inner {
-            margin-top: 40px;
-        }
-
-        tr.datagrid-row:hover {
-            background: #00bbee;
-            color: #fff;
-        }
-
-        .datagrid-toolbar > a {
-            width: 50px !important;
-            margin-bottom: 10px;
-        }
-
-        .datagrid-pager {
-            display: none;
-        }
-
-        .datagrid-view .validatebox-invalid {
-            border-color: #ffa8a8 !important;
-        }
-
-        .datagrid-view .datagrid-editable-input {
-            margin: 0;
-            padding: 2px 4px;
-            border: 1px solid #ddd;
-            font-size: 12px;
-            outline-style: none;
-            -moz-border-radius: 0 0 0 0;
-            -webkit-border-radius: 0 0 0 0;
-            border-radius: 0 0 0 0;
-        }
-
-        .validatebox-invalid {
-            border-color: #ffa8a8;
-            background-color: #fff;
-            color: #404040;
-        }
-
-        .datagrid-btable {
-            font-size: 13px;
-        }
-
-        .datagrid-header {
-            margin-bottom: -16px;
-        }
-
-        .datagrid-row-selected {
-            background: #00bbee;
-            color: #fff;
-        }
-
-        .datagrid-editable-input {
-            color: #5f5050;
-        }
-
-        .datagrid-row:focus {
-            background-color: red;
-        }
-
-        .panel.window.panel-htop.messager-window, .window {
-            width: 35%;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            border: 1px solid #ddd;
-            padding: 0 0 0 10px;
-            z-index: 99999;
-            height: 120px;
-        }
-
-        .dialog-button > a {
-            margin-right: 10px;
-        }
-
-        .datagrid-header-row {
-            font-weight: 600;
-        }
-
-        .datagrid-editable > table {
-            width: 90%;
-        }
-
-        .alert-position {
-            position: fixed;
-            height: 53px;
-            width: 30%;
-            bottom: 0;
-            right: 5px;
-            margin-bottom: 6px;
-            z-index: 9999;
-        }
-
-        .show-all {
-            width: 80px !important;
-        }
-
-        /*START JS GRID*/
-        #jsGrid {
-            width: 100%;
-            background-color: #fff;
-        }
-
-        td.jsgrid-cell.jsgrid-invalid {
-            border: 1px solid red;
-        }
-
-        .jsgrid-button {
-            margin-left: 5px;
-        }
-
-        .jsgrid-header-row {
-            background: #ddd;
-            font-size: 17px;
-        }
-
-        .jsgrid-insert-mode-button {
-
-        }
-
-        table {
-            width: 100%;
-        }
-
-        .jsgrid-grid-body, .jsgrid-grid-header {
-            /* padding:5px;*/
-        }
-
-        .jsgrid-insert-row {
-            background-color: #bde6bd;
-            display: flex;
-        }
-
-        .jsgrid-grid-body > table {
-            margin-bottom: 0 !important;
-        }
-
-        .jsgrid-cell > select, .jsgrid-cell > input[type='number'] {
-            height: 100%;
-        }
-
-        .jsgrid-pager-container {
-            background: #fff;
-            display: block;
-            width: 100%;
-            padding-bottom: 7px;
-            padding-top: 15px;
-        }
-
-        .jsgrid-edit-row {
-            background-color: #ddd;
-        }
-
-        .jsgrid-cell > input {
-            width: 90%;
-        }
-
-        /*END JS GRID*/
-        #searchResult {
-            background-color: #748488;
-            color: #fff;
-        }
-    </style>
     <script type="text/javascript" src="assets/js/jQuery-2.1.4.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="iscaffold/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
     <script type="text/javascript" src="assets/dist/js/app.js"></script>
     <script type="text/javascript" src="iscaffold/js/main.js"></script>
-    <!-- <script type="text/javascript" src="assets/js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.edatagrid.js"></script> -->
+    {*<!-- <script type="text/javascript" src="assets/js/jquery.easyui.min.js"></script>*}
+    {*<script type="text/javascript" src="assets/js/jquery.edatagrid.js"></script> -->*}
     <script src="assets/js/xls.core.js" type="text/javascript"></script>
     <script src="assets/js/FileSaver.min.js" type="text/javascript"></script>
     <script src="assets/js/tableexport.js" type="text/javascript"></script>
@@ -295,6 +38,23 @@
     <script src="assets/src/fields/jsgrid.field.control.js"></script>
     <script src="assets/src/jsgrid.validation.js"></script>
 
+
+    {*new*}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <script type="application/javascript" src="{$config.base_url}assets/js/angular.min.js"></script>
+    <script type="application/javascript" src="{$config.base_url}assets/js/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{$config.base_url}assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"/>
+    <script type="application/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="application/javascript"
+            src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
 
     <script type="text/javascript">
@@ -331,11 +91,12 @@
             <!-- Logo -->
             <a href="{$config.base_url}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>Fixed Asset Managment</b></span>
+                <span class="logo-mini"><b> Dashboard</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Fixed Asset Managment</b></span>
+
+                <span class="logo-lg"><b>Dashboard</b></span>
             </a>
-            <!-- Header Navbar: style can be found in header.less -->
+            <!-- Header Navbar: css can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -344,11 +105,11 @@
                 {if $logged_in == true}
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <!-- User Account: style can be found in dropdown.less -->
+                            <!-- User Account: css can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="http://127.0.0.1/research/crudadmin/assets/dist/img/avatar.png"
-                                         class="user-image" alt="User Image">
+                                    {*<img src="http://127.0.0.1/research/crudadmin/assets/dist/img/avatar.png"*}
+                                    {*class="user-image" alt="User Image">*}
                                     <span class="hidden-xs">{$name}</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -380,47 +141,96 @@
             </nav>
         </header>
         <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
+            <!-- sidebar: css can be found in sidebar.less -->
             <section class="sidebar">
-                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!-- sidebar menu: : css can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li{if isset($table_name)}{if $table_name == 'Ass_track'} class='active'{/if}{/if}><a
-                                href='ass_track'><i class='fa fa-list'></i><span>Fixed Asset Track</span></a></li>
                     <li{if isset($table_name)}{if $table_name == 'Asset'} class='active'{/if}{/if}><a href='asset'><i
                                     class='fa fa-list'></i><span>Asset</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Asset_category'} class='active'{/if}{/if}><a
+                    <li{if isset($table_name)}{if $table_name == 'Asset Category'} class='active'{/if}{/if}><a
                                 href='asset_category'><i class='fa fa-list'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
                         <a href='depreciation'><i class='fa fa-list'></i><span>Depreciation</span></a>
                     </li>
-                    <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-list'></i><span>Fixed Asset Return</span></a>
-                    </li>
+                    <li{if isset($table_name)}{if $table_name == 'Fixed Asset Track'} class='active'{/if}{/if}><a
+                                href='ass_track'><i class='fa fa-list'></i><span>Fixed Asset Track</span></a></li>
 
-                    <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-list'></i><span>Fixed Asset Transfer</span></a>
-                    </li>
-                    <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-list'></i><span>Disposal Collection</span></a>
-                    </li>
-                    <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-list'></i><span>Disposed  Asset</span></a>
-                    </li>
+                    {*<li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>*}
+                        {*<a href='depreciation'><i class='fa fa-list'></i><span>Disposed  Asset</span></a>*}
+                    {*</li>*}
                     <li{if isset($table_name)}{if $table_name == 'Employee'} class='active'{/if}{/if}><a
                                 href='employee'><i class='fa fa-list'></i><span>Employee</span></a></li>
                     <li{if isset($table_name)}{if $table_name == 'Status'} class='active'{/if}{/if}><a href='status'><i
                                     class='fa fa-list'></i><span>Status</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Tbl_pages'} class='active'{/if}{/if}><a
-                                href='tbl_pages'><i class='fa fa-list'></i><span>Pages</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Tbl_permission'} class='active'{/if}{/if}><a
-                                href='tbl_permission'><i class='fa fa-list'></i><span>Permission</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Tbl_reset_password'} class='active'{/if}{/if}><a
-                                href='tbl_reset_password'><i class='fa fa-list'></i><span>Reset Password</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Tbl_roles'} class='active'{/if}{/if}><a
-                                href='tbl_roles'><i class='fa fa-list'></i><span>Roles</span></a></li>
-                    <li{if isset($table_name)}{if $table_name == 'Tbl_users'} class='active'{/if}{/if}><a
-                                href='tbl_users'><i class='fa fa-list'></i><span>Users</span></a></li>
+
+
+                    <li class="treeview ">
+
+                        <a href="#">
+                            <i class="fa fa-gear"></i>
+                            <span>Settings</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+
+                        <ul class="treeview-menu menu-open" style="display: block;">
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_pages'} class='active'{/if}{/if}><a
+                                        href='tbl_pages'><i class='fa fa-list'></i><span>Pages</span></a></li>
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_permission'} class='active'{/if}{/if}><a
+                                        href='tbl_permission'><i class='fa fa-list'></i><span>Permission</span></a></li>
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_reset_password'} class='active'{/if}{/if}>
+                                <a
+                                        href='tbl_reset_password'><i class='fa fa-list'></i><span>Reset Password</span></a>
+                            </li>
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_roles'} class='active'{/if}{/if}><a
+                                        href='tbl_roles'><i class='fa fa-list'></i><span>Roles</span></a></li>
+                            <li{if isset($table_name)}{if $table_name == 'Tbl_users'} class='active'{/if}{/if}><a
+                                        href='tbl_users'><i class='fa fa-list'></i><span>Users</span></a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="treeview">
+                        <a  href="#" >
+                            <i class="fa fa-bar-chart"></i>
+                            <span>Reports</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+
+                        <ul class="treeview-menu menu-open" style="display: block;">
+                            <li>
+                                <a href="#">
+                                    Activity Report
+                                </a>
+                            </li>
+
+                            <li><a href="#">
+                                    Audit Log</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Depreciation Report
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Asset Maintenance Report
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Unaccepted Assets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Custom Asset Report
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
         </aside>
@@ -446,9 +256,10 @@
         </li>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Leul</b> Admin System | Version 1.0
+                <strong style="color: #3c8dbc;">Fixed Asset Management</strong>
             </div>
-            <strong>Copyright © 2017 <a href="http://127.0.0.1/crudadmin/crudadmin/">MyAcc</a>.</strong> All rights
+            <strong>
+                Copyright © 2017 <a href="#">BusinessTYC</a>.</strong> All rights
             reserved.
         </footer>
         <!-- END MAIN CONTENT -->
@@ -474,7 +285,14 @@
     {/if}{/if}
 </html>
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.table').DataTable();
+    });
+
     $(function () {
+
+
         //var obj={}
         var chart;
         var msg ={$chart_data};
@@ -545,4 +363,3 @@
             });
         });
     });
-</script>

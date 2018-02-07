@@ -25,6 +25,8 @@ class Depreciation extends MY_Controller
      */
     function index($page = 0, $showAll = false)
     {
+
+
         $this->model_depreciation->pagination(TRUE);
         $data_info = $this->model_depreciation->lister($page, $showAll);
         //display or hide "show all" button on list page

@@ -1,10 +1,10 @@
 <!-- CUSTOM -->
-<div class="panel panel-default hidden">                    
+<div class="panel panel-default hidden">
                     <div class="panel-body">
-                        <form action="tbl_permission/search" method="post" id="search_form">                     
+                        <form action="tbl_permission/search" method="post" id="search_form">
                         <a href="tbl_permission/create/" class="btn btn-success btn-sm">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>                        
+                        </a>
                         <div class="input-group" style="width:300px;float:right">
                             <input type="text" required="true" class="form-control" name="search" id="search" onkeyup="myFunction()" placeholder="Search...">
                             <span class="input-group-btn">
@@ -20,11 +20,11 @@
                         </div>
                     </form>
                          <span id="searchResult" name="searchResult" class="label-info">{if !empty($search_result)} {$search_result}{/if}</span>
-                       <h3 class="page-title">List of {$table_name}</h3>                  
+                       <h3 class="page-title">List of {$table_name}</h3>
                         {if !empty( $tbl_permission_data )}
                         <form action="tbl_permission/delete" method="post" id="listing_form">
                           <div class="table-responsive">
-                            <table class="table exportable" id="tbl_permission" name="tbl_permission">
+                            <table class="table table-bordered table-hover exportable" id="tbl_permission" name="tbl_permission">
                                 <thead>
                                     <th> </th>
                                     			<th>{$tbl_permission_fields.pm_pg_id}</th>
@@ -36,7 +36,7 @@
 			<th>{$tbl_permission_fields.pm_show}</th>
 			<th>{$tbl_permission_fields.pm_role}</th>
 
-                                    <th style="width:180;">Actions</th>
+                                    <th style="width: 180px;">Actions</th>
                                 </thead>
                                 <tbody>
                                     {foreach $tbl_permission_data as $row}
@@ -74,18 +74,18 @@
                                     {$pager}
                                 </div>
                                 </div>
-                                
+
                             </div>
                         </form>
-                     
+
                         </div>
                         {else}
                             No records found.
                         {/if}
                     </div>
-                </div> 
-                <div class="panel panel-default">                    
-                    <div class="panel-body">       
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
      <h3 class="page-title">List of {$table_name}</h3>
     <div id="jsGrid"></div>
 </div>
@@ -151,7 +151,7 @@
                         });
                          return d.promise();
                     }
-                },                
+                },
                 fields: [
                     { name: 'pm_pg_id', type: 'text', title: 'Pm Pg Id', css: 'hidden'  },
                     { name: 'pg_name', type: 'text', title: 'Page', validate: 'required'  },

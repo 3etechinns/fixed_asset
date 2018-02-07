@@ -323,12 +323,12 @@ if ( ! function_exists('highlight_code'))
 		// Remove our artificially added PHP, and the syntax highlighting that came with it
 		$str = preg_replace(
 			array(
-				'/<span style="color: #([A-Z0-9]+)">&lt;\?php(&nbsp;| )/i',
-				'/(<span style="color: #[A-Z0-9]+">.*?)\?&gt;<\/span>\n<\/span>\n<\/code>/is',
-				'/<span style="color: #[A-Z0-9]+"\><\/span>/i'
+				'/<span css="color: #([A-Z0-9]+)">&lt;\?php(&nbsp;| )/i',
+				'/(<span css="color: #[A-Z0-9]+">.*?)\?&gt;<\/span>\n<\/span>\n<\/code>/is',
+				'/<span css="color: #[A-Z0-9]+"\><\/span>/i'
 			),
 			array(
-				'<span style="color: #$1">',
+				'<span css="color: #$1">',
 				"$1</span>\n</span>\n</code>",
 				''
 			),

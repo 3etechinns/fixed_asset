@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends MY_Controller {
 
 	/**
 	 * This is just a general placeholder controller
@@ -10,14 +10,15 @@ class Dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->library( 'template' ); 
-		$this->load->helper( 'url' );
-        $this->load->model( 'model_auth' );
+//		$this->load->library( 'template' );
+//		$this->load->helper( 'url' );
+//        $this->load->model( 'model_auth' );
+//
+//        $this->logged_in = $this->model_auth->check( TRUE );
+//        $this->template->assign( 'logged_in', $this->logged_in );
 
-        $this->logged_in = $this->model_auth->check( TRUE );
-        $this->template->assign( 'logged_in', $this->logged_in );
+   		$this->template->assign( 'template', 'welcome_page' );
 
-   		$this->template->assign( 'template', 'dashboard' );
    		$this->template->display( 'frame_admin.tpl' );
 	}
 }

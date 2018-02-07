@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-01-23 05:57:23
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:00:32
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_status.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:287505a66cec357b8b2-39880644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:306295a7a0960078df4-33339053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7c70c9884172fbd741cc529fea47c84645f90e7b' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_status.tpl',
-      1 => 1516683068,
+      1 => 1517550195,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '287505a66cec357b8b2-39880644',
+  'nocache_hash' => '306295a7a0960078df4-33339053',
   'function' => 
   array (
   ),
@@ -26,12 +26,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a66cec366969',
+  'unifunc' => 'content_5a7a096014b6a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a66cec366969')) {function content_5a66cec366969($_smarty_tpl) {?><div class="panel panel-default">           
+<?php if ($_valid && !is_callable('content_5a7a096014b6a')) {function content_5a7a096014b6a($_smarty_tpl) {?><div class="panel panel-default">           
                 <div class="panel-body">
                  <a href="status" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i> Listing</a>
-                        <a class="<?php if ($_smarty_tpl->tpl_vars['action_mode']->value=='create'){?>active<?php }?> btn btn-sm btn-success" href="status/create/"> <i class="fa fa-plus" aria-hidden="true"></i> New record</a>
+                        <a class="<?php if ($_smarty_tpl->tpl_vars['action_mode']->value=='create'){?>active<?php }?> btn btn-sm btn-primary" href="status/create/"> <i class="fa fa-plus" aria-hidden="true"></i> New record</a>
                         <?php if ($_smarty_tpl->tpl_vars['action_mode']->value!='create'){?>
                         <a class="btn-default btn btn-sm pull-right <?php if (isset($_smarty_tpl->tpl_vars['direction']->value)){?><?php if ($_smarty_tpl->tpl_vars['direction']->value=='right'){?>disabled<?php }?><?php }?>" href="status/navigate/right/<?php echo $_smarty_tpl->tpl_vars['record_id']->value;?>
 "><i class="fa fa-arrow-right"></i></a>

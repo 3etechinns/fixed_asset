@@ -485,7 +485,7 @@ class CI_Calendar {
 			'cal_row_start'				=> '<tr>',
 			'cal_cell_start'			=> '<td>',
 			'cal_cell_start_today'		=> '<td>',
-			'cal_cell_start_other'		=> '<td style="color: #666;">',
+			'cal_cell_start_other'		=> '<td css="color: #666;">',
 			'cal_cell_content'			=> '<a href="{content}">{day}</a>',
 			'cal_cell_content_today'	=> '<a href="{content}"><strong>{day}</strong></a>',
 			'cal_cell_no_content'		=> '{day}',
