@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-07 13:07:14
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-07 13:45:21
          compiled from "C:\wamp64\www\fixed_asset\application\views\welcome_page.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266925a77e0bb1f9ac6-13237374%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1ef91b0786743bb3f07254bc40dae103a3c484c3' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\welcome_page.tpl',
-      1 => 1518008831,
+      1 => 1518011117,
       2 => 'file',
     ),
   ),
@@ -43,7 +43,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <i class="fa fa-barcode"></i>
                 </div>
                 <a href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
-fixed_asset" class="small-box-footer">More Info <i
+asset" class="small-box-footer">More Info <i
                             class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>

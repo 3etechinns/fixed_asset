@@ -9,7 +9,7 @@
                 <div class="icon">
                     <i class="fa fa-barcode"></i>
                 </div>
-                <a href="{$config.base_url}fixed_asset" class="small-box-footer">More Info <i
+                <a href="{$config.base_url}asset" class="small-box-footer">More Info <i
                             class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
