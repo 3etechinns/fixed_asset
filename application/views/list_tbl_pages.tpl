@@ -22,7 +22,7 @@
         </form>
         <span id="searchResult" name="searchResult"
               class="label-info">{if !empty($search_result)} {$search_result}{/if}</span>
-        <h3 class="page-title">List of nn{$table_name}</h3>
+        <h3 class="page-title">List of Page{$table_name}</h3>
         {if !empty( $tbl_pages_data )}
         <form action="tbl_pages/delete" method="post" id="listing_form">
             <div class="table-responsive">

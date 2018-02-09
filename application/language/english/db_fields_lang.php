@@ -92,5 +92,23 @@ $lang['status'] = 'Status';
 /*************************
  * Table: Page
  *************************/
-$lang['status_id'] = 'Status Id';
-$lang['status'] = 'Status';
+$lang['pg_controller'] = 'page controller name';
+$lang['pg_name'] = 'page   name';
+
+/*************************
+ * Table: user
+ *************************/
+$lang['email'] = 'Email';
+$lang['name'] = 'Name';
+$lang['mobile'] = 'Mobile';
+$lang['roleId'] = 'Role';
+$lang['isDeleted'] = 'isDeleted';
+$lang['createdDtm'] = 'created Date';
+$lang['updatedBy'] = 'Updated By';
+$lang['updatedDtm'] = 'Updated Date';
+
+/*************************
+ * Table: Role
+ *************************/
+//$lang['email'] = 'Email';
+$lang['role'] = 'Role';

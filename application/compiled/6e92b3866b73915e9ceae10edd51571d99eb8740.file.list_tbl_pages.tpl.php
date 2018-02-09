@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 19:19:37
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 20:25:44
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_tbl_pages.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:267285a781ba121c5b9-98646249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6e92b3866b73915e9ceae10edd51571d99eb8740' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_tbl_pages.tpl',
-      1 => 1518203973,
+      1 => 1518207942,
       2 => 'file',
     ),
   ),
@@ -56,7 +56,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <span id="searchResult" name="searchResult"
               class="label-info"><?php if (!empty($_smarty_tpl->tpl_vars['search_result']->value)){?> <?php echo $_smarty_tpl->tpl_vars['search_result']->value;?>
 <?php }?></span>
-        <h3 class="page-title">List of nn<?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
+        <h3 class="page-title">List of Page<?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
 </h3>
         <?php if (!empty($_smarty_tpl->tpl_vars['tbl_pages_data']->value)){?>
         <form action="tbl_pages/delete" method="post" id="listing_form">
