@@ -37,7 +37,11 @@
     	</div>
     
     	<div class="form-group">
-            <label class="col-md-4 control-label" for="pg_description">{$tbl_pages_fields.pg_description} name="pg_description" id="pg_description">{if isset($tbl_pages_data)}{$tbl_pages_data.pg_description}{/if}</textarea>
+            <label class="col-md-4 control-label" for="pg_description"></label>
+            <div class="col-md-6">
+                <textarea  {$tbl_pages_fields.pg_description} name="pg_description" id="pg_description">{if isset($tbl_pages_data)}{$tbl_pages_data.pg_description}{/if}
+                </textarea>
+            </div>
     		</div>
     		
     	</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 19:33:52
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 20:10:11
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_tbl_pages.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:321205a7a0320126a92-09364908%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bafac5bd567d5e4d3d86333324914b3a357cd4bb' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_tbl_pages.tpl',
-      1 => 1517550194,
+      1 => 1518207009,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a7a032024200',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'tbl_pages_data' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7a032024200',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a7a032024200')) {function content_5a7a032024200($_smarty_tpl) {?><div class="panel panel-default">           
                 <div class="panel-body">
@@ -76,9 +76,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     	</div>
     
     	<div class="form-group">
-            <label class="col-md-4 control-label" for="pg_description"><?php echo $_smarty_tpl->tpl_vars['tbl_pages_fields']->value['pg_description'];?>
+            <label class="col-md-4 control-label" for="pg_description"></label>
+            <div class="col-md-6">
+                <textarea  <?php echo $_smarty_tpl->tpl_vars['tbl_pages_fields']->value['pg_description'];?>
  name="pg_description" id="pg_description"><?php if (isset($_smarty_tpl->tpl_vars['tbl_pages_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['tbl_pages_data']->value['pg_description'];?>
-<?php }?></textarea>
+<?php }?>
+                </textarea>
+            </div>
     		</div>
     		
     	</div>

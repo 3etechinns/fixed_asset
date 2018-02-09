@@ -15,12 +15,12 @@ div.dataTables_wrapper div.dataTables_paginate {
 }
 
 .page-title {
-    color: #595a5d !important;
+    color: #222d32 !important;
     background-color: #f5f5f5 !important;
     padding: 10px 15px !important;
     border: 1px solid #ddd !important;
-    /*border-radius: 10px !important;*/
-    font-family: "Arial Rounded MT Bold";
+    font-size: 17px;
+    font-family: Algerian;
     font-style: normal;
     /*border-top-right-radius: 3px*/
 }
@@ -360,8 +360,10 @@ table {
 }
 
 .table > thead > tr:first-child {
-    color: #595a5d !important;
+    color: #222d32 !important;
     font-family: "Tw Cen MT Condensed Extra Bold" !important;
+    font-size: 14px;
+    font-weight: bold;
 
     background-color: #f9f9f9 !important;
     border: 1px solid #f4f4f4;
@@ -370,16 +372,6 @@ table {
 .skin-blue .main-header .navbar {
     background-color: #3c8dbc;
     /*min-height: 80px !important;*/
-}
-
-.typeahead {
-    border: 2px solid #FFF;
-    border-radius: 4px;
-    padding: 8px 12px;
-    max-width: 300px;
-    min-width: 290px;
-    background: rgba(66, 52, 52, 0.5);
-    color: #FFF;
 }
 
 .tt-menu {
@@ -433,21 +425,18 @@ ul.typeahead.dropdown-menu li:last-child a {
     font-size: 25px;
     color: #f5f5f5 !important;
 
-
-
 }
 
-
 div.dataTables_wrapper div.dataTables_filter {
-text-align: center;
+    text-align: center;
 }
 
 /*#download {*/
-    /*background-color:#7A1818 ;*/
-    /*position: absolute;*/
+/*background-color:#7A1818 ;*/
+/*position: absolute;*/
 
-    /*top: 237px;*/
-    /*left: 1177px;*/
+/*top: 237px;*/
+/*left: 1177px;*/
 
 /*}*/
 
@@ -463,6 +452,7 @@ text-align: center;
     font-size: 16px;
     font-weight: bolder;
 }
+
 #track > .table > tbody > tr:first-child:hover {
     background-color: #00a65a;
     text-transform: capitalize;

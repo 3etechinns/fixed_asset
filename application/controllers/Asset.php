@@ -136,7 +136,7 @@ class Asset extends MY_Controller
                 $this->form_validation->set_rules('ass_serial_number', lang('ass_serial_number'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_date_acquired', lang('ass_date_acquired'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
+//                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
                 $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_dep_life', lang('ass_dep_life'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_comment', lang('ass_comment'), 'max_length[445]');
@@ -244,7 +244,7 @@ class Asset extends MY_Controller
                 $this->form_validation->set_rules('ass_serial_number', lang('ass_serial_number'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_date_acquired', lang('ass_date_acquired'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
+//                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
                 $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_dep_life', lang('ass_dep_life'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_comment', lang('ass_comment'), 'max_length[45]');
