@@ -239,7 +239,7 @@ class Model_employee extends MY_Model
         return $metadata;
     }
 
-    function searchEmployee($name)
+    function searchEmployee()
     {
 
 
@@ -251,10 +251,10 @@ class Model_employee extends MY_Model
 //
 
         $this->db->start_cache();
-        $this->db->select('firstName');
+        $this->db->select('idEmployee,firstName,lastName');
         $this->db->from('employee');
 
-        $this->db->where('firstName LIKE "%' . $name . '%"');
+//        $this->db->where('firstName LIKE "%' . $name . '%"');
 //
 
         $query = $this->db->get();
@@ -264,7 +264,8 @@ class Model_employee extends MY_Model
         foreach ($query->result_array() as $row) {
             $temp_result[] = array(
 
-                'firstName' => $row['firstName'],
+                'id' => $row['idEmployee'],
+                'value' => $row['firstName']." ".$row['lastName'],
 
             );
         }

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:13:58
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-07 18:51:52
          compiled from "C:\wamp64\www\fixed_asset\application\views\show_asset.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:37985a7768830e1a63-55504794%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0115e9a3413784a080971dde9e80eb9c5e1fdced' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\show_asset.tpl',
-      1 => 1517948035,
+      1 => 1518029509,
       2 => 'file',
     ),
   ),
@@ -28,6 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'depreciation_fields' => 0,
     'i' => 0,
     'row' => 0,
+    'checkAssetAvailability' => 0,
     'ass_track_data' => 0,
     'ass_track_fields' => 0,
   ),
@@ -252,7 +253,22 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
             <div class="col-md-12">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Asset Track</div>
+                    <div class="panel-heading">
+                        <label for=""> Asset Track</label>
+                        <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['checkAssetAvailability']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
+$_smarty_tpl->tpl_vars['row']->_loop = true;
+?>
+
+                            <?php if ($_smarty_tpl->tpl_vars['row']->value['status']=='return'){?>
+                                <button type="button" style="float: right;color: white" class="btn btn-success" for="">
+                                    Available
+                                </button>
+                            <?php }?>
+
+                        <?php } ?>
+                    </div>
                     <div id="track" class="panel-body">
 
 
@@ -267,7 +283,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                 <th><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['date_returned'];?>
 <?php $_tmp17=ob_get_clean();?><?php echo $_tmp17;?>
 </th>
-                                <th ><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['penality_amount'];?>
+                                <th><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['penality_amount'];?>
 <?php $_tmp18=ob_get_clean();?><?php echo $_tmp18;?>
 </th>
                                 <th><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['status'];?>
@@ -327,6 +343,8 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                 <?php } ?>
 
                                 </tbody>
+
+
                             </table>
                         <?php }?>
                     </div>
@@ -337,16 +355,8 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
     </div><!-- .inner -->
 </div><!-- .content -->
 <style>
-    .table > thead > tr > th {
-        padding: 4px;
-    }
 
-    #track > .table > tbody > tr:first-child {
-        background-color: #a7d4bf;
-        color: mediumvioletred;
-        font-size: 16px;
-        font-weight: bolder;
-    }
+
 
 
 </style>

@@ -450,3 +450,24 @@ text-align: center;
     /*left: 1177px;*/
 
 /*}*/
+
+.table > thead > tr > th {
+    padding: 4px;
+}
+
+#track > .table > tbody > tr:first-child {
+    /*background-color: #00a65a;*/
+    text-transform: capitalize;
+    color: #00a65a;
+    border-bottom: 2px solid #00a65a !important;
+    font-size: 16px;
+    font-weight: bolder;
+}
+#track > .table > tbody > tr:first-child:hover {
+    background-color: #00a65a;
+    text-transform: capitalize;
+    color: white;
+    border-bottom: 2px solid !important;
+    font-size: 16px;
+    font-weight: bolder;
+}

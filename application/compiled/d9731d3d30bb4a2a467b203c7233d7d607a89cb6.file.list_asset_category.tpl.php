@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 19:44:36
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 18:22:13
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_asset_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:190745a776a20b8ca77-22022100%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd9731d3d30bb4a2a467b203c7233d7d607a89cb6' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_asset_category.tpl',
-      1 => 1517945815,
+      1 => 1518200528,
       2 => 'file',
     ),
   ),
@@ -95,10 +95,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                             class="fa fa-eye" aria-hidden="true"></i></a>
                                 <a href="asset_category/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['cat_id'];?>
 " class="btn btn-primary btn-xs"><i
-                                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            class="fa fa-edit" aria-hidden="true"></i></a>
                                 <a href="javascript:chk('asset_category/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['cat_id'];?>
 ')"
-                                   class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                   class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 
                             </td>
                         </tr>
@@ -108,7 +108,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <div class="actions-bar wat-cf">
                     <div class="actions">
                         <button class="btn btn-danger btn-xs" type="submit">
-                            <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                         </button>
                         <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                             <a href="asset_category/index/0/all" class="btn btn-xs btn-primary show-all"><i

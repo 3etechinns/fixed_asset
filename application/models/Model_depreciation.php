@@ -61,6 +61,7 @@ class Model_depreciation extends MY_Model
         } else {
             return array();
         }
+        $this->db->close();
     }
 
 
@@ -72,11 +73,18 @@ class Model_depreciation extends MY_Model
 
     function depreciationDetailById($id)
     {
+
         $this->db->start_cache();
-        $sql = "call `depreciationDetailById` (?)";
-        $execute = $this->db->query($sql, $id);
+        $this->db->select('*');
+        $this->db->from('depreciation');
+        $this->db->where('Asset_ass_id', $id);
+        $data = $this->db->get();
+
+//        $this->db->start_cache();
+//        $sql = "call `depreciationDetailById` (?)";
+//        $execute = $this->db->query($sql, $id);
         //  $temp_result[] = array();
-        foreach ($execute->result_array() as $row) {
+        foreach ($data->result_array() as $row) {
             $temp_result[] = array(
                 'dep_id' => $row['dep_id'],
                 'dep_date' => $row['dep_date'],
@@ -91,6 +99,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
     function depreciationInitializer($data)
@@ -98,6 +107,7 @@ class Model_depreciation extends MY_Model
         $sql = "call `initial_depreciation` (?,?,?,?)";
         $this->db->query($sql, $data);
         return 1;
+        $this->db->close();
 
     }
 
@@ -172,6 +182,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
 
@@ -232,6 +243,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+
     }
 
     function related_asset()

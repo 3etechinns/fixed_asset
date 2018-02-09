@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 19:34:17
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 19:58:42
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_ass_track.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266075a7822e998f3b4-45331492%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3e60a1a2aec650d50dfa40e771ec81ff5e92a393' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_ass_track.tpl',
-      1 => 1517845757,
+      1 => 1518206319,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ass_track_data' => 0,
     'related_asset' => 0,
     'rel' => 0,
-    'config' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -128,7 +127,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <div class="col-md-6">
                             <div class="input-group">
                                 <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['date_returned'];?>
-" class="form-control date-picker"
+"
+                                       class="form-control date-picker"
                                        type="text"
                                        maxlength="50"
                                        value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['date_returned'];?>
@@ -175,7 +175,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                    class="form-control" type="text"
                                    maxlength="50" value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['ass_emp_id'];?>
 <?php }?>"
-                                   name="ass_emp_id" id="ass_emp_id"/>
+                                   name="ass_emp_id"
+                                   id="ass_emp_id"/>
                         </div>
 
                     </div>
@@ -197,12 +198,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <label class="col-md-4 control-label"
                                for="payment_date"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['payment_date'];?>
 
-                            <span class="error">*</span>
+                            
                         </label>
                         <div class="col-md-6">
                             <div class="input-group">
                                 <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['payment_date'];?>
-" class="form-control date-picker"
+"
+                                       class="form-control date-picker"
                                        type="text"
                                        maxlength="50"
                                        value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['payment_date'];?>
@@ -216,7 +218,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         </div>
 
                     </div>
-
+                    <input type="text" name="reciverHiddenId" id="reciverHiddenId" style="display: none;">
+                    <input type="text" name="employeHiddenId" id="employeHiddenId" style="display: none;">
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="Asset_ass_id"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['Asset_ass_id'];?>
@@ -254,27 +257,18 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
     </div>
 </div><!-- .content -->
 </div><!-- .block -->
-<body>
-<div class="bgcolor">
-    <label class="demo-label">Search Country:</label><br/>
-    <input type="text"
-           name="firstName"
-           id="txtCountry"
-           class="typeahead"/>
-</div>
-</body>
 
-<script src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
-assets/js/jquery-3.3.1.min.js" type="application/javascript"></script>
-<script src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
-assets/js/typeahead.js" type="application/javascript"></script>
+
+
 <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 
-</>
+
+
+</body>
 <script>
     $(function () {
         $('#formContainer').hide();
@@ -284,7 +278,7 @@ assets/js/typeahead.js" type="application/javascript"></script>
             if (type == 'transfer') {
                 $('#formContainer').show();
                 $('#dateReturned').hide();
-                $('#dateReturned').val()=='';
+                $('#dateReturned').val() == '';
                 $('#dateTransferred').show();
                 $('#save').prop('disabled', false);
 
@@ -293,7 +287,7 @@ assets/js/typeahead.js" type="application/javascript"></script>
                 $('#formContainer').show();
                 $('#dateReturned').show();
                 $('#dateTransferred').hide();
-                $('#dateTransferred').val()=="";
+                $('#dateTransferred').val() == "";
                 $('#save').prop('disabled', false);
             }
             else {
@@ -305,6 +299,7 @@ assets/js/typeahead.js" type="application/javascript"></script>
 
         });
 
+
     });
 
     $(function () {
@@ -314,41 +309,58 @@ assets/js/typeahead.js" type="application/javascript"></script>
         });
     });
 
-    $(document).ready(function () {
-        $('#txtCountry').typeahead({
-            source: function (query, result) {
-                $.ajax({
-                    url: "http://localhost/fixed_asset/ass_track/searchEmployeeForAutocomplete",
-                    data: 'query=' + query,
-                    dataType: "json",
-                    type: "POST",
-                    success: function (data) {
-                        //  console.log(data);
 
-                        result($.map(data, function (item) {
-//                          return item.value;
-                            return item;
-                        }));
-                    }
-                });
-            }
-        });
+    var fullName = [];
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost/fixed_asset/ass_track/searchEmployeeForAutocomplete",
+//        data: data,
+        dataType: 'json',
+        success: function (result) {
+//            for (i = 0; i < result.length; i++) {
+//                //req[i] = result[i].firstName + "  " + result[i].lastName;
+//            }
+            console.log(result);
+            $("#ass_emp_id").autocomplete({
+                //   source: url,
+                source: result,
+                select: function (event, ui) {
+                    //  $("#txtAllowSearch").val(ui.item.value); // display the selected text
+                    $("#employeHiddenId").val(ui.item.id); // save selected id to hidden input
+                }
+            });
+            $("#receiving_employee_id").autocomplete({
+                source: result,
+                select: function (event, ui) {
+                    // $("#txtAllowSearch").val(ui.item.value); // display the selected text
+                    $("#reciverHiddenId").val(ui.item.id); // save selected id to hidden input
+                }
+            });
+            console.log(fullName);
+//            return;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            error({
+                jqXHR: jqXHR,
+                textStatus: textStatus,
+                errorThrown: errorThrown
+            });
+        }
     });
 
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+    //    });
 </script>
-</script>
-
-<style>
-    .btn.disabled, .btn[disabled] {
-        cursor: hand;
-        background-image: none;
-        opacity: 0.65;
-        filter: alpha(opacity=65);
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
 
 
-    }
-</style><?php }} ?>
+<?php }} ?>

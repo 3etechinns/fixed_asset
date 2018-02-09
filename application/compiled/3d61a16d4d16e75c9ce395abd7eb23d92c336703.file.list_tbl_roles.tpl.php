@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 08:32:05
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 19:22:34
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_tbl_roles.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:262235a796805c8c1f6-69807495%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3d61a16d4d16e75c9ce395abd7eb23d92c336703' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_tbl_roles.tpl',
-      1 => 1517767003,
+      1 => 1518200528,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a796805daa22',
   'variables' => 
   array (
     'search_result' => 0,
@@ -27,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a796805daa22',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a796805daa22')) {function content_5a796805daa22($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
@@ -93,10 +93,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                 class="fa fa-eye" aria-hidden="true"></i></a>
                                     <a href="tbl_roles/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['roleId'];?>
 " class="btn btn-primary btn-xs"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a href="javascript:chk('tbl_roles/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['roleId'];?>
 ')"
-                                       class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                       class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -106,7 +106,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <div class="actions-bar wat-cf">
                     <div class="actions">
                         <button class="btn btn-danger btn-xs" type="submit">
-                            <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                         </button>
                         <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                             <a href="tbl_roles/index/0/all" class="btn btn-xs btn-primary show-all"><i

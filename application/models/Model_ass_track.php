@@ -63,6 +63,7 @@ class Model_ass_track extends MY_Model
         } else {
             return array();
         }
+        $this->db->close();
     }
 
 
@@ -145,6 +146,7 @@ class Model_ass_track extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
 
@@ -207,6 +209,7 @@ class Model_ass_track extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
     function related_asset()
@@ -293,6 +296,7 @@ class Model_ass_track extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
 
 
     }
@@ -309,8 +313,9 @@ class Model_ass_track extends MY_Model
                 'ass_emp_id' => $row['ass_emp_id'],
             );
         }
-        $this->db->close();
+        $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
 
 
     }

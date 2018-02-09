@@ -87,3 +87,10 @@ $lang['location'] = 'Location';
  *************************/
 $lang['status_id'] = 'Status Id';
 $lang['status'] = 'Status';
+
+
+/*************************
+ * Table: Page
+ *************************/
+$lang['status_id'] = 'Status Id';
+$lang['status'] = 'Status';

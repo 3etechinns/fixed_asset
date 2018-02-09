@@ -10,14 +10,20 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link href="{$config.base_url}assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    {*<link href="{$config.base_url}assets/on-server/css/fontawesome.min.css" rel="stylesheet" type="text/css"/>*}
+    <link href="{$config.base_url}assets/on-server/css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/on-server/css/fontawesome-all.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="{$config.base_url}assets/dist/css/skins/skin-blue.css" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="assets/js/jQuery-2.1.4.min.js"></script>
+
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="iscaffold/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*}
+    <script src="{$config.base_url}assets/jQueryUI/jquery-ui.js"></script>
+
+    {*<script type="text/javascript" src="iscaffold/jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>*}
     <script type="text/javascript" src="assets/dist/js/app.js"></script>
     <script type="text/javascript" src="iscaffold/js/main.js"></script>
     {*<!-- <script type="text/javascript" src="assets/js/jquery.easyui.min.js"></script>*}
@@ -40,8 +46,8 @@
 
 
     {*new*}
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css"/>
+    {*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"*}
+          {*type="text/css"/>*}
 
     <!-- Include Date Range Picker -->
     <script type="text/javascript"
@@ -55,6 +61,7 @@
     <script type="application/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="application/javascript"
             src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
 
 
     <script type="text/javascript">
@@ -146,23 +153,23 @@
                 <!-- sidebar menu: : css can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li{if isset($table_name)}{if $table_name == 'Asset'} class='active'{/if}{/if}><a href='asset'><i
-                                    class='fa fa-list'></i><span>Asset</span></a></li>
+                                    class='fa fa-archive'></i><span>Asset</span></a></li>
                     <li{if isset($table_name)}{if $table_name == 'Asset Category'} class='active'{/if}{/if}><a
-                                href='asset_category'><i class='fa fa-list'></i><span>Fixed Asset Category</span></a>
+                                href='asset_category'><i class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-list'></i><span>Depreciation</span></a>
+                        <a href='depreciation'><i class='fa fa-briefcase'></i><span>Depreciation</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Fixed Asset Track'} class='active'{/if}{/if}><a
-                                href='ass_track'><i class='fa fa-list'></i><span>Fixed Asset Track</span></a></li>
+                                href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a></li>
 
                     {*<li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>*}
                         {*<a href='depreciation'><i class='fa fa-list'></i><span>Disposed  Asset</span></a>*}
                     {*</li>*}
                     <li{if isset($table_name)}{if $table_name == 'Employee'} class='active'{/if}{/if}><a
-                                href='employee'><i class='fa fa-list'></i><span>Employee</span></a></li>
+                                href='employee'><i class='fa fa-user-circle'></i><span>Employee</span></a></li>
                     <li{if isset($table_name)}{if $table_name == 'Status'} class='active'{/if}{/if}><a href='status'><i
-                                    class='fa fa-list'></i><span>Status</span></a></li>
+                                    class='fa fa-tags'></i><span>Status</span></a></li>
 
 
                     <li class="treeview ">
@@ -175,17 +182,17 @@
 
                         <ul class="treeview-menu menu-open" style="display: block;">
                             <li{if isset($table_name)}{if $table_name == 'Tbl_pages'} class='active'{/if}{/if}><a
-                                        href='tbl_pages'><i class='fa fa-list'></i><span>Pages</span></a></li>
+                                        href='tbl_pages'><i class='fa fa-adjust'></i><span>Pages</span></a></li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_permission'} class='active'{/if}{/if}><a
-                                        href='tbl_permission'><i class='fa fa-list'></i><span>Permission</span></a></li>
+                                        href='tbl_permission'><i class='fa fa-life-ring'></i><span>Permission</span></a></li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_reset_password'} class='active'{/if}{/if}>
                                 <a
-                                        href='tbl_reset_password'><i class='fa fa-list'></i><span>Reset Password</span></a>
+                                        href='tbl_reset_password'><i class='fa fa-edit'></i><span>Reset Password</span></a>
                             </li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_roles'} class='active'{/if}{/if}><a
-                                        href='tbl_roles'><i class='fa fa-list'></i><span>Roles</span></a></li>
+                                        href='tbl_roles'><i class='fa fa-transgender-alt'></i><span>Roles</span></a></li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_users'} class='active'{/if}{/if}><a
-                                        href='tbl_users'><i class='fa fa-list'></i><span>Users</span></a></li>
+                                        href='tbl_users'><i class='fa fa-users'></i><span>Users</span></a></li>
 
                         </ul>
 

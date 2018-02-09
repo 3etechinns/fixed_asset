@@ -144,7 +144,18 @@
             <div class="col-md-12">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Asset Track</div>
+                    <div class="panel-heading">
+                        <label for=""> Asset Track</label>
+                        {foreach $checkAssetAvailability as $row}
+
+                            {if $row.status=='return'}
+                                <button type="button" style="float: right;color: white" class="btn btn-success" for="">
+                                    Available
+                                </button>
+                            {/if}
+
+                        {/foreach}
+                    </div>
                     <div id="track" class="panel-body">
 
 
@@ -155,7 +166,7 @@
                                 <th>No</th>
                                 <th>{{$ass_track_fields.date_trasferred}}</th>
                                 <th>{{$ass_track_fields.date_returned}}</th>
-                                <th >{{$ass_track_fields.penality_amount}}</th>
+                                <th>{{$ass_track_fields.penality_amount}}</th>
                                 <th>{{$ass_track_fields.status}}</th>
                                 <th>{{$ass_track_fields.payment_status}}</th>
                                 <th>{{$ass_track_fields.payment_date}}</th>
@@ -181,6 +192,8 @@
                                 {/foreach}
 
                                 </tbody>
+
+
                             </table>
                         {/if}
                     </div>
@@ -191,16 +204,8 @@
     </div><!-- .inner -->
 </div><!-- .content -->
 <style>
-    .table > thead > tr > th {
-        padding: 4px;
-    }
 
-    #track > .table > tbody > tr:first-child {
-        background-color: #a7d4bf;
-        color: mediumvioletred;
-        font-size: 16px;
-        font-weight: bolder;
-    }
+
 
 
 </style>

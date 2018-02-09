@@ -45,8 +45,8 @@
         deleteButton: true,
         clearFilterButton: true,
         modeSwitchButton: true,
-        editIcon:'fa fa-pencil-square-o',
-        deleteIcon:'fa fa-close',
+        editIcon:'fa fa-edit',
+        deleteIcon:'fa fa-trash',
         updateIcon:'fa fa-check',
         addIcon:'fa fa-plus fa-lg',
 

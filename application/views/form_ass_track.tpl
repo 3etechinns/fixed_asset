@@ -84,7 +84,8 @@
                         </label>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <input placeholder="Enter {$ass_track_fields.date_returned}" class="form-control date-picker"
+                                <input placeholder="Enter {$ass_track_fields.date_returned}"
+                                       class="form-control date-picker"
                                        type="text"
                                        maxlength="50"
                                        value="{if isset($ass_track_data)}{$ass_track_data.date_returned}{/if}"
@@ -124,7 +125,8 @@
                                    required="required"
                                    class="form-control" type="text"
                                    maxlength="50" value="{if isset($ass_track_data)}{$ass_track_data.ass_emp_id}{/if}"
-                                   name="ass_emp_id" id="ass_emp_id"/>
+                                   name="ass_emp_id"
+                                   id="ass_emp_id"/>
                         </div>
 
                     </div>
@@ -144,11 +146,12 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"
                                for="payment_date">{$ass_track_fields.payment_date}
-                            <span class="error">*</span>
+                            {*<span class="error">*</span>*}
                         </label>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <input placeholder="Enter {$ass_track_fields.payment_date}" class="form-control date-picker"
+                                <input placeholder="Enter {$ass_track_fields.payment_date}"
+                                       class="form-control date-picker"
                                        type="text"
                                        maxlength="50"
                                        value="{if isset($ass_track_data)}{$ass_track_data.payment_date}{/if}"
@@ -161,7 +164,8 @@
                         </div>
 
                     </div>
-
+                    <input type="text" name="reciverHiddenId" id="reciverHiddenId" style="display: none;">
+                    <input type="text" name="employeHiddenId" id="employeHiddenId" style="display: none;">
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="Asset_ass_id">{$ass_track_fields.Asset_ass_id}<span
@@ -192,25 +196,18 @@
     </div>
 </div><!-- .content -->
 </div><!-- .block -->
-<body>
-<div class="bgcolor">
-    <label class="demo-label">Search Country:</label><br/>
-    <input type="text"
-           name="firstName"
-           id="txtCountry"
-           class="typeahead"/>
-</div>
-</body>
-{*<script type="application/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>*}
-<script src="{$config.base_url}assets/js/jquery-3.3.1.min.js" type="application/javascript"></script>
-<script src="{$config.base_url}assets/js/typeahead.js" type="application/javascript"></script>
+
+
+
 <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 
-</>
+
+
+</body>
 <script>
     $(function () {
         $('#formContainer').hide();
@@ -220,7 +217,7 @@
             if (type == 'transfer') {
                 $('#formContainer').show();
                 $('#dateReturned').hide();
-                $('#dateReturned').val()=='';
+                $('#dateReturned').val() == '';
                 $('#dateTransferred').show();
                 $('#save').prop('disabled', false);
 
@@ -229,7 +226,7 @@
                 $('#formContainer').show();
                 $('#dateReturned').show();
                 $('#dateTransferred').hide();
-                $('#dateTransferred').val()=="";
+                $('#dateTransferred').val() == "";
                 $('#save').prop('disabled', false);
             }
             else {
@@ -241,6 +238,7 @@
 
         });
 
+
     });
 
     $(function () {
@@ -250,41 +248,57 @@
         });
     });
 
-    $(document).ready(function () {
-        $('#txtCountry').typeahead({
-            source: function (query, result) {
-                $.ajax({
-                    url: "http://localhost/fixed_asset/ass_track/searchEmployeeForAutocomplete",
-                    data: 'query=' + query,
-                    dataType: "json",
-                    type: "POST",
-                    success: function (data) {
-                        //  console.log(data);
 
-                        result($.map(data, function (item) {
-//                          return item.value;
-                            return item;
-                        }));
-                    }
-                });
-            }
-        });
+    var fullName = [];
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost/fixed_asset/ass_track/searchEmployeeForAutocomplete",
+//        data: data,
+        dataType: 'json',
+        success: function (result) {
+//            for (i = 0; i < result.length; i++) {
+//                //req[i] = result[i].firstName + "  " + result[i].lastName;
+//            }
+            console.log(result);
+            $("#ass_emp_id").autocomplete({
+                //   source: url,
+                source: result,
+                select: function (event, ui) {
+                    //  $("#txtAllowSearch").val(ui.item.value); // display the selected text
+                    $("#employeHiddenId").val(ui.item.id); // save selected id to hidden input
+                }
+            });
+            $("#receiving_employee_id").autocomplete({
+                source: result,
+                select: function (event, ui) {
+                    // $("#txtAllowSearch").val(ui.item.value); // display the selected text
+                    $("#reciverHiddenId").val(ui.item.id); // save selected id to hidden input
+                }
+            });
+            console.log(fullName);
+//            return;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            error({
+                jqXHR: jqXHR,
+                textStatus: textStatus,
+                errorThrown: errorThrown
+            });
+        }
     });
 
 
+    {*var e = [][{"label":"PHP","value":"1"},{"label":"Java","value":"2"}]*}
+
+    {*$(".receiving_employee_id").autocomplete({*}
+    {*source: e,select: function( event, ui ) {*}
+    {*event.preventDefault();*}
+    {*$('.jquery-autocomplete').val(ui.item.label);*}
+    {*console.log(ui.item.label);*}
+    {*console.log(ui.item.value);*}
+    {*}*}
+    //    });
 </script>
-</script>
-
-<style>
-    .btn.disabled, .btn[disabled] {
-        cursor: hand;
-        background-image: none;
-        opacity: 0.65;
-        filter: alpha(opacity=65);
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
 
 
-    }
-</style>

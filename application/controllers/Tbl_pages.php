@@ -122,7 +122,7 @@ class Tbl_pages extends MY_Controller
                     $errors = validation_errors();
                     
                     
-                    
+
                     
               		$this->template->assign( 'errors', $errors );
               		$this->template->assign( 'action_mode', 'create' );

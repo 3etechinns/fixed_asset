@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:24:36
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 19:25:05
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_tbl_permission.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:114985a781fd027ef38-77484807%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3b6b8178bf9adcb395692b1fb22d6eaa1c916ed5' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_tbl_permission.tpl',
-      1 => 1517948675,
+      1 => 1518204302,
       2 => 'file',
     ),
   ),
@@ -112,9 +112,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                             <a href="tbl_permission/show/<?php echo $_smarty_tpl->tpl_vars['row']->value['pm_id'];?>
 " class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             <a href="tbl_permission/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['pm_id'];?>
-" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+" class="btn btn-primary btn-xs"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                              <a href="javascript:chk('tbl_permission/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['pm_id'];?>
-')" class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+')" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                              </div>
                                             </td>
                                         </tr>
@@ -124,7 +124,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                             <div class="actions-bar wat-cf">
                                 <div class="actions">
                                     <button class="btn btn-danger btn-xs" type="submit">
-                                       <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                       <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                                     </button>
                                     <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                                     <a href="tbl_permission/index/0/all" class="btn btn-xs btn-success show-all"><i lass="fa fa-eye"></i> Show All</a>

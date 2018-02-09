@@ -59,12 +59,14 @@ class Asset extends MY_Controller
      */
     function show($id)
     {
+
+
         $data = $this->model_asset->get($id);
         $assTrackData = $this->Model_ass_track->assetTrackDetail($id);
-
         $st = $this->Model_depreciation->depreciationDetailById($id);
+        $checkAssetAvailability = $this->model_asset->checkAssetAvailability($id);
+//        var_dump($checkAssetAvailability);
 
-        // var_dump($assTrackData);
         if (isset($data) && !empty($data)) {
             $fields = $this->model_asset->fields(TRUE);
             $dep_fields = $this->Model_depreciation->fields(TRUE);
@@ -80,6 +82,7 @@ class Asset extends MY_Controller
             $this->template->assign('asset_data', $data);
             $this->template->assign('deep_data', $st);
             $this->template->assign('ass_track_data', $assTrackData);
+            $this->template->assign('checkAssetAvailability', $checkAssetAvailability);
 
             $this->template->assign('table_name', lang('asset'));
             $this->template->assign('template', 'show_asset');

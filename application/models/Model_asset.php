@@ -48,6 +48,7 @@ class Model_asset extends MY_Model
 
         $query = $this->db->get();
 
+
         if ($query->num_rows() > 0) {
             $row = $query->row_array();
             return array(
@@ -70,6 +71,7 @@ class Model_asset extends MY_Model
         } else {
             return array();
         }
+        $this->db->close();
     }
 
 
@@ -166,6 +168,7 @@ class Model_asset extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
 
@@ -234,6 +237,7 @@ class Model_asset extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
     function related_status()
@@ -241,6 +245,7 @@ class Model_asset extends MY_Model
         $this->db->select('status_id AS status_id, status AS status_name');
         $rel_data = $this->db->get('status');
         return $rel_data->result_array();
+        $this->db->close();
     }
 
     function asset_category()
@@ -248,6 +253,7 @@ class Model_asset extends MY_Model
         $this->db->select('cat_id AS cat_id, cat_name AS category');
         $cat_data = $this->db->get('asset_category');
         return $cat_data->result_array();
+        $this->db->close();
     }
 
 
@@ -313,28 +319,47 @@ class Model_asset extends MY_Model
 
     function assetCounterBasedOnCategory()
     {
-        $sql = "call `assetCountBasedOnCategory` ()";
-        $data = $this->db->query($sql);
-
-        foreach ($data->result_array() as $row) {
-            $temp_result[] = array(
-                'cat_id' => $row['cat_id'],
-                'cat_code' => $row['cat_code'],
-                'cat_name' => $row['cat_name'],
-                'quantity' => $row['quantity'],
-                'depriciation_life' => $row['depriciation_life'],
-            );
+        try {
+            $this->db->reconnect();
+            $sql = "call `assetCountBasedOnCategory` ()";
+            $data = $this->db->query($sql);
+            foreach ($data->result_array() as $row) {
+                $temp_result[] = array(
+                    'cat_id' => $row['cat_id'],
+                    'cat_code' => $row['cat_code'],
+                    'cat_name' => $row['cat_name'],
+                    'quantity' => $row['quantity'],
+                    'depriciation_life' => $row['depriciation_life'],
+                );
+            }
+            $this->db->close();
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
         return $temp_result;
-        $this->db->close();
 
 
     }
 
 
-
     function totalDisposed()
     {
         return $this->db->where(array('status_status_id' => 6))->from('asset')->count_all_results();
+    }
+
+    function checkAssetAvailability($id)
+    {
+        $sql = "call `checkAssetAvailability` (?)";
+        $data = $this->db->query($sql, $id);
+
+        foreach ($data->result_array() as $row) {
+            $temp_result[] = array(
+                'status' => $row['status'],
+            );
+        }
+        $this->db->flush_cache();
+        return $temp_result;
+        $this->db->close();
+
     }
 }
