@@ -56,6 +56,7 @@ class CommonDashboard extends MY_Controller
         $totalDisposed = $this->model_asset->totalDisposed();
         $currentlyAsset = $this->Model_ass_track->recentAssetTrack();
 //        var_dump($currentlyAsset);
+//        exit();
         $quantity = $this->model_asset->assetCounterBasedOnCategory();
         $this->template->assign('quantity', $quantity);
         $this->template->assign('currentlyAsset', $currentlyAsset);

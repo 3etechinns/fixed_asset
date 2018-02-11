@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 18:22:17
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-11 22:50:18
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_ass_track.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:197575a77e1bba981f7-69830372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:256655a80c8aa6e4a61-31607132%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '499b2212818ddc78dcc7a85d0ba10fc3dfb4a5be' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_ass_track.tpl',
-      1 => 1518200527,
+      1 => 1518384024,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '197575a77e1bba981f7-69830372',
+  'nocache_hash' => '256655a80c8aa6e4a61-31607132',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a77e1bbc9ce3',
   'variables' => 
   array (
     'search_form' => 0,
@@ -29,8 +27,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a80c8aa7f8bc',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a77e1bbc9ce3')) {function content_5a77e1bbc9ce3($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a80c8aa7f8bc')) {function content_5a80c8aa7f8bc($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
 <div class="panel panel-default">
     <div  id="download" class="col-md-1 col-lg-push-11">
@@ -110,9 +110,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 </td>
                             <td><?php echo $_smarty_tpl->tpl_vars['row']->value['Asset_ass_id'];?>
 </td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_emp_id'];?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['employee_full_name'];?>
 </td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['receiving_employee_id'];?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['reciver_full_name'];?>
 </td>
 
                             <td>

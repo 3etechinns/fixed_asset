@@ -20,7 +20,7 @@ div.dataTables_wrapper div.dataTables_paginate {
     padding: 10px 15px !important;
     border: 1px solid #ddd !important;
     font-size: 17px;
-    font-family: Algerian;
+    font-family: "Baskerville Old Face";
     font-style: normal;
     /*border-top-right-radius: 3px*/
 }
@@ -361,8 +361,7 @@ table {
 
 .table > thead > tr:first-child {
     color: #222d32 !important;
-    font-family: "Tw Cen MT Condensed Extra Bold" !important;
-    font-size: 14px;
+    font-family: "Baskerville Old Face";    font-size: 14px;
     font-weight: bold;
 
     background-color: #f9f9f9 !important;

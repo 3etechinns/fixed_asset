@@ -389,6 +389,7 @@ class Asset extends MY_Controller
 
     function assetCounterBasedOnCategory()
     {
+        $this->db->reconnect();
         $sql = "call `assetCounterByStatus` ()";
         $data = $this->db->query($sql);
         $temp_result = Array();

@@ -53,8 +53,8 @@
                             </td>
                             <td>{$row.payment_date}</td>
                             <td>{$row.Asset_ass_id}</td>
-                            <td>{$row.ass_emp_id}</td>
-                            <td>{$row.receiving_employee_id}</td>
+                            <td>{$row.employee_full_name}</td>
+                            <td>{$row.reciver_full_name}</td>
 
                             <td>
                                 <div class="row-actions">

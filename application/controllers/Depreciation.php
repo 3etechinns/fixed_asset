@@ -57,6 +57,7 @@ class Depreciation extends MY_Controller
     function show($id)
     {
         $data = $this->model_depreciation->get($id);
+
         if (isset($data) && !empty($data)) {
             $fields = $this->model_depreciation->fields(TRUE);
 

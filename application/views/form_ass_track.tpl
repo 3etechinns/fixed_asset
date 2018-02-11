@@ -110,8 +110,9 @@
                                    type="text"
                                    required="required"
                                    maxlength="50"
-                                   value="{if isset($ass_track_data)}{$ass_track_data.receiving_employee_id}{/if}"
-                                   name="receiving_employee_id"
+                                   value="{if isset($ass_track_data)}{$ass_track_data.reciver_full_name}{/if}"
+                                   name="
+"
                                    id="receiving_employee_id"/>
                         </div>
 
@@ -124,7 +125,7 @@
                             <input placeholder="Enter {$ass_track_fields.ass_emp_id}"
                                    required="required"
                                    class="form-control" type="text"
-                                   maxlength="50" value="{if isset($ass_track_data)}{$ass_track_data.ass_emp_id}{/if}"
+                                   maxlength="50" value="{if isset($ass_track_data)}{$ass_track_data.employee_full_name}{/if}"
                                    name="ass_emp_id"
                                    id="ass_emp_id"/>
                         </div>
@@ -164,7 +165,7 @@
                         </div>
 
                     </div>
-                    <input type="text" name="reciverHiddenId" id="reciverHiddenId" style="display: none;">
+                    <input type="text" name="reciverHiddenId" id="reciverHiddenId"  style="display: none;">
                     <input type="text" name="employeHiddenId" id="employeHiddenId" style="display: none;">
 
                     <div class="form-group">

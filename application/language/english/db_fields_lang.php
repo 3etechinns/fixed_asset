@@ -66,9 +66,9 @@ $lang['dep_amount'] = ' Amount';
 $lang['dep_status'] = ' Status';
 $lang['dep_description'] = 'Description';
 $lang['dep_commnet'] = 'Commnet';
-$lang['asset_ass_id'] = 'Asset Id';
-$lang['book_value'] = 'book value';
-$lang['accumulative_value'] = 'accumulative value';
+$lang['asset_ass_id'] = 'Asset Serial ';
+$lang['book_value'] = 'Book Value';
+$lang['accumulative_value'] = 'Accumulative Value';
 
 
 /*************************

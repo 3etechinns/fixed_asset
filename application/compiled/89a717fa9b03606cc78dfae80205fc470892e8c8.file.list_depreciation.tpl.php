@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-09 18:22:15
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-11 22:49:57
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_depreciation.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14275a776a234c2f26-09513040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:269675a80c895884981-97775991%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '89a717fa9b03606cc78dfae80205fc470892e8c8' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_depreciation.tpl',
-      1 => 1518200527,
+      1 => 1518388826,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14275a776a234c2f26-09513040',
+  'nocache_hash' => '269675a80c895884981-97775991',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a776a2359ce7',
   'variables' => 
   array (
     'search_form' => 0,
@@ -29,8 +27,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a80c8959c99f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a776a2359ce7')) {function content_5a776a2359ce7($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a80c8959c99f')) {function content_5a80c8959c99f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
 <div class="panel panel-default">
     <div  id="download" class="col-md-1 col-lg-push-11">
@@ -49,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <?php if (!empty($_smarty_tpl->tpl_vars['depreciation_data']->value)){?>
         <form action="depreciation/delete" method="post" id="listing_form">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover exportable" id="depreciation" name="depreciation">
+                <table class="table table-bordered table-hover exportable" id="dep" name="depreciation">
                     <thead>
                     <th>No</th>
                     
@@ -65,8 +65,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </th>
                     <th><?php echo $_smarty_tpl->tpl_vars['depreciation_fields']->value['asset_ass_id'];?>
 </th>
-                    <th> Book Value</th>
-                    <th>Accumulative Value</th>
+                    <th> <?php echo $_smarty_tpl->tpl_vars['depreciation_fields']->value['book_value'];?>
+</th>
+                    <th><?php echo $_smarty_tpl->tpl_vars['depreciation_fields']->value['accumulative_value'];?>
+</th>
 
                     <th style="width:180px;">Actions</th>
                     </thead>
@@ -144,9 +146,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 
 <script>
     $(document).ready(function () {
-        $('.table').DataTable();
+//
 
-        $('#depreciation tr').each(function () {
+        $('#dep tr').each(function () {
 
             var amount = $(this).find("#amount").text();
             var bookvalue = $(this).find("#bookValue").text();
@@ -164,7 +166,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
             $(this).find("#accumulativeValue").html(accumulativeValueFormatted);
 
         });
-
+        $('.table').DataTable();
     });
 
 

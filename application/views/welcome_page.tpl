@@ -67,7 +67,7 @@
 
                                         <table class="table table-bordered exportable table-hover"
                                                name="activityReport" id="table" data-height="400" data-sort-order="desc"
->
+                                        >
                                             <thead>
                                             <tr>
                                                 <th style="width: 20px !important;">
@@ -79,7 +79,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="admin">
-                                                    <div class="th-inner ">Asset serial</div>
+                                                    <div class="th-inner ">Asset Name</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="action_type">
@@ -88,7 +88,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-3" style="" data-field="item">
-                                                    <div class="th-inner ">Item</div>
+                                                    <div class="th-inner ">Serial Number</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
 
@@ -101,11 +101,12 @@
                                                 <tr data-index="0">
                                                     <td style="width: 20px !important;">{$i++}</td>
                                                     <td class="col-sm-3" style="">{$row.recentDate}</td>
-                                                    <td class="col-sm-2" style=""></td>
-                                                    <td class="col-sm-2" style="">{$row.ass_emp_id}</td>
+                                                    <td class="col-sm-2" style="">{$row.ass_name}</td>
+                                                    <td class="col-sm-2" style="">{$row.reciver_full_name}</td>
                                                     <td class="col-sm-3" style="">
                                                         <nobr><i class="fa fa-barcode text-blue"></i>
-                                                            {$row.Asset_ass_id}
+
+                                                            {$row.ass_serial_number}
                                                         </nobr>
                                                     </td>
 

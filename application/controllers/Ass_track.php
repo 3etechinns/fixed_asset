@@ -122,6 +122,8 @@ class Ass_track extends MY_Controller
                 $data_post['Asset_ass_id'] = $this->input->post('Asset_ass_id');
                 $data_post['ass_emp_id'] = $this->input->post('employeHiddenId');
                 $data_post['receiving_employee_id'] = $this->input->post('reciverHiddenId');
+                $data_post['reciver_full_name'] = $this->input->post('receiving_employee_id');
+                $data_post['employee_full_name'] = $this->input->post('ass_emp_id');
 
                 if ($this->form_validation->run() == FALSE) {
                     $errors = validation_errors();

@@ -56,7 +56,7 @@
 
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_purchase_price}:</td>
-                            <td>{$asset_data.ass_purchase_price}</td>
+                            <td id="price">{{$asset_data.ass_purchase_price}}</td>
                         </tr>
 
                     </table>
@@ -206,29 +206,39 @@
 <style>
 
 
-
-
 </style>
 
 <script>
     $(document).ready(function () {
 //        $('.table').DataTable();
+
+        var nf = new Intl.NumberFormat();
+        var PurchasePrice = $(this).find("#price").text();
+        var PurchasePriceFormatted = nf.format(PurchasePrice);
+        $(this).find("#price").html(PurchasePriceFormatted);
+
         $('#dep tr').each(function () {
 
-            var amount = $(this).find("#amount").text();
+            var amount = $(this).find("#Amount").text();
             var bookvalue = $(this).find("#bookValue").text();
             var accumulativeValue = $(this).find("#accumulativeValue").text();
 
 
-            var nf = new Intl.NumberFormat();
+
+
+
 
             var amountFormatted = nf.format(amount);
             var bookvalueFormatted = nf.format(bookvalue);
             var accumulativeValueFormatted = nf.format(accumulativeValue);
 
-            $(this).find("#amount").html(amountFormatted);
+
+
             $(this).find("#bookValue").html(bookvalueFormatted);
             $(this).find("#accumulativeValue").html(accumulativeValueFormatted);
+            $(this).find("#Amount").html(amountFormatted);
+
+
 
         });
     });
