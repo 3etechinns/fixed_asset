@@ -19,7 +19,7 @@
 
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{$config.base_url}assets/css/jquery-ui.css">
     {*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*}
     <script src="{$config.base_url}assets/jQueryUI/jquery-ui.js"></script>
 
@@ -158,7 +158,7 @@
                                 href='asset_category'><i class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
-                        <a href='depreciation'><i class='fa fa-briefcase'></i><span>Depreciation</span></a>
+                        <a href='depreciation'><i class='fa fa-arrow-circle-down'></i><span>Depreciation</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Fixed Asset Track'} class='active'{/if}{/if}><a
                                 href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a></li>

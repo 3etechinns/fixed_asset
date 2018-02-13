@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-11 22:45:28
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-13 12:06:55
          compiled from "C:\wamp64\www\fixed_asset\application\views\frame_admin.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:269555a80c788c6b854-22077257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21195a82d4dfc23de9-52182280%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0087fa8cdc950bd170f44aaac5e7caaf554de7bc' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\frame_admin.tpl',
-      1 => 1518203008,
+      1 => 1518426057,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '269555a80c788c6b854-22077257',
+  'nocache_hash' => '21195a82d4dfc23de9-52182280',
   'function' => 
   array (
   ),
@@ -31,9 +31,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a80c78900270',
+  'unifunc' => 'content_5a82d4e002ded',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a80c78900270')) {function content_5a80c78900270($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if ($_valid && !is_callable('content_5a82d4e002ded')) {function content_5a82d4e002ded($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -61,7 +61,8 @@ assets/dist/css/skins/skin-blue.css" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
+assets/css/jquery-ui.css">
     
     <script src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
 assets/jQueryUI/jquery-ui.js"></script>
@@ -209,7 +210,7 @@ logout"><i class="fa fa-sign-out"></i> Sign
                                 href='asset_category'><i class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Depreciation'){?> class='active'<?php }?><?php }?>>
-                        <a href='depreciation'><i class='fa fa-briefcase'></i><span>Depreciation</span></a>
+                        <a href='depreciation'><i class='fa fa-arrow-circle-down'></i><span>Depreciation</span></a>
                     </li>
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Fixed Asset Track'){?> class='active'<?php }?><?php }?>><a
                                 href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a></li>
