@@ -177,11 +177,12 @@ class Model_asset extends MY_Model
     {
         $meta = $this->metadata();
         $this->db->start_cache();
-        $this->db->select('ass_id,ass_name,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_date_sold,ass_purchase_price,ass_dep_method,model_number,ass_dep_life,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id');
+        $this->db->select('ass_id,ass_name,ass_model,ass_serial_number,ass_barcode_number,ass_date_acquired,ass_purchase_price,model_number,ass_cat_id,ass_comment,ass_description,status.status AS status_status_id,asset_category.cat_name as ass_cat_id,asset_category.cat_status as sub_category,isAvailable');
         $this->db->from('asset');
+        $this->db->order_by('ass_id', 'DESC');
+
         $this->db->join('status', 'asset.status_status_id = status.status_id', 'left');
         $this->db->join('asset_category', 'asset.ass_cat_id = asset_category.cat_id', 'left');
-
         $ownerFieldName = '';
         $this->selectByOwner($ownerFieldName);
         // Delete this line after setting up the search conditions
@@ -226,14 +227,13 @@ class Model_asset extends MY_Model
                 'ass_serial_number' => $row['ass_serial_number'],
                 'isAvailable' => $row['isAvailable'],
                 'ass_date_acquired' => $row['ass_date_acquired'],
-                'ass_date_sold' => $row['ass_date_sold'],
                 'ass_purchase_price' => $row['ass_purchase_price'],
 //                'ass_dep_method' => $row['ass_dep_method'],
                 'model_number' => $row['model_number'],
-//                'ass_dep_life' => $row['ass_dep_life'],
                 'ass_cat_id' => $row['ass_cat_id'],
                 'ass_comment' => $row['ass_comment'],
                 'ass_description' => $row['ass_description'],
+                'sub_category' => $row['sub_category'],
                 'status_status_id' => $row['status_status_id'],
             );
         }
