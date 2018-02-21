@@ -21,13 +21,14 @@
                     <th></th>
                     <th>{$ass_track_fields.date_trasferred}</th>
                     <th>{$ass_track_fields.date_returned}</th>
-                    <th>{$ass_track_fields.penality_amount}</th>
+                    {*<th>{$ass_track_fields.penality_amount}</th>*}
                     <th>{$ass_track_fields.status}</th>
-                    <th>{$ass_track_fields.payment_status}</th>
-                    <th>{$ass_track_fields.payment_date}</th>
+                    {*<th>{$ass_track_fields.payment_status}</th>*}
+                    {*<th>{$ass_track_fields.payment_date}</th>*}
                     <th>{$ass_track_fields.Asset_ass_id}</th>
                     <th>{$ass_track_fields.ass_emp_id}</th>
                     <th>{$ass_track_fields.receiving_employee_id}</th>
+                    <th>{$ass_track_fields.track_model_number}</th>
 
                     <th style="width:180px;">Actions</th>
                     </thead>
@@ -40,21 +41,22 @@
                                        value="{$row.ass_track_id}"/></td>
                             <td>{$row.date_trasferred}</td>
                             <td>{$row.date_returned}</td>
-                            <td>{$row.penality_amount}</td>
+                            {*<td>{$row.penality_amount}</td>*}
                             <td>{$row.status}</td>
-                            <td>{if $row.payment_status eq 1}
+                            {*<td>{if $row.payment_status eq 1}*}
 
-                                    payed
+                                    {*payed*}
 
-                                    {else}
-                                    Null
+                                    {*{else}*}
+                                    {*Null*}
 
-                                {/if}
-                            </td>
-                            <td>{$row.payment_date}</td>
+                                {*{/if}*}
+                            {*</td>*}
+                            {*<td>{$row.payment_date}</td>*}
                             <td>{$row.Asset_ass_id}</td>
                             <td>{$row.employee_full_name}</td>
                             <td>{$row.reciver_full_name}</td>
+                            <td>{$row.track_model_number}</td>
 
                             <td>
                                 <div class="row-actions">

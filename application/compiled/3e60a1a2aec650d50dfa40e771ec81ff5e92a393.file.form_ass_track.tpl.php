@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-13 12:22:02
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:11:58
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_ass_track.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:226445a82d4e0052544-20345235%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:58815a8c654831b7e3-19366463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3e60a1a2aec650d50dfa40e771ec81ff5e92a393' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_ass_track.tpl',
-      1 => 1518524519,
+      1 => 1519247515,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '226445a82d4e0052544-20345235',
+  'nocache_hash' => '58815a8c654831b7e3-19366463',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a82d4e02216c',
+  'unifunc' => 'content_5a8c654853886',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -30,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a82d4e02216c')) {function content_5a82d4e02216c($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5a8c654853886')) {function content_5a8c654853886($_smarty_tpl) {?><div class="panel panel-default">
     <div class="panel-body">
         <a href="ass_track" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i> Listing</a>
         <a class="<?php if ($_smarty_tpl->tpl_vars['action_mode']->value=='create'){?>active<?php }?> btn btn-sm btn-success" href="ass_track/create/"> <i
@@ -100,7 +100,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
             </div>
             <div id="formContainer" class="col-sm-12">
+
+
                 <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"
+                               for="track_model_number"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['track_model_number'];?>
+
+                            <span
+                                    class="error">*</span></label>
+                        <div class="col-md-6">
+                            <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['track_model_number'];?>
+" class="form-control"
+                                   type="text"
+                                   required="required"
+                                   maxlength="50"
+                                   value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['track_model_number'];?>
+<?php }?>"
+                                   name="track_model_number"
+                                   id="track_model_number"/>
+                        </div>
+
+                    </div>
 
                     <div id="dateTransferred" class="form-group">
                         <label class="col-md-4 control-label"
@@ -114,14 +135,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "
                                        class="date-picker form-control"
                                        type="text"
-
+                                       readonly
                                        maxlength="50"
                                        value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['date_trasferred'];?>
 <?php }?>"
                                        name="date_trasferred"
                                        id="date_trasferred"/>
                                 <label for="date"
-                                       class="input-group-addon btn group-white">
+                                       class="date-picker  input-group-addon btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>
@@ -141,12 +162,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "
                                        class="form-control date-picker"
                                        type="text"
+                                       readonly
                                        maxlength="50"
                                        value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['date_returned'];?>
 <?php }?>"
                                        name="date_returned" id="date_returned"/>
                                 <label for="date_returned"
-                                       class="input-group-addon btn group-white">
+                                       class="input-group-addon date-picker btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>
@@ -154,26 +176,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                     </div>
 
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"
-                               for="Asset_ass_id"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['receiving_employee_id'];?>
-
-                            <span
-                                    class="error">*</span></label>
-                        <div class="col-md-6">
-                            <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['receiving_employee_id'];?>
-" class="form-control"
-                                   type="text"
-                                   required="required"
-                                   maxlength="50"
-                                   value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['reciver_full_name'];?>
-<?php }?>"
-                                   name="receiving_employee_id"
-                                   id="receiving_employee_id"/>
-                        </div>
-
-                    </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="Asset_ass_id"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['ass_emp_id'];?>
@@ -196,37 +198,53 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['payment_status'];?>
-</label>
-                        <div class="col-md-6">
-                            <label class="form-control">
-                                <input type="checkbox" value="1" name="payment_status"
-                                       id="payment_status" <?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php if ($_smarty_tpl->tpl_vars['ass_track_data']->value['payment_status']==1){?> checked="checked" <?php }?><?php }?> /></label>
+                    
+                    
+                    
+                    
+                    
+                    
 
-                        </div>
-                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+
                     <div class="form-group">
                         <label class="col-md-4 control-label"
-                               for="payment_date"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['payment_date'];?>
+                               for="Asset_ass_id"><?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['receiving_employee_id'];?>
 
-                            
-                        </label>
+                            <span
+                                    class="error">*</span></label>
                         <div class="col-md-6">
-                            <div class="input-group">
-                                <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['payment_date'];?>
-"
-                                       class="form-control date-picker"
-                                       type="text"
-                                       maxlength="50"
-                                       value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['payment_date'];?>
+                            <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['ass_track_fields']->value['receiving_employee_id'];?>
+" class="form-control"
+                                   type="text"
+                                   required="required"
+                                   maxlength="50"
+                                   value="<?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['ass_track_data']->value['reciver_full_name'];?>
 <?php }?>"
-                                       name="payment_date" id="payment_date"/>
-                                <label for="payment_date"
-                                       class="input-group-addon btn group-white">
-                                    <span class="glyphicon glyphicon-calendar">
-                                    </span>
-                            </div>
+                                   name="receiving_employee_id"
+                                   id="receiving_employee_id"/>
                         </div>
 
                     </div>
@@ -238,7 +256,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <span
                                     class="error">*</span></label>
                         <div class="col-md-6">
-                            <select class="form-control field select addr" name="Asset_ass_id" id="Asset_ass_id"
+                            <select data-live-search="true" class="selectpicker form-control field select addr"
+                                    name="Asset_ass_id" id="Asset_ass_id"
                                     required="required">
                                 <option value="">Select One</option>
                                 <?php  $_smarty_tpl->tpl_vars['rel'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['rel']->_loop = false;
@@ -271,14 +290,16 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
 </div><!-- .block -->
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+
+
 
 
 </body>
 <script>
+
+
     $(function () {
 //        $('#formContainer').hide();
 
@@ -286,8 +307,9 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
             var type = $('#status').val();
             if (type == 'transfer') {
                 $('#formContainer').show();
-                $('#dateReturned').hide();
                 $('#dateReturned').val() == '';
+                $('#dateReturned').hide();
+
                 $('#dateTransferred').show();
                 $('#save').prop('disabled', false);
 
@@ -295,8 +317,9 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
             else if (type == 'return') {
                 $('#formContainer').show();
                 $('#dateReturned').show();
-                $('#dateTransferred').hide();
                 $('#dateTransferred').val() == "";
+                $('#dateTransferred').hide();
+
                 $('#save').prop('disabled', false);
             }
             else {
@@ -313,7 +336,7 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
 
     $(function () {
         $(".date-picker").datepicker({
-            format: "yyyy-mm-dd",
+            dateFormat: "yy-mm-dd"
 
         });
     });
@@ -322,7 +345,7 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
     var fullName = [];
     $.ajax({
         type: 'GET',
-        url: "http://localhost/fixed_asset/ass_track/searchEmployeeForAutocomplete",
+        url: "http://localhost:8080/fixed_asset/ass_track/searchEmployeeForAutocomplete",
 //        data: data,
         dataType: 'json',
         success: function (result) {

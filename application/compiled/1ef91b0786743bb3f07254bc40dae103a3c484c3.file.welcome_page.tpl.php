@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-13 12:12:53
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 11:52:49
          compiled from "C:\wamp64\www\fixed_asset\application\views\welcome_page.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:86005a82d645b59998-28270080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:253655a8c5d8d0c5963-84950864%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1ef91b0786743bb3f07254bc40dae103a3c484c3' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\welcome_page.tpl',
-      1 => 1518388103,
+      1 => 1519213966,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86005a82d645b59998-28270080',
+  'nocache_hash' => '253655a8c5d8d0c5963-84950864',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a8c5d8d1f3e7',
   'variables' => 
   array (
     'total_asset' => 0,
@@ -27,10 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'quantity' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a82d645c5487',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a82d645c5487')) {function content_5a82d645c5487($_smarty_tpl) {?><div class="row">
+<?php if ($_valid && !is_callable('content_5a8c5d8d1f3e7')) {function content_5a8c5d8d1f3e7($_smarty_tpl) {?><div class="row">
     <div class="col-md-12">
         <div class="col-md-4">
             <div class="small-box bg-teal">
@@ -52,13 +52,13 @@ asset" class="small-box-footer">More Info <i
                 <div class="inner">
                     <h3><?php echo $_smarty_tpl->tpl_vars['total_disposed']->value;?>
 </h3>
-                    <p>Total Disposed</p>
+                    <p>Total Asset In Store</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-floppy-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More Info <i
-                            class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"><i
+                            class="fa "></i></a>
             </div>
         </div>
         <div class="col-md-4">
@@ -213,9 +213,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <!-- Categories -->
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Asset Categories</h3>
+                        <h3 class="box-title">Asset  Sub Categories</h3>
                         <div class="box-tools pull-right">
-                            <a class="btn btn-file" id="exportToExcell">
+                            <a class="btn btn-file" id="exportToExcell2">
                                 <i class="fa fa-download"></i></a>
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                 <i
@@ -237,7 +237,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable table-responsive table-bordered"
+                                            <table class="table table-hover snipe-table exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -318,7 +318,7 @@ asset_category" class="btn btn-primary btn-sm"
 <!-- Plotly.js -->
 
 <!-- Numeric JS -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 
 <script>
 
@@ -338,7 +338,7 @@ asset_category" class="btn btn-primary btn-sm"
         var status = [];
         $.ajax({
             type: "GET",
-            url: 'http://localhost/fixed_asset/asset/assetCounterBasedOnCategory',
+            url: 'http://localhost:8080/fixed_asset/asset/assetCounterBasedOnCategory',
             dataType: 'json',
             success: function (response) {
                 for (var i = 0; i < response.length; i++) {

@@ -1,14 +1,14 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <a href="depreciation/edit/{$id}">
-            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
-        </a>
+        {*<a href="depreciation/edit/{$id}">*}
+            {*<button class="btn btn-primary btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>*}
+        {*</a>*}
         <a href="depreciation">
             <button class="btn btn-warning btn-xs"><i class="fa fa-list" aria-hidden="true"></i> Listing</button>
         </a>
-        <a href="depreciation/create/">
-            <button class="btn btn-primary btn-xs"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
-        </a>
+        {*<a href="depreciation/create/">*}
+            {*<button class="btn btn-primary btn-xs"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>*}
+        {*</a>*}
 
         <a class="btn-default btn btn-sm pull-right {if isset($direction)}{if $direction == 'right'}disabled{/if}{/if}"
            href="depreciation/navigate/right/{$id}/show"><i class="fa fa-arrow-right"></i></a>

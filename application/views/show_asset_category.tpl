@@ -24,7 +24,7 @@
             </div>
         {/if}
         <div class="col-sm-4 col-md-offset-1">
-            <table class="table table-bordered table-responsive table-striped">
+            <table class="table table-bordered table-responsive">
                 <thead>
                 <th width="50%">Field</th>
                 <th>Value</th>
@@ -41,45 +41,50 @@
                     <td>{$asset_category_fields.cat_name}:</td>
                     <td>{$asset_category_data.cat_name}</td>
                 </tr>
+
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.cat_description}:</td>*}
-                    {*<td>{$asset_category_data.cat_description}</td>*}
+                {*<td>{$asset_category_fields.cat_description}:</td>*}
+                {*<td>{$asset_category_data.cat_description}</td>*}
                 {*</tr>*}
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.cat_status}:</td>*}
-                    {*<td>{$asset_category_data.cat_status}</td>*}
+                {*<td>{$asset_category_fields.cat_status}:</td>*}
+                {*<td>{$asset_category_data.cat_status}</td>*}
                 {*</tr>*}
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.depriciation_life}:</td>*}
-                    {*<td>{$asset_category_data.depriciation_life}</td>*}
+                {*<td>{$asset_category_fields.depriciation_life}:</td>*}
+                {*<td>{$asset_category_data.depriciation_life}</td>*}
                 {*</tr>*}
             </table>
         </div>
         <div class="col-md-offset-1 col-sm-4">
-            <table class="table table-bordered table-responsive table-striped">
+            <table class="table table-bordered table-responsive">
                 <thead>
                 <th width="50%">Field</th>
                 <th>Value</th>
                 </thead>
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.cat_id}:</td>*}
-                    {*<td>{$asset_category_data.cat_id}</td>*}
+                {*<td>{$asset_category_fields.cat_id}:</td>*}
+                {*<td>{$asset_category_data.cat_id}</td>*}
                 {*</tr>*}
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.cat_code}:</td>*}
-                    {*<td>{$asset_category_data.cat_code}</td>*}
+                {*<td>{$asset_category_fields.cat_code}:</td>*}
+                {*<td>{$asset_category_data.cat_code}</td>*}
                 {*</tr>*}
                 {*<tr class="{cycle values='odd,even'}">*}
-                    {*<td>{$asset_category_fields.cat_name}:</td>*}
-                    {*<td>{$asset_category_data.cat_name}</td>*}
+                {*<td>{$asset_category_fields.cat_name}:</td>*}
+                {*<td>{$asset_category_data.cat_name}</td>*}
                 {*</tr>*}
                 <tr class="{cycle values='odd,even'}">
                     <td>{$asset_category_fields.cat_description}:</td>
                     <td>{$asset_category_data.cat_description}</td>
                 </tr>
                 <tr class="{cycle values='odd,even'}">
-                    <td>{$asset_category_fields.cat_status}:</td>
-                    <td>{$asset_category_data.cat_status}</td>
+                    <td>type:</td>
+                    <td>{if $asset_category_data.cat_status==1}
+                            Category
+                        {else}
+                            Subcategory
+                        {/if}</td>
                 </tr>
                 <tr class="{cycle values='odd,even'}">
                     <td>{$asset_category_fields.depriciation_life}:</td>

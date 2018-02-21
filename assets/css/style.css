@@ -92,11 +92,11 @@ span[class="error"] {
     text-align: right;
 }
 
-td > input {
-    width: 100%;
-    padding-left: 3px;
-    padding-right: 3px;
-}
+/*td > input {*/
+/*width: 100%;*/
+/*padding-left: 3px;*/
+/*padding-right: 3px;*/
+/*}*/
 
 td[class="td-width"] {
     width: 15%;

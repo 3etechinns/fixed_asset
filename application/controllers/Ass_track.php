@@ -14,6 +14,7 @@ class Ass_track extends MY_Controller
         $this->load->helper('url');
         $this->load->model('model_auth');
         $this->load->model('Model_employee');
+        $this->load->model('Model_asset');
         $this->lang->load('db_fields', 'english');
 
         //$this->logged_in = $this->model_auth->check( TRUE );
@@ -112,6 +113,7 @@ class Ass_track extends MY_Controller
                 $this->form_validation->set_rules('Asset_ass_id', lang('Asset_ass_id'), 'required|max_length[11]|integer');
                 $this->form_validation->set_rules('ass_emp_id', lang('ass_emp_id'), 'required|max_length[45]');
                 $this->form_validation->set_rules('receiving_employee_id', lang('receiving_employee_id'), 'required|max_length[45]');
+                $this->form_validation->set_rules('track_model_number', lang('track_model_number'), 'required|max_length[45]');
 
                 $data_post['date_trasferred'] = $this->input->post('date_trasferred');
                 $data_post['date_returned'] = $this->input->post('date_returned');
@@ -124,6 +126,9 @@ class Ass_track extends MY_Controller
                 $data_post['receiving_employee_id'] = $this->input->post('reciverHiddenId');
                 $data_post['reciver_full_name'] = $this->input->post('receiving_employee_id');
                 $data_post['employee_full_name'] = $this->input->post('ass_emp_id');
+                $data_post['track_model_number'] = $this->input->post('track_model_number');
+
+                $asset_id = $data_post['Asset_ass_id'];
 
                 if ($this->form_validation->run() == FALSE) {
                     $errors = validation_errors();
@@ -144,6 +149,10 @@ class Ass_track extends MY_Controller
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
                     $insert_id = $this->model_ass_track->insert($data_post);
+
+                    $asset_update = $this->Model_asset->updateAssetStatus($asset_id, $data_post['status']);
+
+
 
                     $this->session->set_userdata('msg_type', 'success');
                     $this->session->set_userdata('msg', 'New Record added Successfully!');
@@ -197,8 +206,8 @@ class Ass_track extends MY_Controller
                 $this->form_validation->set_rules('payment_status', lang('payment_status'), 'max_length[1]');
                 $this->form_validation->set_rules('payment_date', lang('payment_date'), 'max_length[15]');
                 $this->form_validation->set_rules('Asset_ass_id', lang('Asset_ass_id'), 'required|max_length[11]|integer');
-                $this->form_validation->set_rules('ass_emp_id', lang('ass_emp_id'), 'required|max_length[11]|integer');
-                $this->form_validation->set_rules('receiving_employee_id', lang('receiving_employee_id'), 'required|max_length[11]|integer');
+                $this->form_validation->set_rules('ass_emp_id', lang('ass_emp_id'), 'required|max_length[45]');
+                $this->form_validation->set_rules('receiving_employee_id', lang('receiving_employee_id'), 'required|max_length[45]');
 
                 $data_post['date_trasferred'] = $this->input->post('date_trasferred');
                 $data_post['date_returned'] = $this->input->post('date_returned');
@@ -207,6 +216,9 @@ class Ass_track extends MY_Controller
                 $data_post['payment_status'] = ($this->input->post('payment_status') == FALSE) ? 0 : $this->input->post('payment_status');
                 $data_post['payment_date'] = $this->input->post('payment_date');
                 $data_post['Asset_ass_id'] = $this->input->post('Asset_ass_id');
+                $data_post['track_model_number'] = $this->input->post('track_model_number');
+
+                $asset_id = $data_post['Asset_ass_id'];
 
                 if ($this->form_validation->run() == FALSE) {
                     $errors = validation_errors();
@@ -228,6 +240,7 @@ class Ass_track extends MY_Controller
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
                     $this->model_ass_track->update($id, $data_post);
+                    $asset_update = $this->Model_asset->updateAssetStatus($asset_id, $data_post['status']);
 
                     $this->session->set_userdata('msg_type', 'success');
                     $this->session->set_userdata('msg', 'Successfully Updated!');
@@ -325,7 +338,7 @@ class Ass_track extends MY_Controller
 //        $keyword = strval($_POST['query']);
 //        $search_param = "{$keyword}%";
         $data_info = $this->Model_employee->searchEmployee();
-        echo json_encode($data_info,JSON_NUMERIC_CHECK);
+        echo json_encode($data_info, JSON_NUMERIC_CHECK);
 
 
     }

@@ -47,13 +47,13 @@
 
     {*new*}
     {*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"*}
-          {*type="text/css"/>*}
+    {*type="text/css"/>*}
 
     <!-- Include Date Range Picker -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    {*<script type="text/javascript"*}
+    {*src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>*}
+    {*<link rel="stylesheet"*}
+    {*href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>*}
     <script type="application/javascript" src="{$config.base_url}assets/js/angular.min.js"></script>
     <script type="application/javascript" src="{$config.base_url}assets/js/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="{$config.base_url}assets/css/style.css"/>
@@ -61,7 +61,10 @@
     <script type="application/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="application/javascript"
             src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="{$config.base_url}assets/bootstrap/css/bootstrap-select.min.css"/>
+    {*<script src="{$config.base_url}assets/dropDownFilter/diacritics.js"></script>*}
+    <script src="{$config.base_url}assets/bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="{$config.base_url}assets/js/plotly-latest.min.js"></script>
 
 
     <script type="text/javascript">
@@ -155,16 +158,18 @@
                     <li{if isset($table_name)}{if $table_name == 'Asset'} class='active'{/if}{/if}><a href='asset'><i
                                     class='fa fa-archive'></i><span>Asset</span></a></li>
                     <li{if isset($table_name)}{if $table_name == 'Asset Category'} class='active'{/if}{/if}><a
-                                href='asset_category'><i class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
+                                href='asset_category'><i
+                                    class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>
                         <a href='depreciation'><i class='fa fa-arrow-circle-down'></i><span>Depreciation</span></a>
                     </li>
                     <li{if isset($table_name)}{if $table_name == 'Fixed Asset Track'} class='active'{/if}{/if}><a
-                                href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a></li>
+                                href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a>
+                    </li>
 
                     {*<li{if isset($table_name)}{if $table_name == 'Depreciation'} class='active'{/if}{/if}>*}
-                        {*<a href='depreciation'><i class='fa fa-list'></i><span>Disposed  Asset</span></a>*}
+                    {*<a href='depreciation'><i class='fa fa-list'></i><span>Disposed  Asset</span></a>*}
                     {*</li>*}
                     <li{if isset($table_name)}{if $table_name == 'Employee'} class='active'{/if}{/if}><a
                                 href='employee'><i class='fa fa-user-circle'></i><span>Employee</span></a></li>
@@ -184,13 +189,15 @@
                             <li{if isset($table_name)}{if $table_name == 'Tbl_pages'} class='active'{/if}{/if}><a
                                         href='tbl_pages'><i class='fa fa-adjust'></i><span>Pages</span></a></li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_permission'} class='active'{/if}{/if}><a
-                                        href='tbl_permission'><i class='fa fa-life-ring'></i><span>Permission</span></a></li>
+                                        href='tbl_permission'><i class='fa fa-life-ring'></i><span>Permission</span></a>
+                            </li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_reset_password'} class='active'{/if}{/if}>
                                 <a
                                         href='tbl_reset_password'><i class='fa fa-edit'></i><span>Reset Password</span></a>
                             </li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_roles'} class='active'{/if}{/if}><a
-                                        href='tbl_roles'><i class='fa fa-transgender-alt'></i><span>Roles</span></a></li>
+                                        href='tbl_roles'><i class='fa fa-transgender-alt'></i><span>Roles</span></a>
+                            </li>
                             <li{if isset($table_name)}{if $table_name == 'Tbl_users'} class='active'{/if}{/if}><a
                                         href='tbl_users'><i class='fa fa-users'></i><span>Users</span></a></li>
 
@@ -199,43 +206,39 @@
                     </li>
 
                     <li class="treeview">
-                        <a  href="#" >
+                        <a href="#">
                             <i class="fa fa-bar-chart"></i>
                             <span>Reports</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                         <ul class="treeview-menu menu-open" style="display: block;">
-                            <li>
-                                <a href="#">
-                                    Activity Report
-                                </a>
-                            </li>
 
-                            <li><a href="#">
-                                    Audit Log</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Depreciation Report
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="#">
-                                    Asset Maintenance Report
-                                </a>
+                            <li><a href="asset/assetReport">
+                                  Asset  Report</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Unaccepted Assets
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Custom Asset Report
-                                </a>
-                            </li>
+                            {*<li>*}
+                                {*<a href="#">*}
+                                    {*Depreciation Report*}
+                                {*</a>*}
+                            {*</li>*}
+
+                            {*<li>*}
+                            {*<a href="#">*}
+                            {*Asset Maintenance Report*}
+                            {*</a>*}
+                            {*</li>*}
+                            {*<li>*}
+                            {*<a href="#">*}
+                            {*Unaccepted Assets*}
+                            {*</a>*}
+                            {*</li>*}
+                            {*<li>*}
+                            {*<a href="#">*}
+                            {*Custom Asset Report*}
+                            {*</a>*}
+                            {*</li>*}
                         </ul>
                     </li>
                 </ul>

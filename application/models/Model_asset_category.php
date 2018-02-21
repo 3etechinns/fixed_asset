@@ -27,7 +27,7 @@ class Model_asset_category extends MY_Model
     function get($id, $get_one = false, $direction = false)
     {
 
-        $select_statement = ($this->raw_data) ? 'cat_id,cat_code,cat_name,cat_description,cat_status,depriciation_life' : 'cat_id,cat_code,cat_name,cat_description,cat_status,depriciation_life';
+        $select_statement = ($this->raw_data) ? 'cat_id,cat_code,cat_name,cat_description,sub_category,cat_status,depriciation_life' : 'cat_id,cat_code,cat_name,cat_description,sub_category,cat_status,depriciation_life';
         $this->db->select($select_statement);
         $this->db->from('asset_category');
 
@@ -52,6 +52,7 @@ class Model_asset_category extends MY_Model
                 'cat_code' => $row['cat_code'],
                 'cat_name' => $row['cat_name'],
                 'cat_description' => $row['cat_description'],
+                'sub_category' => $row['sub_category'],
                 'cat_status' => $row['cat_status'],
                 'depriciation_life' => $row['depriciation_life'],
             );
@@ -91,7 +92,7 @@ class Model_asset_category extends MY_Model
     {
 
         $this->db->start_cache();
-        $this->db->select('cat_id,cat_code,cat_name,cat_description,cat_status,depriciation_life');
+        $this->db->select('cat_id,cat_code,cat_name,cat_description,cat_status,sub_category,depriciation_life');
         $this->db->from('asset_category');
         $this->db->order_by('cat_id', 'DESC');
 
@@ -129,6 +130,7 @@ class Model_asset_category extends MY_Model
                 'cat_code' => $row['cat_code'],
                 'cat_name' => $row['cat_name'],
                 'cat_description' => $row['cat_description'],
+                'sub_category' => $row['sub_category'],
                 'cat_status' => $row['cat_status'],
                 'depriciation_life' => $row['depriciation_life'],
             );
@@ -206,6 +208,7 @@ class Model_asset_category extends MY_Model
             'cat_name' => lang('cat_name'),
             'cat_description' => lang('cat_description'),
             'cat_status' => lang('cat_status'),
+            'sub_category' => lang('sub_category'),
             'depriciation_life' => lang('depriciation_life')
         );
 

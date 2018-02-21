@@ -80,4 +80,10 @@
             
         }); 
         //END EXPORT TO EXCELL
+        $('#exportToExcell2').click( function (e) {
+            //e.preventDefault();
+            $(".btn-toolbar").remove();
+            $(".exportable2").tableExport({bootstrap: true});
+
+        });
     });

@@ -87,18 +87,18 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"
-                               for="ass_barcode_number">{$asset_fields.ass_barcode_number}
-                        </label>
-                        <div class="col-md-6">
-                            <input placeholder="Enter {$asset_fields.ass_barcode_number}" class="form-control"
-                                   type="number" maxlength="50"
-                                   value="{if isset($asset_data)}{$asset_data.ass_barcode_number}{/if}"
-                                   name="ass_barcode_number" id="ass_barcode_number"/>
-                        </div>
+                    {*<div class="form-group">*}
+                    {*<label class="col-md-4 control-label"*}
+                    {*for="ass_barcode_number">{$asset_fields.ass_barcode_number}*}
+                    {*</label>*}
+                    {*<div class="col-md-6">*}
+                    {*<input placeholder="Enter {$asset_fields.ass_barcode_number}" class="form-control"*}
+                    {*type="number" maxlength="50"*}
+                    {*value="{if isset($asset_data)}{$asset_data.ass_barcode_number}{/if}"*}
+                    {*name="ass_barcode_number" id="ass_barcode_number"/>*}
+                    {*</div>*}
 
-                    </div>
+                    {*</div>*}
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"
@@ -111,7 +111,7 @@
                                        class="form-control date-picker"
                                        type="text"
                                        required
-                                       {*readonly*}
+                                       readonly
                                        maxlength="50"
                                        value="{if isset($asset_data)}{$asset_data.ass_date_acquired}{/if}"
                                        name="ass_date_acquired"
@@ -140,16 +140,35 @@
                                    id="ass_purchase_price"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">{$asset_fields.ass_dep_method}</label>
-                        <div class="col-md-6">
-                            <select name="ass_dep_method" name="ass_dep_method" required="required" class="form-control">
-                                <option value="0">Select One</option>
-                                {foreach $metadata.ass_dep_method.enum_values as $k => $e}
-                                    <option value="{$e}"{if isset($asset_data.ass_dep_method)}{if $asset_data.ass_dep_method == $metadata.ass_dep_method.enum_values[$k]} selected="selected"{/if}{/if}>{$metadata.ass_dep_method.enum_values[$k]}</option>
-                                {/foreach}
-                            </select>
+                    {*<div class="form-group">*}
+                    {*<label class="col-md-4 control-label">{$asset_fields.ass_dep_method}</label>*}
+                    {*<div class="col-md-6">*}
+                    {*<select name="ass_dep_method" name="ass_dep_method" required="required" class="form-control">*}
+                    {*<option value="0">Select One</option>*}
+                    {*{foreach $metadata.ass_dep_method.enum_values as $k => $e}*}
+                    {*<option value="{$e}"{if isset($asset_data.ass_dep_method)}{if $asset_data.ass_dep_method == $metadata.ass_dep_method.enum_values[$k]} selected="selected"{/if}{/if}>{$metadata.ass_dep_method.enum_values[$k]}</option>*}
+                    {*{/foreach}*}
+                    {*</select>*}
 
+                    {*</div>*}
+                    {*</div>*}
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"
+                               for="model_number">{$asset_fields.model_number}
+                            <span class="error">*</span>
+
+                        </label>
+                        <div class="col-md-6">
+
+                            <input placeholder="Enter {$asset_fields.model_number}"
+                                   class="form-control"
+                                   required="required"
+                                   type="text"
+                                   maxlength="50"
+                                   value="{if isset($asset_data)}{$asset_data.model_number}{/if}"
+                                   name="model_number"
+                                   id="model_number"/>
                         </div>
                     </div>
 
@@ -165,6 +184,25 @@
                                     required="required">
                                 <option value="">Select One</option>
                                 {foreach $asset_category as $cat}
+                                    <option value="{$cat.cat_id}"
+                                            {if isset($asset_data)}{if $asset_data.ass_cat_id == $cat.cat_id}
+                                        selected="selected"{/if}{/if}>
+                                        {$cat.category}
+                                    </option>
+                                {/foreach}
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="ass_cat_id">{$asset_fields.sub_category}
+                            <span class="error">*</span>
+                        </label>
+                        <div class="col-md-6">
+                            <select class="form-control field select" name="sub_category" id="sub_category"
+                                    required="required">
+                                <option value="">Select One</option>
+                                {foreach $asset_sub_category as $cat}
                                     <option value="{$cat.cat_id}"
                                             {if isset($asset_data)}{if $asset_data.ass_cat_id == $cat.cat_id}
                                         selected="selected"{/if}{/if}>
@@ -233,19 +271,13 @@
 </div><!-- .block -->
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 <script>
     $(document).ready(function () {
         $(function () {
             $(".date-picker").datepicker({
-                format: "yyyy-mm-dd",
+                dateFormat: "yy-mm-dd"
 
             });
         });

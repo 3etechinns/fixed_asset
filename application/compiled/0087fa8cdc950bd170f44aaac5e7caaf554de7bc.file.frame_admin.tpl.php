@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-13 12:06:55
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:02:26
          compiled from "C:\wamp64\www\fixed_asset\application\views\frame_admin.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:21195a82d4dfc23de9-52182280%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:313215a8c21d5aff580-09727835%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0087fa8cdc950bd170f44aaac5e7caaf554de7bc' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\frame_admin.tpl',
-      1 => 1518426057,
+      1 => 1519246943,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '21195a82d4dfc23de9-52182280',
+  'nocache_hash' => '313215a8c21d5aff580-09727835',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a8c21d5d7e7e',
   'variables' => 
   array (
     'config' => 0,
@@ -30,10 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'chart_type' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a82d4e002ded',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a82d4e002ded')) {function content_5a82d4e002ded($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if ($_valid && !is_callable('content_5a8c21d5d7e7e')) {function content_5a8c21d5d7e7e($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -91,13 +91,13 @@ assets/jQueryUI/jquery-ui.js"></script>
 
     
     
-          
+    
 
     <!-- Include Date Range Picker -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    
+    
+    
+    
     <script type="application/javascript" src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
 assets/js/angular.min.js"></script>
     <script type="application/javascript" src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
@@ -108,7 +108,13 @@ assets/css/style.css"/>
     <script type="application/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="application/javascript"
             src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
+assets/bootstrap/css/bootstrap-select.min.css"/>
+    
+    <script src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
+assets/bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
+assets/js/plotly-latest.min.js"></script>
 
 
     <script type="text/javascript">
@@ -207,16 +213,18 @@ logout"><i class="fa fa-sign-out"></i> Sign
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Asset'){?> class='active'<?php }?><?php }?>><a href='asset'><i
                                     class='fa fa-archive'></i><span>Asset</span></a></li>
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Asset Category'){?> class='active'<?php }?><?php }?>><a
-                                href='asset_category'><i class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
+                                href='asset_category'><i
+                                    class='fa fa-arrow-circle-right'></i><span>Fixed Asset Category</span></a>
                     </li>
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Depreciation'){?> class='active'<?php }?><?php }?>>
                         <a href='depreciation'><i class='fa fa-arrow-circle-down'></i><span>Depreciation</span></a>
                     </li>
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Fixed Asset Track'){?> class='active'<?php }?><?php }?>><a
-                                href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a></li>
+                                href='ass_track'><i class='fa fa-file-archive'></i><span>Fixed Asset Track</span></a>
+                    </li>
 
                     
-                        
+                    
                     
                     <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Employee'){?> class='active'<?php }?><?php }?>><a
                                 href='employee'><i class='fa fa-user-circle'></i><span>Employee</span></a></li>
@@ -236,13 +244,15 @@ logout"><i class="fa fa-sign-out"></i> Sign
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Tbl_pages'){?> class='active'<?php }?><?php }?>><a
                                         href='tbl_pages'><i class='fa fa-adjust'></i><span>Pages</span></a></li>
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Tbl_permission'){?> class='active'<?php }?><?php }?>><a
-                                        href='tbl_permission'><i class='fa fa-life-ring'></i><span>Permission</span></a></li>
+                                        href='tbl_permission'><i class='fa fa-life-ring'></i><span>Permission</span></a>
+                            </li>
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Tbl_reset_password'){?> class='active'<?php }?><?php }?>>
                                 <a
                                         href='tbl_reset_password'><i class='fa fa-edit'></i><span>Reset Password</span></a>
                             </li>
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Tbl_roles'){?> class='active'<?php }?><?php }?>><a
-                                        href='tbl_roles'><i class='fa fa-transgender-alt'></i><span>Roles</span></a></li>
+                                        href='tbl_roles'><i class='fa fa-transgender-alt'></i><span>Roles</span></a>
+                            </li>
                             <li<?php if (isset($_smarty_tpl->tpl_vars['table_name']->value)){?><?php if ($_smarty_tpl->tpl_vars['table_name']->value=='Tbl_users'){?> class='active'<?php }?><?php }?>><a
                                         href='tbl_users'><i class='fa fa-users'></i><span>Users</span></a></li>
 
@@ -251,43 +261,39 @@ logout"><i class="fa fa-sign-out"></i> Sign
                     </li>
 
                     <li class="treeview">
-                        <a  href="#" >
+                        <a href="#">
                             <i class="fa fa-bar-chart"></i>
                             <span>Reports</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
 
                         <ul class="treeview-menu menu-open" style="display: block;">
-                            <li>
-                                <a href="#">
-                                    Activity Report
-                                </a>
-                            </li>
 
-                            <li><a href="#">
-                                    Audit Log</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Depreciation Report
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="#">
-                                    Asset Maintenance Report
-                                </a>
+                            <li><a href="asset/assetReport">
+                                  Asset  Report</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    Unaccepted Assets
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Custom Asset Report
-                                </a>
-                            </li>
+                            
+                                
+                                    
+                                
+                            
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         </ul>
                     </li>
                 </ul>

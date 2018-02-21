@@ -17,13 +17,13 @@
             <div class="small-box bg-maroon">
                 <div class="inner">
                     <h3>{$total_disposed}</h3>
-                    <p>Total Disposed</p>
+                    <p>Total Asset In Store</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-floppy-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More Info <i
-                            class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"><i
+                            class="fa "></i></a>
             </div>
         </div>
         <div class="col-md-4">
@@ -167,9 +167,9 @@
                 <!-- Categories -->
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Asset Categories</h3>
+                        <h3 class="box-title">Asset  Sub Categories</h3>
                         <div class="box-tools pull-right">
-                            <a class="btn btn-file" id="exportToExcell">
+                            <a class="btn btn-file" id="exportToExcell2">
                                 <i class="fa fa-download"></i></a>
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                 <i
@@ -191,7 +191,7 @@
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable table-responsive table-bordered"
+                                            <table class="table table-hover snipe-table exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -262,7 +262,7 @@
 <!-- Plotly.js -->
 
 <!-- Numeric JS -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{*<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>*}
 
 <script>
 
@@ -282,7 +282,7 @@
         var status = [];
         $.ajax({
             type: "GET",
-            url: 'http://localhost/fixed_asset/asset/assetCounterBasedOnCategory',
+            url: 'http://localhost:8080/fixed_asset/asset/assetCounterBasedOnCategory',
             dataType: 'json',
             success: function (response) {
                 for (var i = 0; i < response.length; i++) {

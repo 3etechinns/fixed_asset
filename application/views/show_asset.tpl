@@ -46,8 +46,8 @@
                             <td>{$asset_data.ass_serial_number}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
-                            <td>{$asset_fields.ass_barcode_number}:</td>
-                            <td>{$asset_data.ass_barcode_number}</td>
+                            <td>{$asset_fields.isAvailable}:</td>
+                            <td>{$asset_data.isAvailable}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_date_acquired}:</td>
@@ -69,14 +69,18 @@
                         <th width="50%">Field</th>
                         <th>Value</th>
                         </thead>
-                        <tr class="{cycle values='odd,even'}">
-                            <td>{$asset_fields.ass_dep_method}:</td>
-                            <td>{$asset_data.ass_dep_method}</td>
-                        </tr>
+                        {*<tr class="{cycle values='odd,even'}">*}
+                            {*<td>{$asset_fields.ass_dep_method}:</td>*}
+                            {*<td>{$asset_data.ass_dep_method}</td>*}
+                        {*</tr>*}
 
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_cat_id}:</td>
                             <td>{$asset_data.ass_cat_id}</td>
+                        </tr>
+                        <tr class="{cycle values='odd,even'}">
+                            <td>{$asset_fields.sub_category}:</td>
+                            <td>{$asset_data.sub_category}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_comment}:</td>

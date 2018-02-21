@@ -27,7 +27,7 @@ class Model_ass_track extends MY_Model
     function get($id, $get_one = false, $direction = false)
     {
 
-        $select_statement = ($this->raw_data) ? 'ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,Asset_ass_id,employee_full_name,reciver_full_name' : 'ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,ass_emp_id,receiving_employee_id,employee_full_name,reciver_full_name,asset.ass_serial_number AS Asset_ass_id';
+        $select_statement = ($this->raw_data) ? 'ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,Asset_ass_id,employee_full_name,reciver_full_name,track_model_number,isAvailable,model_number' : 'ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,ass_emp_id,receiving_employee_id,employee_full_name,reciver_full_name,track_model_number,isAvailable,model_number,asset.ass_serial_number AS Asset_ass_id';
         $this->db->select($select_statement);
         $this->db->from('ass_track');
         $this->db->join('asset', 'ass_track.Asset_ass_id = asset.ass_id', 'left');
@@ -61,6 +61,7 @@ class Model_ass_track extends MY_Model
 //                'receiving_employee_id' => $row['receiving_employee_id'],
                 'reciver_full_name' => $row['reciver_full_name'],
                 'employee_full_name' => $row['employee_full_name'],
+                'track_model_number' => $row['track_model_number'],
             );
         } else {
             return array();
@@ -99,7 +100,7 @@ class Model_ass_track extends MY_Model
     {
 
         $this->db->start_cache();
-        $this->db->select('ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,employee_full_name,reciver_full_name,asset.ass_serial_number AS Asset_ass_id');
+        $this->db->select('ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,employee_full_name,reciver_full_name,track_model_number,asset.ass_serial_number AS Asset_ass_id');
         $this->db->from('ass_track');
         $this->db->order_by('ass_track_id', 'DESC');
 
@@ -146,6 +147,7 @@ class Model_ass_track extends MY_Model
 //                'receiving_employee_id' => $row['receiving_employee_id'],
                 'reciver_full_name' => $row['reciver_full_name'],
                 'employee_full_name' => $row['employee_full_name'],
+                'track_model_number' => $row['track_model_number'],
             );
         }
         $this->db->flush_cache();
@@ -158,7 +160,7 @@ class Model_ass_track extends MY_Model
     {
         $meta = $this->metadata();
         $this->db->start_cache();
-        $this->db->select('ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,asset.ass_serial_number AS Asset_ass_id');
+        $this->db->select('ass_track_id,date_trasferred,date_returned,penality_amount,status,payment_status,payment_date,track_model_number,asset.ass_serial_number AS Asset_ass_id');
         $this->db->from('ass_track');
         $this->db->join('asset', 'ass_track.Asset_ass_id = asset.ass_id', 'left');
 
@@ -209,6 +211,7 @@ class Model_ass_track extends MY_Model
                 'Asset_ass_id' => $row['Asset_ass_id'],
                 'ass_emp_id' => $row['ass_emp_id'],
                 'receiving_employee_id' => $row['receiving_employee_id'],
+                'track_model_number' => $row['track_model_number'],
             );
         }
         $this->db->flush_cache();
@@ -239,7 +242,9 @@ class Model_ass_track extends MY_Model
             'payment_date' => lang('payment_date'),
             'Asset_ass_id' => lang('Asset_ass_id'),
             'ass_emp_id' => lang('ass_emp_id'),
-            'receiving_employee_id' => lang('receiving_employee_id')
+            'receiving_employee_id' => lang('receiving_employee_id'),
+            'track_model_number' => lang('track_model_number')
+
 
         );
 
@@ -295,6 +300,7 @@ class Model_ass_track extends MY_Model
                 'Asset_ass_id' => $row['Asset_ass_id'],
                 'ass_emp_id' => $row['ass_emp_id'],
                 'receiving_employee_id' => $row['receiving_employee_id'],
+                'track_model_number' => $row['track_model_number'],
 
             );
         }
@@ -318,6 +324,7 @@ class Model_ass_track extends MY_Model
                 'reciver_full_name' => $row['reciver_full_name'],
                 'ass_serial_number' => $row['ass_serial_number'],
                 'ass_name' => $row['ass_name'],
+//                'track_model_number' => $row['track_model_number'],
             );
         }
         $this->db->flush_cache();

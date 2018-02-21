@@ -34,6 +34,29 @@
 
 
             <div class="col-sm-6">
+
+                {*<div class="form-group">*}
+                {*<label class="col-md-4 control-label">{$ass_track_fields.payment_status}</label>*}
+                {*<div class="col-md-6">*}
+                {*<label class="form-control">*}
+                {*<input type="checkbox" value="1" name="payment_status"*}
+                {*id="payment_status" {if isset($ass_track_data)}{if $ass_track_data.payment_status == 1} checked="checked" {/if}{/if} /></label>*}
+
+                {*</div>*}
+                {*</div>*}
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="cat_status">{$asset_category_fields.cat_status}</label>
+                    <div class="col-md-6">
+                        {*<input placeholder="Enter {$asset_category_fields.cat_status}" class="form-control" type="text"*}
+                        {*maxlength="50"*}
+                        {*value="{if isset($asset_category_data)}{$asset_category_data.cat_status}{/if}"*}
+                        {*name="cat_status" id="cat_status"/>*}
+
+                        <input type="checkbox" value="1" name="cat_status"
+                               id="cat_status" {if isset($ass_track_data)}{if $ass_track_data.cat_status == 1} checked="checked" {/if}{/if} /></label>
+                    </div>
+
+                </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_code">{$asset_category_fields.cat_code}<span
                                 class="error">*</span></label>
@@ -46,6 +69,7 @@
 
                 </div>
 
+
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_name">{$asset_category_fields.cat_name}<span
                                 class="error">*</span></label>
@@ -57,22 +81,26 @@
                     </div>
 
                 </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="cat_status">{$asset_category_fields.cat_status}</label>
-                    <div class="col-md-6">
-                        <input placeholder="Enter {$asset_category_fields.cat_status}" class="form-control" type="text"
-                               maxlength="50"
-                               value="{if isset($asset_category_data)}{$asset_category_data.cat_status}{/if}"
-                               name="cat_status" id="cat_status"/>
-                    </div>
+                {*<div class="form-group">*}
+                {*<label class="col-md-4 control-label" for="cat_name">{$asset_category_fields.sub_category}<span*}
+                {*class="error">*</span></label>*}
+                {*<div class="col-md-6">*}
+                {*<input placeholder="Enter {$asset_category_fields.sub_category}" class="form-control" type="text"*}
+                {*maxlength="50"*}
+                {*value="{if isset($asset_category_data)}{$asset_category_data.sub_category}{/if}"*}
+                {*name="sub_category"*}
+                {*id="sub_category"/>*}
+                {*</div>*}
 
-                </div>
+                {*</div>*}
+
             </div>
             <div class="col-sm-6">
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_description">{$asset_category_fields.cat_description}
-                        <span class="error">*</span></label>
+                        {*<span class="error">*</span>*}
+                    </label>
                     <div class="col-md-6">
                     <textarea placeholder="Enter {$asset_category_fields.cat_description}"
                               class="form-control" rows="5"
@@ -93,7 +121,7 @@
                         <input placeholder="Enter {$asset_category_fields.depriciation_life}"
                                class="form-control"
                                id="depLife"
-                               type="text"
+                               type="number"
                                maxlength="50"
                                value="{if isset($asset_category_data)}{$asset_category_data.depriciation_life}{/if}"
                                name="depriciation_life" id="depriciation_life"/>
@@ -123,6 +151,8 @@
     $("#lifeTimError").hide();
     $("#depLife").on("change keyup paste click", function () {
         var liftime = $("#depLife").val();
+//        var status = $("#cat_status").val();
+//        if (status)
         if (liftime < 1) {
             $("#lifeTimError").show();
         }

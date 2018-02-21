@@ -12,11 +12,11 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                            <span class="input-group-btn">
-                                <a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </span>
+                            {*<span class="input-group-btn">*}
+                                {*<a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">*}
+                                    {*<i class="fa fa-download"></i>*}
+                                {*</a>*}
+                            {*</span>*}
                         </div>
                     </form>
                          <span id="searchResult" name="searchResult" class="label-info">{if !empty($search_result)} {$search_result}{/if}</span>

@@ -5,9 +5,9 @@
             <a href="asset_category/create/" class="btn btn-primary btn-sm">
                 <i class="fa fa-plus" aria-hidden="true"></i> Add New
             </a>
-            <div  id="download" class="col-md-1 col-lg-push-11">
+            <div id="download" class="col-md-1 col-lg-push-11">
                 <a class="btn btn-file" id="exportToExcell">
-                    <i  class="fa fa-download"></i></a>
+                    <i class="fa fa-download"></i></a>
             </div>
             {if isset($search_form)}{$search_form}{/if}
         </form>
@@ -22,7 +22,8 @@
                     <th>{$asset_category_fields.cat_code}</th>
                     <th>{$asset_category_fields.cat_name}</th>
                     <th>{$asset_category_fields.cat_description}</th>
-                    <th>{$asset_category_fields.cat_status}</th>
+                    <th>Type</th>
+                    <th>{$asset_category_fields.depriciation_life}</th>
 
                     <th style="width:180px;">Actions</th>
                     </thead>
@@ -36,7 +37,12 @@
                             <td>{$row.cat_code}</td>
                             <td>{$row.cat_name}</td>
                             <td>{$row.cat_description}</td>
-                            <td>{$row.cat_status}</td>
+                            <td>{if $row.cat_status==1}
+                                    Category
+                                {else}
+                                    Subcategory
+                                {/if}</td>
+                            <td>{$row.depriciation_life}</td>
 
                             <td>
                                 {*<div class="row-actions">*}
