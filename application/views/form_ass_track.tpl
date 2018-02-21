@@ -97,8 +97,8 @@
                                        value="{if isset($ass_track_data)}{$ass_track_data.date_trasferred}{/if}"
                                        name="date_trasferred"
                                        id="date_trasferred"/>
-                                <label for="date"
-                                       class="date-picker  input-group-addon btn group-white">
+                                <label for="date_trasferred"
+                                       class=" date-picker input-group-addon btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>

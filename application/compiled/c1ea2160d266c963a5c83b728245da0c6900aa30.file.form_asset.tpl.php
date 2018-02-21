@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:09:00
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:23:48
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_asset.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:188805a8c240bc0b795-33205204%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c1ea2160d266c963a5c83b728245da0c6900aa30' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_asset.tpl',
-      1 => 1519247248,
+      1 => 1519248192,
       2 => 'file',
     ),
   ),
@@ -170,7 +170,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                        name="ass_date_acquired"
                                        id="ass_date_acquired"/>
                                 <label for="ass_date_acquired"
-                                       class="input-group-addon btn group-white">
+                                       class="input-group-addon date-picker btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:11:58
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:25:48
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_ass_track.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:58815a8c654831b7e3-19366463%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3e60a1a2aec650d50dfa40e771ec81ff5e92a393' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_ass_track.tpl',
-      1 => 1519247515,
+      1 => 1519248346,
       2 => 'file',
     ),
   ),
@@ -141,8 +141,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php }?>"
                                        name="date_trasferred"
                                        id="date_trasferred"/>
-                                <label for="date"
-                                       class="date-picker  input-group-addon btn group-white">
+                                <label for="date_trasferred"
+                                       class=" date-picker input-group-addon btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>

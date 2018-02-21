@@ -117,7 +117,7 @@
                                        name="ass_date_acquired"
                                        id="ass_date_acquired"/>
                                 <label for="ass_date_acquired"
-                                       class="input-group-addon btn group-white">
+                                       class="input-group-addon date-picker btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>
