@@ -7,3 +7,24 @@
         $this->db->join('status', 'asset.status_status_id = status.status_id', 'left');
         $this->db->join('asset_category', 'asset.ass_cat_id = asset_category.cat_id', 'left');
         $this->db->join('asset_category sub_cat', 'asset.sub_cat_id = sub_cat.cat_id', 'left');
+
+
+ <div class="form-group">
+                        <label class="col-md-4 control-label" for="sub_category">{$asset_fields.sub_category}
+                            <span class="error">*</span>
+                        </label>
+                        <div class="col-md-6">
+                            <select class="form-control field select" name="sub_category" id="sub_category"
+                                    required="required">
+                                <option value="">Select One</option>
+                                {foreach $asset_sub_category as $cat}
+                                    <option value="{$cat.cat_id}"
+                                            {if isset($asset_data)}{if $asset_data.sub_cat_id == $cat.cat_id}
+                                        selected="selected"{/if}{/if}>
+                                        {$cat.category}
+                                    </option>
+                                {/foreach}
+                            </select>
+                        </div>
+
+                    </div>
