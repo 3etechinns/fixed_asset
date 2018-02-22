@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:01:26
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 13:43:41
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_asset.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:85385a7768c2098c32-06302943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:325795a8c240a3a2d06-27681127%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c349e23ccbbc1ec487c1e756df9a7502db20bc29' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_asset.tpl',
-      1 => 1517947089,
+      1 => 1519220619,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '85385a7768c2098c32-06302943',
+  'nocache_hash' => '325795a8c240a3a2d06-27681127',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7768c21f2d7',
+  'unifunc' => 'content_5a8c240a4c16d',
   'variables' => 
   array (
     'table_name' => 0,
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a7768c21f2d7')) {function content_5a7768c21f2d7($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a8c240a4c16d')) {function content_5a8c240a4c16d($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
 <div class="panel panel-default">
     <div class="panel-body">
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
             </div>
             <div class="col-md-6 col-md-4">
-                <form class="form" method='post' action="asset/search" id="search" enctype="multipart/form-data">
+                <form class="form" method='post' action="asset/search" id="searchForm" enctype="multipart/form-data">
 
                     <div class="input-group">
                         <input type="text"
@@ -61,14 +61,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                 </form>
             </div>
-            <div  class="col-md-1 col-md-push-5">
+            <div class="col-md-1 col-md-push-5">
                 <a class="btn btn-file" id="exportToExcell">
-                    <i  class="fa fa-download"></i></a>
+                    <i class="fa fa-download"></i></a>
             </div>
         </div>
         <div class="col-md-12">
 
-                <h3 class="page-title box-title">List of <?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
+            <h3 class="page-title box-title">List of <?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
 </h3>
 
             <?php if (!empty($_smarty_tpl->tpl_vars['asset_data']->value)){?>
@@ -84,15 +84,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_serial_number'];?>
 </th>
-                        <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_barcode_number'];?>
+                        <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['isAvailable'];?>
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_date_acquired'];?>
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_purchase_price'];?>
 </th>
-                        <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_dep_method'];?>
+                        <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['model_number'];?>
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_cat_id'];?>
+</th>
+                        <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['sub_category'];?>
 </th>
                         <th><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['status_status_id'];?>
 </th>
@@ -121,16 +123,18 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_serial_number'];?>
 </td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_barcode_number'];?>
+                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['isAvailable'];?>
 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_date_acquired'];?>
 </td>
                                 <td id="price"><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_purchase_price'];?>
 </td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_dep_method'];?>
+                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['model_number'];?>
 </td>
 
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_cat_id'];?>
+</td>
+                                <td><?php echo $_smarty_tpl->tpl_vars['row']->value['sub_category'];?>
 </td>
                                 <td><?php echo $_smarty_tpl->tpl_vars['row']->value['status_status_id'];?>
 </td>
@@ -143,10 +147,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                     aria-hidden="true"></i></a>
                                         <a href="asset/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['ass_id'];?>
 " class="btn btn-primary btn-xs"><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a href="javascript:chk('asset/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['ass_id'];?>
 ')"
-                                           class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                           class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -156,7 +160,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                     <div class="actions-bar wat-cf">
                         <div class="actions">
                             <button class="btn btn-danger btn-xs" type="submit">
-                                <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                             </button>
                             <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                                 <a href="asset/index/0/all" class="btn btn-xs btn-primary show-all"><i
@@ -192,9 +196,33 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
             $(this).find("#price").html(priceFormatted);
 
         });
+
+
+
     });
 
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:8080/fixed_asset/asset/allAssetBySerialNumber",
+//        data: data,
+        dataType: 'json',
+        success: function (result) {
+            console.log(result);
 
+
+            $("#search").autocomplete({
+                source: result,
+                select: function (event, ui) {
+                    console.log(result);
+
+                }
+
+
+            });
+
+//            return;
+        }
+    });
 </script>
 
 <?php }} ?>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-05 08:53:53
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-22 07:30:49
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_tbl_pages.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:267285a781ba121c5b9-98646249%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:176725a8e71a91ce7f2-44048741%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6e92b3866b73915e9ceae10edd51571d99eb8740' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_tbl_pages.tpl',
-      1 => 1517766883,
+      1 => 1518960053,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '267285a781ba121c5b9-98646249',
+  'nocache_hash' => '176725a8e71a91ce7f2-44048741',
   'function' => 
   array (
   ),
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a781ba131f33',
+  'unifunc' => 'content_5a8e71a92a294',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a781ba131f33')) {function content_5a781ba131f33($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a8e71a92a294')) {function content_5a8e71a92a294($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
 <div class="panel panel-default">
     <div class="panel-body">
@@ -46,17 +46,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                <span class="input-group-btn">
-                                <a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </span>
+                
+                                
+                                    
+                                
+                            
             </div>
         </form>
         <span id="searchResult" name="searchResult"
               class="label-info"><?php if (!empty($_smarty_tpl->tpl_vars['search_result']->value)){?> <?php echo $_smarty_tpl->tpl_vars['search_result']->value;?>
 <?php }?></span>
-        <h3 class="page-title">List of <?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
+        <h3 class="page-title">List of Page<?php echo $_smarty_tpl->tpl_vars['table_name']->value;?>
 </h3>
         <?php if (!empty($_smarty_tpl->tpl_vars['tbl_pages_data']->value)){?>
         <form action="tbl_pages/delete" method="post" id="listing_form">
@@ -101,10 +101,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                 class="fa fa-eye" aria-hidden="true"></i></a>
                                     <a href="tbl_pages/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['pg_id'];?>
 " class="btn btn-primary btn-xs"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a href="javascript:chk('tbl_pages/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['pg_id'];?>
 ')"
-                                       class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                       class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -114,7 +114,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <div class="actions-bar wat-cf">
                     <div class="actions">
                         <button class="btn btn-danger btn-xs" type="submit">
-                            <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                         </button>
                         <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                             <a href="tbl_pages/index/0/all" class="btn btn-xs btn-primary show-all"><i

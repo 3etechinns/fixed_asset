@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-07 13:07:14
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-22 12:02:16
          compiled from "C:\wamp64\www\fixed_asset\application\views\welcome_page.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:266925a77e0bb1f9ac6-13237374%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:253655a8c5d8d0c5963-84950864%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1ef91b0786743bb3f07254bc40dae103a3c484c3' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\welcome_page.tpl',
-      1 => 1518008831,
+      1 => 1519300933,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '266925a77e0bb1f9ac6-13237374',
+  'nocache_hash' => '253655a8c5d8d0c5963-84950864',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a77e0bb97691',
+  'unifunc' => 'content_5a8c5d8d1f3e7',
   'variables' => 
   array (
     'total_asset' => 0,
@@ -30,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a77e0bb97691')) {function content_5a77e0bb97691($_smarty_tpl) {?><div class="row">
+<?php if ($_valid && !is_callable('content_5a8c5d8d1f3e7')) {function content_5a8c5d8d1f3e7($_smarty_tpl) {?><div class="row">
     <div class="col-md-12">
         <div class="col-md-4">
             <div class="small-box bg-teal">
@@ -43,7 +43,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <i class="fa fa-barcode"></i>
                 </div>
                 <a href="<?php echo $_smarty_tpl->tpl_vars['config']->value['base_url'];?>
-fixed_asset" class="small-box-footer">More Info <i
+asset" class="small-box-footer">More Info <i
                             class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -52,13 +52,13 @@ fixed_asset" class="small-box-footer">More Info <i
                 <div class="inner">
                     <h3><?php echo $_smarty_tpl->tpl_vars['total_disposed']->value;?>
 </h3>
-                    <p>Total Disposed</p>
+                    <p>Total Asset In Store</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-floppy-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More Info <i
-                            class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"><i
+                            class="fa "></i></a>
             </div>
         </div>
         <div class="col-md-4">
@@ -104,7 +104,7 @@ depreciation" class="small-box-footer">More Info <i
 
                                         <table class="table table-bordered exportable table-hover"
                                                name="activityReport" id="table" data-height="400" data-sort-order="desc"
->
+                                        >
                                             <thead>
                                             <tr>
                                                 <th style="width: 20px !important;">
@@ -116,7 +116,7 @@ depreciation" class="small-box-footer">More Info <i
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="admin">
-                                                    <div class="th-inner ">Asset serial</div>
+                                                    <div class="th-inner ">Asset Name</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="action_type">
@@ -125,7 +125,7 @@ depreciation" class="small-box-footer">More Info <i
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-3" style="" data-field="item">
-                                                    <div class="th-inner ">Item</div>
+                                                    <div class="th-inner ">Serial Number</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
 
@@ -144,12 +144,14 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
 </td>
                                                     <td class="col-sm-3" style=""><?php echo $_smarty_tpl->tpl_vars['row']->value['recentDate'];?>
 </td>
-                                                    <td class="col-sm-2" style=""></td>
-                                                    <td class="col-sm-2" style=""><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_emp_id'];?>
+                                                    <td class="col-sm-2" style=""><?php echo $_smarty_tpl->tpl_vars['row']->value['ass_name'];?>
+</td>
+                                                    <td class="col-sm-2" style=""><?php echo $_smarty_tpl->tpl_vars['row']->value['reciver_full_name'];?>
 </td>
                                                     <td class="col-sm-3" style="">
                                                         <nobr><i class="fa fa-barcode text-blue"></i>
-                                                            <?php echo $_smarty_tpl->tpl_vars['row']->value['Asset_ass_id'];?>
+
+                                                            <?php echo $_smarty_tpl->tpl_vars['row']->value['ass_serial_number'];?>
 
                                                         </nobr>
                                                     </td>
@@ -211,9 +213,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                 <!-- Categories -->
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Asset Categories</h3>
+                        <h3 class="box-title">Asset  Sub Categories</h3>
                         <div class="box-tools pull-right">
-                            <a class="btn btn-file" id="exportToExcell">
+                            <a class="btn btn-file" id="exportToExcell2">
                                 <i class="fa fa-download"></i></a>
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                 <i
@@ -235,7 +237,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable table-responsive table-bordered"
+                                            <table class="table table-hover  exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -253,15 +255,15 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                         <div>Total</div>
 
                                                     </th>
-                                                    <th class="col-sm-2" style="">
-                                                        <div>Life Time</div>
+                                                    
+                                                        
 
-                                                    </th>
+                                                    
 
 
                                                 </thead>
 
-                                                <tbody>
+                                                <tbody class="scrollable">
                                                 <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['quantity']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
@@ -278,8 +280,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                                     class="badge-quantity badge"><?php echo $_smarty_tpl->tpl_vars['row']->value['quantity'];?>
 </span>
                                                         </td>
-                                                        <td class="col-sm-1"><?php echo $_smarty_tpl->tpl_vars['row']->value['depriciation_life'];?>
-</td>
+                                                        
                                                     </tr>
                                                 <?php } ?>
                                                 </tbody>
@@ -313,10 +314,25 @@ asset_category" class="btn btn-primary btn-sm"
 
 </div>
 
-<!-- Plotly.js -->
+<style>
 
-<!-- Numeric JS -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    tbody {
+        display:block;
+        height:100px;
+        overflow:auto;
+    }
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;/* even columns width , fix width of table too*/
+    }
+    
+        
+    
+    
+        
+    
+</style>
 
 <script>
 
@@ -336,7 +352,7 @@ asset_category" class="btn btn-primary btn-sm"
         var status = [];
         $.ajax({
             type: "GET",
-            url: 'http://localhost/fixed_asset/asset/assetCounterBasedOnCategory',
+            url: 'http://localhost:8080/fixed_asset/asset/assetCounterBasedOnCategory',
             dataType: 'json',
             success: function (response) {
                 for (var i = 0; i < response.length; i++) {

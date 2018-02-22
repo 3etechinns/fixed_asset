@@ -59,12 +59,14 @@ class Asset extends MY_Controller
      */
     function show($id)
     {
+
+
         $data = $this->model_asset->get($id);
         $assTrackData = $this->Model_ass_track->assetTrackDetail($id);
-
         $st = $this->Model_depreciation->depreciationDetailById($id);
+        $checkAssetAvailability = $this->model_asset->checkAssetAvailability($id);
+//        var_dump($checkAssetAvailability);
 
-        // var_dump($assTrackData);
         if (isset($data) && !empty($data)) {
             $fields = $this->model_asset->fields(TRUE);
             $dep_fields = $this->Model_depreciation->fields(TRUE);
@@ -80,6 +82,7 @@ class Asset extends MY_Controller
             $this->template->assign('asset_data', $data);
             $this->template->assign('deep_data', $st);
             $this->template->assign('ass_track_data', $assTrackData);
+            $this->template->assign('checkAssetAvailability', $checkAssetAvailability);
 
             $this->template->assign('table_name', lang('asset'));
             $this->template->assign('template', 'show_asset');
@@ -102,11 +105,12 @@ class Asset extends MY_Controller
             case 'GET':
                 $fields = $this->model_asset->fields();
                 $status_set = $this->model_asset->related_status();
-                $asset_category = $this->model_asset->asset_category();
-
+                $asset_category = $this->model_asset->asset_category(1);
+                $asset_sub_category = $this->model_asset->asset_category(0);
 
                 $this->template->assign('related_status', $status_set);
                 $this->template->assign('asset_category', $asset_category);
+                $this->template->assign('asset_sub_category', $asset_sub_category);
 //                print_r($asset_category);
 //                exit();
                 $this->template->assign('action_mode', 'create');
@@ -131,36 +135,38 @@ class Asset extends MY_Controller
                 $this->form_validation->set_rules('ass_name', lang('ass_name'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_model', lang('ass_model'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_serial_number', lang('ass_serial_number'), 'required|max_length[45]');
-                $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
+//                $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_date_acquired', lang('ass_date_acquired'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
-                $this->form_validation->set_rules('ass_dep_life', lang('ass_dep_life'), 'max_length[45]');
+//                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
+//                $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
+//                $this->form_validation->set_rules('ass_dep_life', lang('ass_dep_life'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_comment', lang('ass_comment'), 'max_length[445]');
                 $this->form_validation->set_rules('ass_description', lang('ass_description'), 'max_length[445]');
                 $this->form_validation->set_rules('status_status_id', lang('status_status_id'), 'required|max_length[11]|integer');
                 $this->form_validation->set_rules('ass_cat_id', lang('ass_cat_id'), 'required|max_length[11]|integer');
 
-                $data_post['ass_status'] = $this->input->post('ass_status');
+//                $data_post['ass_status'] = $this->input->post('ass_status');
                 $data_post['ass_name'] = $this->input->post('ass_name');
                 $data_post['ass_model'] = $this->input->post('ass_model');
                 $data_post['ass_serial_number'] = $this->input->post('ass_serial_number');
-                $data_post['ass_barcode_number'] = $this->input->post('ass_barcode_number');
+//                $data_post['ass_barcode_number'] = $this->input->post('ass_barcode_number');
                 $data_post['ass_date_acquired'] = $this->input->post('ass_date_acquired');
-                $data_post['ass_date_sold'] = $this->input->post('ass_date_sold');
                 $data_post['ass_purchase_price'] = $this->input->post('ass_purchase_price');
-                $data_post['ass_dep_method'] = $this->input->post('ass_dep_method');
-                $data_post['ass_dep_life'] = $this->input->post('ass_dep_life');
+//                $data_post['ass_dep_method'] = $this->input->post('ass_dep_method');
+
                 $data_post['ass_cat_id'] = $this->input->post('ass_cat_id');
                 $data_post['ass_comment'] = $this->input->post('ass_comment');
                 $data_post['ass_description'] = $this->input->post('ass_description');
                 $data_post['status_status_id'] = $this->input->post('status_status_id');
+                $data_post['model_number'] = $this->input->post('model_number');
+                $data_post['isAvailable'] = "return";
+                $data_post['sub_cat_id'] = $this->input->post('sub_category');
 
                 $data_for_depreciation['ass_cat_id'] = $this->input->post('ass_cat_id');
                 $data_for_depreciation['ass_purchase_price'] = $this->input->post('ass_purchase_price');
                 $data_for_depreciation['ass_date_acquired'] = $this->input->post('ass_date_acquired');
 
-
+//                var_dump($this->form_validation->run());
                 if ($this->form_validation->run() == FALSE) {
                     $errors = validation_errors();
 
@@ -179,8 +185,10 @@ class Asset extends MY_Controller
                     $this->template->assign('page_title', lang('asset'));
                     $this->template->display('frame_admin.tpl');
                 } elseif ($this->form_validation->run() == TRUE) {
+                    var_dump($data_post);
                     $insert_id = $this->model_asset->insert($data_post);
                     if ($insert_id != null) {
+
                         $data_for_depreciation['asset_as_id'] = $insert_id;
                         $this->Model_depreciation->depreciationInitializer($data_for_depreciation);
 
@@ -210,11 +218,12 @@ class Asset extends MY_Controller
                 if (isset($data) && !empty($data)) {
                     $fields = $this->model_asset->fields();
                     $status_set = $this->model_asset->related_status();
-                    $asset_category = $this->model_asset->asset_category();
-
+                    $asset_category = $this->model_asset->asset_category(1);
+                    $asset_sub_category = $this->model_asset->asset_category(0);
 
                     $this->template->assign('related_status', $status_set);
                     $this->template->assign('asset_category', $asset_category);
+                    $this->template->assign('asset_sub_category', $asset_sub_category);
 
 
                     $this->template->assign('action_mode', 'edit');
@@ -239,29 +248,33 @@ class Asset extends MY_Controller
                 $this->form_validation->set_rules('ass_name', lang('ass_name'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_model', lang('ass_model'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_serial_number', lang('ass_serial_number'), 'required|max_length[45]');
-                $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
+//                $this->form_validation->set_rules('ass_barcode_number', lang('ass_barcode_number'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_date_acquired', lang('ass_date_acquired'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
-                $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
+//                $this->form_validation->set_rules('ass_date_sold', lang('ass_date_sold'), 'max_length[15]');
+//                $this->form_validation->set_rules('ass_dep_method', lang('ass_dep_method'), 'required|max_length[45]');
                 $this->form_validation->set_rules('ass_dep_life', lang('ass_dep_life'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_comment', lang('ass_comment'), 'max_length[45]');
                 $this->form_validation->set_rules('ass_description', lang('ass_description'), 'max_length[445]');
                 $this->form_validation->set_rules('status_status_id', lang('status_status_id'), 'required|max_length[11]|integer');
                 $this->form_validation->set_rules('ass_cat_id', lang('ass_cat_id'), 'required|max_length[11]|integer');
 
+
+//                $data_post['ass_status'] = $this->input->post('ass_status');
                 $data_post['ass_name'] = $this->input->post('ass_name');
                 $data_post['ass_model'] = $this->input->post('ass_model');
                 $data_post['ass_serial_number'] = $this->input->post('ass_serial_number');
-                $data_post['ass_barcode_number'] = $this->input->post('ass_barcode_number');
+//                $data_post['ass_barcode_number'] = $this->input->post('ass_barcode_number');
                 $data_post['ass_date_acquired'] = $this->input->post('ass_date_acquired');
-                $data_post['ass_date_sold'] = $this->input->post('ass_date_sold');
                 $data_post['ass_purchase_price'] = $this->input->post('ass_purchase_price');
-                $data_post['ass_dep_method'] = $this->input->post('ass_dep_method');
-                $data_post['ass_dep_life'] = $this->input->post('ass_dep_life');
+//                $data_post['ass_dep_method'] = $this->input->post('ass_dep_method');
+
                 $data_post['ass_cat_id'] = $this->input->post('ass_cat_id');
                 $data_post['ass_comment'] = $this->input->post('ass_comment');
                 $data_post['ass_description'] = $this->input->post('ass_description');
                 $data_post['status_status_id'] = $this->input->post('status_status_id');
+                $data_post['model_number'] = $this->input->post('model_number');
+                $data_post['isAvailable'] = "return";
+                $data_post['sub_cat_id'] = $this->input->post('sub_category');
 
 
                 $data_for_depreciation['ass_cat_id'] = $this->input->post('ass_cat_id');
@@ -289,7 +302,9 @@ class Asset extends MY_Controller
                 } elseif ($this->form_validation->run() == TRUE) {
                     $this->model_asset->update($id, $data_post);
                     $data_for_depreciation['asset_as_id'] = $id;
-                    $this->Model_depreciation->depreciationInitializer($data_for_depreciation);
+                    if ($this->input->post('status_status_id') == 7) {
+                        $this->Model_depreciation->depreciationInitializer($data_for_depreciation);
+                    }
                     $this->session->set_userdata('msg_type', 'success');
                     $this->session->set_userdata('msg', 'Successfully Updated!');
                     redirect('asset/show/' . $id);
@@ -386,6 +401,7 @@ class Asset extends MY_Controller
 
     function assetCounterBasedOnCategory()
     {
+        $this->db->reconnect();
         $sql = "call `assetCounterByStatus` ()";
         $data = $this->db->query($sql);
         $temp_result = Array();
@@ -399,6 +415,33 @@ class Asset extends MY_Controller
         //header('Content-Type: application/json');
         echo json_encode($temp_result, JSON_NUMERIC_CHECK);
         $this->db->close();
+
+
+    }
+
+    function assetReport()
+    {
+        $assetInStore = $this->model_asset->assetCountBasedOnStatus('return');
+
+        $data_info = $this->model_asset->assetCounterBasedOnCategory();
+//        $assetWithEmployee= $this->model_asset->assetCountBasedOnStatus('transfer');
+
+
+        $this->template->assign('totalData', $data_info);
+        $this->template->assign('assetInStore', $assetInStore);
+//        $this->template->assign('assetWithEmployee', $assetWithEmployee);
+        $this->template->assign('metadata', $this->model_asset->metadata());
+        $this->template->assign('template', 'asset_report');
+        $this->template->assign('page_title', lang('Report'));
+        $this->template->display('frame_admin.tpl');
+
+
+    }
+
+    function allAssetBySerialNumber()
+    {
+        $data_info = $this->model_asset->allAssetBySerialNumber();
+        echo json_encode($data_info, JSON_NUMERIC_CHECK);
 
 
     }

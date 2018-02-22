@@ -14,7 +14,7 @@
         {if !empty( $depreciation_data )}
         <form action="depreciation/delete" method="post" id="listing_form">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover exportable" id="depreciation" name="depreciation">
+                <table class="table table-bordered table-hover exportable" id="dep" name="depreciation">
                     <thead>
                     <th>No</th>
                     {*<th></th>*}
@@ -24,8 +24,8 @@
                     <th>{$depreciation_fields.dep_description}</th>
                     <th>{$depreciation_fields.dep_commnet}</th>
                     <th>{$depreciation_fields.asset_ass_id}</th>
-                    <th> Book Value</th>
-                    <th>Accumulative Value</th>
+                    <th> {$depreciation_fields.book_value}</th>
+                    <th>{$depreciation_fields.accumulative_value}</th>
 
                     <th style="width:180px;">Actions</th>
                     </thead>
@@ -48,9 +48,9 @@
                                     <a href="depreciation/show/{$row.dep_id}" class="btn btn-info btn-xs"><i
                                                 class="fa fa-eye" aria-hidden="true"></i></a>
                                     {*<a href="depreciation/edit/{$row.dep_id}" class="btn btn-primary btn-xs"><i*}
-                                    {*class="fa fa-pencil-square-o" aria-hidden="true"></i></a>*}
+                                    {*class="fa fa-edit" aria-hidden="true"></i></a>*}
                                     {*<a href="javascript:chk('depreciation/delete/{$row.dep_id}')"*}
-                                    {*class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>*}
+                                    {*class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>*}
                                 </div>
                             </td>
                         </tr>
@@ -60,7 +60,7 @@
                 <div class="actions-bar wat-cf">
                     <div class="actions">
                         {*<button class="btn btn-danger btn-xs" type="submit">*}
-                        {*<i class="fa fa-close" aria-hidden="true"></i> Delete Selected*}
+                        {*<i class="fa fa-trash" aria-hidden="true"></i> Delete Selected*}
                         {*</button>*}
                         {if $showall==0}
                             <a href="depreciation/index/0/all" class="btn btn-xs btn-primary show-all"><i
@@ -85,9 +85,9 @@
 
 <script>
     $(document).ready(function () {
-        $('.table').DataTable();
+//
 
-        $('#depreciation tr').each(function () {
+        $('#dep tr').each(function () {
 
             var amount = $(this).find("#amount").text();
             var bookvalue = $(this).find("#bookValue").text();
@@ -105,7 +105,7 @@
             $(this).find("#accumulativeValue").html(accumulativeValueFormatted);
 
         });
-
+        $('.table').DataTable();
     });
 
 

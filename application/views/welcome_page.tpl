@@ -9,7 +9,7 @@
                 <div class="icon">
                     <i class="fa fa-barcode"></i>
                 </div>
-                <a href="{$config.base_url}fixed_asset" class="small-box-footer">More Info <i
+                <a href="{$config.base_url}asset" class="small-box-footer">More Info <i
                             class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -17,13 +17,13 @@
             <div class="small-box bg-maroon">
                 <div class="inner">
                     <h3>{$total_disposed}</h3>
-                    <p>Total Disposed</p>
+                    <p>Total Asset In Store</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-floppy-o"></i>
                 </div>
-                <a href="#" class="small-box-footer">More Info <i
-                            class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"><i
+                            class="fa "></i></a>
             </div>
         </div>
         <div class="col-md-4">
@@ -67,7 +67,7 @@
 
                                         <table class="table table-bordered exportable table-hover"
                                                name="activityReport" id="table" data-height="400" data-sort-order="desc"
->
+                                        >
                                             <thead>
                                             <tr>
                                                 <th style="width: 20px !important;">
@@ -79,7 +79,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="admin">
-                                                    <div class="th-inner ">Asset serial</div>
+                                                    <div class="th-inner ">Asset Name</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-2" style="" data-field="action_type">
@@ -88,7 +88,7 @@
                                                     <div class="fht-cell"></div>
                                                 </th>
                                                 <th class="col-sm-3" style="" data-field="item">
-                                                    <div class="th-inner ">Item</div>
+                                                    <div class="th-inner ">Serial Number</div>
                                                     <div class="fht-cell"></div>
                                                 </th>
 
@@ -101,11 +101,12 @@
                                                 <tr data-index="0">
                                                     <td style="width: 20px !important;">{$i++}</td>
                                                     <td class="col-sm-3" style="">{$row.recentDate}</td>
-                                                    <td class="col-sm-2" style=""></td>
-                                                    <td class="col-sm-2" style="">{$row.ass_emp_id}</td>
+                                                    <td class="col-sm-2" style="">{$row.ass_name}</td>
+                                                    <td class="col-sm-2" style="">{$row.reciver_full_name}</td>
                                                     <td class="col-sm-3" style="">
                                                         <nobr><i class="fa fa-barcode text-blue"></i>
-                                                            {$row.Asset_ass_id}
+
+                                                            {$row.ass_serial_number}
                                                         </nobr>
                                                     </td>
 
@@ -166,9 +167,9 @@
                 <!-- Categories -->
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Asset Categories</h3>
+                        <h3 class="box-title">Asset  Sub Categories</h3>
                         <div class="box-tools pull-right">
-                            <a class="btn btn-file" id="exportToExcell">
+                            <a class="btn btn-file" id="exportToExcell2">
                                 <i class="fa fa-download"></i></a>
                             <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                 <i
@@ -190,7 +191,7 @@
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable table-responsive table-bordered"
+                                            <table class="table table-hover  exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -208,15 +209,15 @@
                                                         <div>Total</div>
 
                                                     </th>
-                                                    <th class="col-sm-2" style="">
-                                                        <div>Life Time</div>
+                                                    {*<th class="col-sm-2" style="">*}
+                                                        {*<div>Life Time</div>*}
 
-                                                    </th>
+                                                    {*</th>*}
 
 
                                                 </thead>
 
-                                                <tbody>
+                                                <tbody class="scrollable">
                                                 {foreach $quantity as $row}
                                                     <tr>
                                                         <td class="col-sm-1">{$row.cat_id}</td>
@@ -225,7 +226,7 @@
                                                         <td class="col-sm-1"><span
                                                                     class="badge-quantity badge">{$row.quantity}</span>
                                                         </td>
-                                                        <td class="col-sm-1">{$row.depriciation_life}</td>
+                                                        {*<td class="col-sm-1">{$row.depriciation_life}</td>*}
                                                     </tr>
                                                 {/foreach}
                                                 </tbody>
@@ -258,10 +259,20 @@
 
 </div>
 
-<!-- Plotly.js -->
+<style>
 
-<!-- Numeric JS -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    tbody {
+        display:block;
+        height:100px;
+        overflow:auto;
+    }
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;/* even columns width , fix width of table too*/
+    }
+
+</style>
 
 <script>
 
@@ -281,7 +292,7 @@
         var status = [];
         $.ajax({
             type: "GET",
-            url: 'http://localhost/fixed_asset/asset/assetCounterBasedOnCategory',
+            url: 'http://localhost:8080/fixed_asset/asset/assetCounterBasedOnCategory',
             dataType: 'json',
             success: function (response) {
                 for (var i = 0; i < response.length; i++) {

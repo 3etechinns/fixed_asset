@@ -104,6 +104,7 @@ class Asset_category extends MY_Controller
                 $this->form_validation->set_rules('cat_code', lang('cat_code'), 'required|max_length[45]');
                 $this->form_validation->set_rules('cat_name', lang('cat_name'), 'required|max_length[45]');
                 $this->form_validation->set_rules('depriciation_life', lang('depriciation_life'), 'required|max_length[15]');
+//                $this->form_validation->set_rules('sub_category', lang('sub_category'), 'required|max_length[15]');
 
                 $this->form_validation->set_rules('cat_description', lang('cat_description'), 'max_length[445]');
                 $this->form_validation->set_rules('cat_status', lang('cat_status'), 'max_length[45]');
@@ -113,7 +114,13 @@ class Asset_category extends MY_Controller
                 $data_post['cat_name'] = $this->input->post('cat_name');
                 $data_post['depriciation_life'] = $this->input->post('depriciation_life');
                 $data_post['cat_description'] = $this->input->post('cat_description');
-                $data_post['cat_status'] = $this->input->post('cat_status');
+//                $data_post['sub_category'] = $this->input->post('sub_category');
+                if ($this->input->post('cat_status') == "") {
+                    $status = 0;
+                } else {
+                    $status = 1;
+                }
+                $data_post['cat_status'] = $status;
 //				$data_post['Asset_ass_id'] = $this->input->post( 'Asset_ass_id' );
 
                 if ($this->form_validation->run() == FALSE) {
@@ -178,6 +185,7 @@ class Asset_category extends MY_Controller
                 $this->form_validation->set_rules('cat_code', lang('cat_code'), 'required|max_length[45]');
                 $this->form_validation->set_rules('cat_name', lang('cat_name'), 'required|max_length[45]');
                 $this->form_validation->set_rules('cat_description', lang('cat_description'), 'max_length[445]');
+//                $this->form_validation->set_rules('sub_category', lang('sub_category'), 'max_length[445]');
                 $this->form_validation->set_rules('cat_status', lang('cat_status'), 'max_length[45]');
 //				$this->form_validation->set_rules( 'Asset_ass_id', lang('Asset_ass_id'), 'max_length[11]' );
                 $this->form_validation->set_rules('depriciation_life', lang('depriciation_life'), 'max_length[15]');
@@ -185,6 +193,7 @@ class Asset_category extends MY_Controller
                 $data_post['cat_code'] = $this->input->post('cat_code');
                 $data_post['cat_name'] = $this->input->post('cat_name');
                 $data_post['cat_description'] = $this->input->post('cat_description');
+//                $data_post['sub_category'] = $this->input->post('sub_category');
                 $data_post['cat_status'] = $this->input->post('cat_status');
 //				$data_post['Asset_ass_id'] = $this->input->post( 'Asset_ass_id' );
                 $data_post['depriciation_life'] = $this->input->post('depriciation_life');

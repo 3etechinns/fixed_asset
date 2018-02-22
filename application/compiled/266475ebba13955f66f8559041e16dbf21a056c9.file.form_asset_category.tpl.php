@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 12:33:13
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 07:53:49
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_asset_category.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:300185a7996e26cc252-92200327%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:261425a8c21d5d97666-16237437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '266475ebba13955f66f8559041e16dbf21a056c9' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_asset_category.tpl',
-      1 => 1517920390,
+      1 => 1519199625,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '300185a7996e26cc252-92200327',
+  'nocache_hash' => '261425a8c21d5d97666-16237437',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7996e2861da',
+  'unifunc' => 'content_5a8c21d5f26cc',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -24,11 +24,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'record_id' => 0,
     'errors' => 0,
     'asset_category_fields' => 0,
+    'ass_track_data' => 0,
     'asset_category_data' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a7996e2861da')) {function content_5a7996e2861da($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5a8c21d5f26cc')) {function content_5a8c21d5f26cc($_smarty_tpl) {?><div class="panel panel-default">
     <div class="panel-body">
         <a href="asset_category" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i>
             Listing</a>
@@ -70,6 +71,30 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
             <div class="col-sm-6">
+
+                
+                
+                
+                
+                
+                
+
+                
+                
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="cat_status"><?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_status'];?>
+</label>
+                    <div class="col-md-6">
+                        
+                        
+                        
+                        
+
+                        <input type="checkbox" value="1" name="cat_status"
+                               id="cat_status" <?php if (isset($_smarty_tpl->tpl_vars['ass_track_data']->value)){?><?php if ($_smarty_tpl->tpl_vars['ass_track_data']->value['cat_status']==1){?> checked="checked" <?php }?><?php }?> /></label>
+                    </div>
+
+                </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_code"><?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_code'];?>
 <span
@@ -85,6 +110,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                 </div>
 
+
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_name"><?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_name'];?>
 <span
@@ -99,26 +125,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </div>
 
                 </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="cat_status"><?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_status'];?>
-</label>
-                    <div class="col-md-6">
-                        <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_status'];?>
-" class="form-control" type="text"
-                               maxlength="50"
-                               value="<?php if (isset($_smarty_tpl->tpl_vars['asset_category_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['asset_category_data']->value['cat_status'];?>
-<?php }?>"
-                               name="cat_status" id="cat_status"/>
-                    </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 
-                </div>
+                
+
             </div>
             <div class="col-sm-6">
 
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cat_description"><?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_description'];?>
 
-                        <span class="error">*</span></label>
+                        
+                    </label>
                     <div class="col-md-6">
                     <textarea placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['asset_category_fields']->value['cat_description'];?>
 "
@@ -143,7 +170,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "
                                class="form-control"
                                id="depLife"
-                               type="text"
+                               type="number"
                                maxlength="50"
                                value="<?php if (isset($_smarty_tpl->tpl_vars['asset_category_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['asset_category_data']->value['depriciation_life'];?>
 <?php }?>"
@@ -174,6 +201,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     $("#lifeTimError").hide();
     $("#depLife").on("change keyup paste click", function () {
         var liftime = $("#depLife").val();
+//        var status = $("#cat_status").val();
+//        if (status)
         if (liftime < 1) {
             $("#lifeTimError").show();
         }

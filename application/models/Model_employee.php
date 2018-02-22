@@ -239,50 +239,27 @@ class Model_employee extends MY_Model
         return $metadata;
     }
 
-    function searchEmployee($name)
+    function searchEmployee()
     {
-
-
-//        $this->db->order_by('idEmployee', 'DESC');
-//        $this->db->like("firstName", $name);
-//        $query = $this->db->get('employee');
-
-//        $name = trim($this->input->get($name, TRUE)); //get term parameter sent via text field. Not sure how secure get() is
-//
-
         $this->db->start_cache();
-        $this->db->select('firstName');
+        $this->db->select('idEmployee,firstName,lastName');
         $this->db->from('employee');
 
-        $this->db->where('firstName LIKE "%' . $name . '%"');
-//
-
-        $query = $this->db->get();
+       $query = $this->db->get();
 
         $temp_result = array();
 
         foreach ($query->result_array() as $row) {
             $temp_result[] = array(
 
-                'firstName' => $row['firstName'],
+                'id' => $row['idEmployee'],
+                'value' => $row['firstName']." ".$row['lastName'],
 
             );
         }
         // $this->db->flush_cache();
         return $temp_result;
-//        if ($query->num_rows() > 0) {
-//            $data['response'] = 'true'; //If username exists set true
-//            $data['message'] = array();
-//
-//            foreach ($query->result() as $row) {
-//                $data['message'] = array(
-//                    'emp_id' => $row->idEmployee,
-//                    'fullName' => ($row->firstName . " " . $row->lastName)
-//                );
-//            }
-//        } else {
-//            $data['response'] = 'false'; //Set false if user not valid
-//        }
+
 
 
     }

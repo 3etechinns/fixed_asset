@@ -12,11 +12,11 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                            <span class="input-group-btn">
-                                <a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </span>
+                            {*<span class="input-group-btn">*}
+                                {*<a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">*}
+                                    {*<i class="fa fa-download"></i>*}
+                                {*</a>*}
+                            {*</span>*}
                         </div>
                     </form>
                          <span id="searchResult" name="searchResult" class="label-info">{if !empty($search_result)} {$search_result}{/if}</span>
@@ -54,8 +54,8 @@
                                             <td style="float:right">
                                             <div class="row-actions">
                                             <a href="tbl_permission/show/{$row.pm_id}" class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                            <a href="tbl_permission/edit/{$row.pm_id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                             <a href="javascript:chk('tbl_permission/delete/{$row.pm_id}')" class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                            <a href="tbl_permission/edit/{$row.pm_id}" class="btn btn-primary btn-xs"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                             <a href="javascript:chk('tbl_permission/delete/{$row.pm_id}')" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                              </div>
                                             </td>
                                         </tr>
@@ -65,7 +65,7 @@
                             <div class="actions-bar wat-cf">
                                 <div class="actions">
                                     <button class="btn btn-danger btn-xs" type="submit">
-                                       <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                       <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                                     </button>
                                     {if $showall==0}
                                     <a href="tbl_permission/index/0/all" class="btn btn-xs btn-success show-all"><i lass="fa fa-eye"></i> Show All</a>

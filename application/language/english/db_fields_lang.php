@@ -24,6 +24,7 @@ $lang['payment_date'] = 'Payment Ddate';
 $lang['Asset_ass_id'] = 'Fixed Asset';
 $lang['ass_emp_id'] = 'Employee Name';
 $lang['receiving_employee_id'] = 'Receiver  Name';
+$lang['track_model_number'] = 'Model Number';
 
 
 /*************************
@@ -34,11 +35,12 @@ $lang['ass_name'] = 'Name';
 $lang['ass_status'] = 'Status';
 $lang['ass_model'] = ' Model';
 $lang['ass_serial_number'] = 'Serial Number';
-$lang['ass_barcode_number'] = 'Bar Code Number';
+$lang['isAvailable'] = 'Type';
 $lang['ass_date_acquired'] = 'Date Acquired';
 $lang['ass_date_sold'] = 'Date Sold';
 $lang['ass_purchase_price'] = 'Purchase Price';
 $lang['ass_dep_method'] = 'Depreciation Method';
+$lang['model_number'] = 'Model Number';
 $lang['ass_dep_life'] = 'Depreciation life';
 $lang['ass_cat_id'] = 'Asset Category';
 $lang['ass_comment'] = 'Comment';
@@ -53,7 +55,8 @@ $lang['cat_id'] = 'Category';
 $lang['cat_code'] = 'Code';
 $lang['cat_name'] = 'Category Name';
 $lang['cat_description'] = 'Description';
-$lang['cat_status'] = 'Status';
+$lang['cat_status'] = 'isCategory';
+$lang['sub_category'] = 'Sub category';
 $lang['depriciation_life'] = 'Depreciation Life';
 
 
@@ -66,9 +69,9 @@ $lang['dep_amount'] = ' Amount';
 $lang['dep_status'] = ' Status';
 $lang['dep_description'] = 'Description';
 $lang['dep_commnet'] = 'Commnet';
-$lang['asset_ass_id'] = 'Asset Id';
-$lang['book_value'] = 'book value';
-$lang['accumulative_value'] = 'accumulative value';
+$lang['asset_ass_id'] = 'Asset Serial ';
+$lang['book_value'] = 'Book Value';
+$lang['accumulative_value'] = 'Accumulative Value';
 
 
 /*************************
@@ -87,3 +90,28 @@ $lang['location'] = 'Location';
  *************************/
 $lang['status_id'] = 'Status Id';
 $lang['status'] = 'Status';
+
+
+/*************************
+ * Table: Page
+ *************************/
+$lang['pg_controller'] = 'page controller name';
+$lang['pg_name'] = 'page   name';
+
+/*************************
+ * Table: user
+ *************************/
+$lang['email'] = 'Email';
+$lang['name'] = 'Name';
+$lang['mobile'] = 'Mobile';
+$lang['roleId'] = 'Role';
+$lang['isDeleted'] = 'isDeleted';
+$lang['createdDtm'] = 'created Date';
+$lang['updatedBy'] = 'Updated By';
+$lang['updatedDtm'] = 'Updated Date';
+
+/*************************
+ * Table: Role
+ *************************/
+//$lang['email'] = 'Email';
+$lang['role'] = 'Role';

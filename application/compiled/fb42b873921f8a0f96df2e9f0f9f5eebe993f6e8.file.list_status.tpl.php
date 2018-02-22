@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:01:22
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-20 19:14:09
          compiled from "C:\wamp64\www\fixed_asset\application\views\list_status.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:300305a7967fdf00050-64466829%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:168765a8c7381e28e65-04059466%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fb42b873921f8a0f96df2e9f0f9f5eebe993f6e8' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\list_status.tpl',
-      1 => 1517947280,
+      1 => 1518200528,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '300305a7967fdf00050-64466829',
+  'nocache_hash' => '168765a8c7381e28e65-04059466',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7967fe0d2f3',
   'variables' => 
   array (
     'search_form' => 0,
@@ -29,8 +27,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pager' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a8c7381f0b52',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a7967fe0d2f3')) {function content_5a7967fe0d2f3($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a8c7381f0b52')) {function content_5a8c7381f0b52($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><!-- CUSTOM -->
 <div class="panel panel-default">
 
@@ -89,10 +89,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                     class="fa fa-eye" aria-hidden="true"></i></a>
                                         <a href="status/edit/<?php echo $_smarty_tpl->tpl_vars['row']->value['status_id'];?>
 " class="btn btn-primary btn-xs"><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a href="javascript:chk('status/delete/<?php echo $_smarty_tpl->tpl_vars['row']->value['status_id'];?>
 ')"
-                                           class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                           class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -104,7 +104,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                     <div class="actions-bar wat-cf">
                         <div class="actions">
                             <button class="btn btn-danger btn-xs" type="submit">
-                                <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                             </button>
                             <?php if ($_smarty_tpl->tpl_vars['showall']->value==0){?>
                                 <a href="status/index/0/all" class="btn btn-xs btn-primary show-all"><i

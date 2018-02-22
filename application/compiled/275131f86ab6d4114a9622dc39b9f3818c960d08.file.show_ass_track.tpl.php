@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-05 13:45:29
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-20 18:19:57
          compiled from "C:\wamp64\www\fixed_asset\application\views\show_ass_track.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:171485a7822ecd14cd2-34062197%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:220785a8c66cdce5ce2-87836243%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '171485a7822ecd14cd2-34062197',
+  'nocache_hash' => '220785a8c66cdce5ce2-87836243',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7822ed0e63b',
   'variables' => 
   array (
     'id' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ass_track_data' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5a8c66cde7691',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a7822ed0e63b')) {function content_5a7822ed0e63b($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
+<?php if ($_valid && !is_callable('content_5a8c66cde7691')) {function content_5a8c66cde7691($_smarty_tpl) {?><?php if (!is_callable('smarty_function_cycle')) include 'C:\\wamp64\\www\\fixed_asset\\application\\libraries\\smarty\\plugins\\function.cycle.php';
 ?><div class="panel panel-default">
     <div class="panel-body">
         <a href="ass_track/edit/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>

@@ -43,9 +43,9 @@
                                         <a href="status/show/{$row.status_id}" class="btn btn-info btn-xs"><i
                                                     class="fa fa-eye" aria-hidden="true"></i></a>
                                         <a href="status/edit/{$row.status_id}" class="btn btn-primary btn-xs"><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a href="javascript:chk('status/delete/{$row.status_id}')"
-                                           class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                           class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -57,7 +57,7 @@
                     <div class="actions-bar wat-cf">
                         <div class="actions">
                             <button class="btn btn-danger btn-xs" type="submit">
-                                <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                             </button>
                             {if $showall==0}
                                 <a href="status/index/0/all" class="btn btn-xs btn-primary show-all"><i

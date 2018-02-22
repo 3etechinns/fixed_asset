@@ -27,7 +27,8 @@ class Model_depreciation extends MY_Model
     function get($id, $get_one = false, $direction = false)
     {
 
-        $select_statement = ($this->raw_data) ? 'dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,asset_ass_id' : 'dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,asset.ass_serial_number AS asset_ass_id';
+
+        $select_statement = ($this->raw_data) ? 'dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,asset_ass_id,book_value,accumulative_value' : 'dep_id,dep_date,dep_amount,dep_status,dep_description,dep_commnet,book_value,accumulative_value,asset.ass_serial_number AS asset_ass_id';
         $this->db->select($select_statement);
         $this->db->from('depreciation');
         $this->db->join('asset', 'depreciation.asset_ass_id = asset.ass_id', 'left');
@@ -57,10 +58,13 @@ class Model_depreciation extends MY_Model
                 'dep_description' => $row['dep_description'],
                 'dep_commnet' => $row['dep_commnet'],
                 'asset_ass_id' => $row['asset_ass_id'],
+                'book_value' => $row['book_value'],
+                'accumulative_value' => $row['accumulative_value'],
             );
         } else {
             return array();
         }
+        $this->db->close();
     }
 
 
@@ -72,11 +76,18 @@ class Model_depreciation extends MY_Model
 
     function depreciationDetailById($id)
     {
+
         $this->db->start_cache();
-        $sql = "call `depreciationDetailById` (?)";
-        $execute = $this->db->query($sql, $id);
+        $this->db->select('*');
+        $this->db->from('depreciation');
+        $this->db->where('Asset_ass_id', $id);
+        $data = $this->db->get();
+
+//        $this->db->start_cache();
+//        $sql = "call `depreciationDetailById` (?)";
+//        $execute = $this->db->query($sql, $id);
         //  $temp_result[] = array();
-        foreach ($execute->result_array() as $row) {
+        foreach ($data->result_array() as $row) {
             $temp_result[] = array(
                 'dep_id' => $row['dep_id'],
                 'dep_date' => $row['dep_date'],
@@ -91,6 +102,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
     function depreciationInitializer($data)
@@ -98,6 +110,7 @@ class Model_depreciation extends MY_Model
         $sql = "call `initial_depreciation` (?,?,?,?)";
         $this->db->query($sql, $data);
         return 1;
+        $this->db->close();
 
     }
 
@@ -172,6 +185,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+        $this->db->close();
     }
 
 
@@ -232,6 +246,7 @@ class Model_depreciation extends MY_Model
         }
         $this->db->flush_cache();
         return $temp_result;
+
     }
 
     function related_asset()

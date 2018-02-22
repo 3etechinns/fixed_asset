@@ -46,8 +46,8 @@
                             <td>{$asset_data.ass_serial_number}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
-                            <td>{$asset_fields.ass_barcode_number}:</td>
-                            <td>{$asset_data.ass_barcode_number}</td>
+                            <td>{$asset_fields.isAvailable}:</td>
+                            <td>{$asset_data.isAvailable}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_date_acquired}:</td>
@@ -56,7 +56,7 @@
 
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_purchase_price}:</td>
-                            <td>{$asset_data.ass_purchase_price}</td>
+                            <td id="price">{{$asset_data.ass_purchase_price}}</td>
                         </tr>
 
                     </table>
@@ -69,14 +69,18 @@
                         <th width="50%">Field</th>
                         <th>Value</th>
                         </thead>
-                        <tr class="{cycle values='odd,even'}">
-                            <td>{$asset_fields.ass_dep_method}:</td>
-                            <td>{$asset_data.ass_dep_method}</td>
-                        </tr>
+                        {*<tr class="{cycle values='odd,even'}">*}
+                            {*<td>{$asset_fields.ass_dep_method}:</td>*}
+                            {*<td>{$asset_data.ass_dep_method}</td>*}
+                        {*</tr>*}
 
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_cat_id}:</td>
                             <td>{$asset_data.ass_cat_id}</td>
+                        </tr>
+                        <tr class="{cycle values='odd,even'}">
+                            <td>{$asset_fields.sub_category}:</td>
+                            <td>{$asset_data.sub_category}</td>
                         </tr>
                         <tr class="{cycle values='odd,even'}">
                             <td>{$asset_fields.ass_comment}:</td>
@@ -144,7 +148,18 @@
             <div class="col-md-12">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Asset Track</div>
+                    <div class="panel-heading">
+                        <label for=""> Asset Track</label>
+                        {foreach $checkAssetAvailability as $row}
+
+                            {if $row.status=='return'}
+                                <button type="button" style="float: right;color: white" class="btn btn-success" for="">
+                                    Available
+                                </button>
+                            {/if}
+
+                        {/foreach}
+                    </div>
                     <div id="track" class="panel-body">
 
 
@@ -155,7 +170,7 @@
                                 <th>No</th>
                                 <th>{{$ass_track_fields.date_trasferred}}</th>
                                 <th>{{$ass_track_fields.date_returned}}</th>
-                                <th >{{$ass_track_fields.penality_amount}}</th>
+                                <th>{{$ass_track_fields.penality_amount}}</th>
                                 <th>{{$ass_track_fields.status}}</th>
                                 <th>{{$ass_track_fields.payment_status}}</th>
                                 <th>{{$ass_track_fields.payment_date}}</th>
@@ -181,6 +196,8 @@
                                 {/foreach}
 
                                 </tbody>
+
+
                             </table>
                         {/if}
                     </div>
@@ -191,16 +208,6 @@
     </div><!-- .inner -->
 </div><!-- .content -->
 <style>
-    .table > thead > tr > th {
-        padding: 4px;
-    }
-
-    #track > .table > tbody > tr:first-child {
-        background-color: #a7d4bf;
-        color: mediumvioletred;
-        font-size: 16px;
-        font-weight: bolder;
-    }
 
 
 </style>
@@ -208,22 +215,34 @@
 <script>
     $(document).ready(function () {
 //        $('.table').DataTable();
+
+        var nf = new Intl.NumberFormat();
+        var PurchasePrice = $(this).find("#price").text();
+        var PurchasePriceFormatted = nf.format(PurchasePrice);
+        $(this).find("#price").html(PurchasePriceFormatted);
+
         $('#dep tr').each(function () {
 
-            var amount = $(this).find("#amount").text();
+            var amount = $(this).find("#Amount").text();
             var bookvalue = $(this).find("#bookValue").text();
             var accumulativeValue = $(this).find("#accumulativeValue").text();
 
 
-            var nf = new Intl.NumberFormat();
+
+
+
 
             var amountFormatted = nf.format(amount);
             var bookvalueFormatted = nf.format(bookvalue);
             var accumulativeValueFormatted = nf.format(accumulativeValue);
 
-            $(this).find("#amount").html(amountFormatted);
+
+
             $(this).find("#bookValue").html(bookvalueFormatted);
             $(this).find("#accumulativeValue").html(accumulativeValueFormatted);
+            $(this).find("#Amount").html(amountFormatted);
+
+
 
         });
     });

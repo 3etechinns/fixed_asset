@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-05 14:22:18
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 21:23:48
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_asset.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:292705a782a25cdc0e4-62862205%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:188805a8c240bc0b795-33205204%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c1ea2160d266c963a5c83b728245da0c6900aa30' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\form_asset.tpl',
-      1 => 1517837935,
+      1 => 1519248192,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '292705a782a25cdc0e4-62862205',
+  'nocache_hash' => '188805a8c240bc0b795-33205204',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a782a260ddd4',
+  'unifunc' => 'content_5a8c240be940a',
   'variables' => 
   array (
     'action_mode' => 0,
@@ -25,17 +25,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'errors' => 0,
     'asset_fields' => 0,
     'asset_data' => 0,
-    'metadata' => 0,
-    'e' => 0,
-    'k' => 0,
     'asset_category' => 0,
     'cat' => 0,
+    'asset_sub_category' => 0,
     'related_status' => 0,
     'rel' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a782a260ddd4')) {function content_5a782a260ddd4($_smarty_tpl) {?><div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5a8c240be940a')) {function content_5a8c240be940a($_smarty_tpl) {?><div class="panel panel-default">
     <div class="panel-body">
 
 
@@ -139,21 +137,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"
-                               for="ass_barcode_number"><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_barcode_number'];?>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
-                        </label>
-                        <div class="col-md-6">
-                            <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_barcode_number'];?>
-" class="form-control"
-                                   type="number" maxlength="50"
-                                   value="<?php if (isset($_smarty_tpl->tpl_vars['asset_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['asset_data']->value['ass_barcode_number'];?>
-<?php }?>"
-                                   name="ass_barcode_number" id="ass_barcode_number"/>
-                        </div>
-
-                    </div>
+                    
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"
@@ -168,14 +163,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                        class="form-control date-picker"
                                        type="text"
                                        required
-                                       
+                                       readonly
                                        maxlength="50"
                                        value="<?php if (isset($_smarty_tpl->tpl_vars['asset_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['asset_data']->value['ass_date_acquired'];?>
 <?php }?>"
                                        name="ass_date_acquired"
                                        id="ass_date_acquired"/>
                                 <label for="ass_date_acquired"
-                                       class="input-group-addon btn group-white">
+                                       class="input-group-addon date-picker btn group-white">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                             </div>
@@ -201,25 +196,38 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                    id="ass_purchase_price"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['ass_dep_method'];?>
-</label>
-                        <div class="col-md-6">
-                            <select name="ass_dep_method" name="ass_dep_method" required="required" class="form-control">
-                                <option value="0">Select One</option>
-                                <?php  $_smarty_tpl->tpl_vars['e'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['e']->_loop = false;
- $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['metadata']->value['ass_dep_method']['enum_values']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['e']->key => $_smarty_tpl->tpl_vars['e']->value){
-$_smarty_tpl->tpl_vars['e']->_loop = true;
- $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['e']->key;
-?>
-                                    <option value="<?php echo $_smarty_tpl->tpl_vars['e']->value;?>
-"<?php if (isset($_smarty_tpl->tpl_vars['asset_data']->value['ass_dep_method'])){?><?php if ($_smarty_tpl->tpl_vars['asset_data']->value['ass_dep_method']==$_smarty_tpl->tpl_vars['metadata']->value['ass_dep_method']['enum_values'][$_smarty_tpl->tpl_vars['k']->value]){?> selected="selected"<?php }?><?php }?>><?php echo $_smarty_tpl->tpl_vars['metadata']->value['ass_dep_method']['enum_values'][$_smarty_tpl->tpl_vars['k']->value];?>
-</option>
-                                <?php } ?>
-                            </select>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
+                    
+                    
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"
+                               for="model_number"><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['model_number'];?>
+
+                            <span class="error">*</span>
+
+                        </label>
+                        <div class="col-md-6">
+
+                            <input placeholder="Enter <?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['model_number'];?>
+"
+                                   class="form-control"
+                                   required="required"
+                                   type="text"
+                                   maxlength="50"
+                                   value="<?php if (isset($_smarty_tpl->tpl_vars['asset_data']->value)){?><?php echo $_smarty_tpl->tpl_vars['asset_data']->value['model_number'];?>
+<?php }?>"
+                                   name="model_number"
+                                   id="model_number"/>
                         </div>
                     </div>
 
@@ -237,6 +245,32 @@ $_smarty_tpl->tpl_vars['e']->_loop = true;
                                 <option value="">Select One</option>
                                 <?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['asset_category']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value){
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['cat']->value['cat_id'];?>
+"
+                                            <?php if (isset($_smarty_tpl->tpl_vars['asset_data']->value)){?><?php if ($_smarty_tpl->tpl_vars['asset_data']->value['ass_cat_id']==$_smarty_tpl->tpl_vars['cat']->value['cat_id']){?>
+                                        selected="selected"<?php }?><?php }?>>
+                                        <?php echo $_smarty_tpl->tpl_vars['cat']->value['category'];?>
+
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="ass_cat_id"><?php echo $_smarty_tpl->tpl_vars['asset_fields']->value['sub_category'];?>
+
+                            <span class="error">*</span>
+                        </label>
+                        <div class="col-md-6">
+                            <select class="form-control field select" name="sub_category" id="sub_category"
+                                    required="required">
+                                <option value="">Select One</option>
+                                <?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['asset_sub_category']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value){
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?>
@@ -323,19 +357,13 @@ $_smarty_tpl->tpl_vars['rel']->_loop = true;
 </div><!-- .block -->
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
 <!-- Include Date Range Picker -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 <script>
     $(document).ready(function () {
         $(function () {
             $(".date-picker").datepicker({
-                format: "yyyy-mm-dd",
+                dateFormat: "yy-mm-dd"
 
             });
         });

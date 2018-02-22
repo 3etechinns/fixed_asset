@@ -12,7 +12,7 @@
 
             </div>
             <div class="col-md-6 col-md-4">
-                <form class="form" method='post' action="asset/search" id="search" enctype="multipart/form-data">
+                <form class="form" method='post' action="asset/search" id="searchForm" enctype="multipart/form-data">
 
                     <div class="input-group">
                         <input type="text"
@@ -29,14 +29,14 @@
 
                 </form>
             </div>
-            <div  class="col-md-1 col-md-push-5">
+            <div class="col-md-1 col-md-push-5">
                 <a class="btn btn-file" id="exportToExcell">
-                    <i  class="fa fa-download"></i></a>
+                    <i class="fa fa-download"></i></a>
             </div>
         </div>
         <div class="col-md-12">
 
-                <h3 class="page-title box-title">List of {$table_name}</h3>
+            <h3 class="page-title box-title">List of {$table_name}</h3>
 
             {if !empty( $asset_data )}
             <form action="asset/delete" method="post" id="listing_form">
@@ -48,11 +48,12 @@
                         <th>{$asset_fields.ass_name}</th>
                         <th>{$asset_fields.ass_model}</th>
                         <th>{$asset_fields.ass_serial_number}</th>
-                        <th>{$asset_fields.ass_barcode_number}</th>
+                        <th>{$asset_fields.isAvailable}</th>
                         <th>{$asset_fields.ass_date_acquired}</th>
                         <th>{$asset_fields.ass_purchase_price}</th>
-                        <th>{$asset_fields.ass_dep_method}</th>
+                        <th>{$asset_fields.model_number}</th>
                         <th>{$asset_fields.ass_cat_id}</th>
+                        <th>{$asset_fields.sub_category}</th>
                         <th>{$asset_fields.status_status_id}</th>
 
                         <th style="width:18px;">Actions</th>
@@ -69,12 +70,13 @@
                                 <td>{$row.ass_name}</td>
                                 <td>{$row.ass_model}</td>
                                 <td>{$row.ass_serial_number}</td>
-                                <td>{$row.ass_barcode_number}</td>
+                                <td>{$row.isAvailable}</td>
                                 <td>{$row.ass_date_acquired}</td>
                                 <td id="price">{$row.ass_purchase_price}</td>
-                                <td>{$row.ass_dep_method}</td>
+                                <td>{$row.model_number}</td>
 
                                 <td>{$row.ass_cat_id}</td>
+                                <td>{$row.sub_category}</td>
                                 <td>{$row.status_status_id}</td>
 
                                 <td>
@@ -83,9 +85,9 @@
                                                     class="fa fa-eye"
                                                     aria-hidden="true"></i></a>
                                         <a href="asset/edit/{$row.ass_id}" class="btn btn-primary btn-xs"><i
-                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a href="javascript:chk('asset/delete/{$row.ass_id}')"
-                                           class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                           class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -95,7 +97,7 @@
                     <div class="actions-bar wat-cf">
                         <div class="actions">
                             <button class="btn btn-danger btn-xs" type="submit">
-                                <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                                <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                             </button>
                             {if $showall==0}
                                 <a href="asset/index/0/all" class="btn btn-xs btn-primary show-all"><i
@@ -130,8 +132,32 @@
             $(this).find("#price").html(priceFormatted);
 
         });
+
+
+
     });
 
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:8080/fixed_asset/asset/allAssetBySerialNumber",
+//        data: data,
+        dataType: 'json',
+        success: function (result) {
+            console.log(result);
 
+
+            $("#search").autocomplete({
+                source: result,
+                select: function (event, ui) {
+                    console.log(result);
+
+                }
+
+
+            });
+
+//            return;
+        }
+    });
 </script>
 

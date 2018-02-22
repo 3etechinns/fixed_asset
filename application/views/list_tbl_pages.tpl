@@ -13,16 +13,16 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                <span class="input-group-btn">
-                                <a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </span>
+                {*<span class="input-group-btn">*}
+                                {*<a class="btn btn-default" type="submit" id="exportToExcell" name="exportToExcell">*}
+                                    {*<i class="fa fa-download"></i>*}
+                                {*</a>*}
+                            {*</span>*}
             </div>
         </form>
         <span id="searchResult" name="searchResult"
               class="label-info">{if !empty($search_result)} {$search_result}{/if}</span>
-        <h3 class="page-title">List of {$table_name}</h3>
+        <h3 class="page-title">List of Page{$table_name}</h3>
         {if !empty( $tbl_pages_data )}
         <form action="tbl_pages/delete" method="post" id="listing_form">
             <div class="table-responsive">
@@ -51,9 +51,9 @@
                                     <a href="tbl_pages/show/{$row.pg_id}" class="btn btn-info btn-xs"><i
                                                 class="fa fa-eye" aria-hidden="true"></i></a>
                                     <a href="tbl_pages/edit/{$row.pg_id}" class="btn btn-primary btn-xs"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a href="javascript:chk('tbl_pages/delete/{$row.pg_id}')"
-                                       class="btn btn-danger btn-xs"><i class="fa fa-close" aria-hidden="true"></i></a>
+                                       class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -63,7 +63,7 @@
                 <div class="actions-bar wat-cf">
                     <div class="actions">
                         <button class="btn btn-danger btn-xs" type="submit">
-                            <i class="fa fa-close" aria-hidden="true"></i> Delete Selected
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete Selected
                         </button>
                         {if $showall==0}
                             <a href="tbl_pages/index/0/all" class="btn btn-xs btn-primary show-all"><i

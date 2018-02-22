@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-06 20:00:32
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 17:47:04
          compiled from "C:\wamp64\www\fixed_asset\application\views\form_status.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:306295a7a0960078df4-33339053%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:300885a8db098e4d338-64946405%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '306295a7a0960078df4-33339053',
+  'nocache_hash' => '300885a8db098e4d338-64946405',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5a7a096014b6a',
+  'unifunc' => 'content_5a8db0990e1b4',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a7a096014b6a')) {function content_5a7a096014b6a($_smarty_tpl) {?><div class="panel panel-default">           
+<?php if ($_valid && !is_callable('content_5a8db0990e1b4')) {function content_5a8db0990e1b4($_smarty_tpl) {?><div class="panel panel-default">           
                 <div class="panel-body">
                  <a href="status" class="btn btn-warning btn-sm"> <i class="fa fa-list" aria-hidden="true"></i> Listing</a>
                         <a class="<?php if ($_smarty_tpl->tpl_vars['action_mode']->value=='create'){?>active<?php }?> btn btn-sm btn-primary" href="status/create/"> <i class="fa fa-plus" aria-hidden="true"></i> New record</a>
