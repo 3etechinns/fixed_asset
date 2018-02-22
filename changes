@@ -1,0 +1,9 @@
+ $select_statement = ($this->raw_data) ? 'sub_cat.cat_id as sub_cat_id,ass_id,ass_model,
+        ass_serial_number,ass_date_acquired,ass_purchase_price,ass_cat_id,ass_comment,ass_description,
+        status_status_id,ass_name,model_number,sub_cat_id,isAvailable' : 
+        'sub_cat.cat_id as sub_cat_id,ass_id,ass_name,ass_model,ass_serial_number,ass_date_acquired,ass_purchase_price,ass_cat_id,ass_comment,ass_description,ass_name,model_number,sub_cat_id,status.status AS status_status_id,asset_category.cat_name as ass_cat_id,asset_category.cat_status as sub_cat_id,isAvailable';
+        $this->db->select($select_statement);
+        $this->db->from('asset');
+        $this->db->join('status', 'asset.status_status_id = status.status_id', 'left');
+        $this->db->join('asset_category', 'asset.ass_cat_id = asset_category.cat_id', 'left');
+        $this->db->join('asset_category sub_cat', 'asset.sub_cat_id = sub_cat.cat_id', 'left');
