@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2018-02-21 11:52:49
+<?php /* Smarty version Smarty-3.1.7, created on 2018-02-22 12:02:16
          compiled from "C:\wamp64\www\fixed_asset\application\views\welcome_page.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:253655a8c5d8d0c5963-84950864%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1ef91b0786743bb3f07254bc40dae103a3c484c3' => 
     array (
       0 => 'C:\\wamp64\\www\\fixed_asset\\application\\views\\welcome_page.tpl',
-      1 => 1519213966,
+      1 => 1519300933,
       2 => 'file',
     ),
   ),
@@ -237,7 +237,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable2 table-responsive table-bordered"
+                                            <table class="table table-hover  exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -255,15 +255,15 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                         <div>Total</div>
 
                                                     </th>
-                                                    <th class="col-sm-2" style="">
-                                                        <div>Life Time</div>
+                                                    
+                                                        
 
-                                                    </th>
+                                                    
 
 
                                                 </thead>
 
-                                                <tbody>
+                                                <tbody class="scrollable">
                                                 <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['quantity']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
@@ -280,8 +280,7 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
                                                                     class="badge-quantity badge"><?php echo $_smarty_tpl->tpl_vars['row']->value['quantity'];?>
 </span>
                                                         </td>
-                                                        <td class="col-sm-1"><?php echo $_smarty_tpl->tpl_vars['row']->value['depriciation_life'];?>
-</td>
+                                                        
                                                     </tr>
                                                 <?php } ?>
                                                 </tbody>
@@ -315,10 +314,25 @@ asset_category" class="btn btn-primary btn-sm"
 
 </div>
 
-<!-- Plotly.js -->
+<style>
 
-<!-- Numeric JS -->
-
+    tbody {
+        display:block;
+        height:100px;
+        overflow:auto;
+    }
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;/* even columns width , fix width of table too*/
+    }
+    
+        
+    
+    
+        
+    
+</style>
 
 <script>
 

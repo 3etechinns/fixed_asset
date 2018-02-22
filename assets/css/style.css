@@ -356,7 +356,7 @@ table {
     color: #3c8dbc;
     background-color: #f9f9f9 !important;
     border: 1px solid #f4f4f4;
-    width: 50px !important;
+    /*width: 50px !important;*/
 }
 
 .table > thead > tr:first-child {

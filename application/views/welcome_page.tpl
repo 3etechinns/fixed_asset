@@ -191,7 +191,7 @@
                                         </div>
                                         <div class="fixed-table-body">
 
-                                            <table class="table table-hover snipe-table exportable2 table-responsive table-bordered"
+                                            <table class="table table-hover  exportable2 table-responsive table-bordered"
                                                    name="categorySummary" id="table" data-height="440">
                                                 <thead>
                                                 <tr>
@@ -209,15 +209,15 @@
                                                         <div>Total</div>
 
                                                     </th>
-                                                    <th class="col-sm-2" style="">
-                                                        <div>Life Time</div>
+                                                    {*<th class="col-sm-2" style="">*}
+                                                        {*<div>Life Time</div>*}
 
-                                                    </th>
+                                                    {*</th>*}
 
 
                                                 </thead>
 
-                                                <tbody>
+                                                <tbody class="scrollable">
                                                 {foreach $quantity as $row}
                                                     <tr>
                                                         <td class="col-sm-1">{$row.cat_id}</td>
@@ -226,7 +226,7 @@
                                                         <td class="col-sm-1"><span
                                                                     class="badge-quantity badge">{$row.quantity}</span>
                                                         </td>
-                                                        <td class="col-sm-1">{$row.depriciation_life}</td>
+                                                        {*<td class="col-sm-1">{$row.depriciation_life}</td>*}
                                                     </tr>
                                                 {/foreach}
                                                 </tbody>
@@ -259,10 +259,20 @@
 
 </div>
 
-<!-- Plotly.js -->
+<style>
 
-<!-- Numeric JS -->
-{*<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>*}
+    tbody {
+        display:block;
+        height:100px;
+        overflow:auto;
+    }
+    thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;/* even columns width , fix width of table too*/
+    }
+
+</style>
 
 <script>
 
